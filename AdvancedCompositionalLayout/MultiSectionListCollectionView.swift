@@ -17,14 +17,14 @@ class MultiSectionListCollectionView: UICollectionView {
     
     let data = [
         
-        MenuHeaderItem(title: "Collection View List", symbols: [
-            MenuListItem(imageName: "star.fill", title: "Single Section List"),
-            MenuListItem(imageName: "star.fill", title: "Multi Section List")
+        MenuHeaderItem(title: "Collection View List", items: [
+            MenuListItem(type: .singleSectionList),
+            MenuListItem(type: .multiSectionList)
         ]),
         
-        MenuHeaderItem(title: "Grid", symbols: [
-            MenuListItem(imageName: "star.fill", title: "Grid Layout"),
-            MenuListItem(imageName: "star.fill", title: "Waterfall Layout")
+        MenuHeaderItem(title: "Grid", items: [
+            MenuListItem(type: .gridLayout),
+            MenuListItem(type: .waterfallLayout)
         ])
         
     ]
@@ -93,7 +93,7 @@ class MultiSectionListCollectionView: UICollectionView {
             let headerListItem = ListSection.headerCell(item)
             sectionSnapshot.append([headerListItem])
             
-            let symbolListItemArray = item.symbols.map { ListSection.listCell($0) }
+            let symbolListItemArray = item.items.map { ListSection.listCell($0) }
             sectionSnapshot.append(symbolListItemArray, to: headerListItem)
             sectionSnapshot.expand([headerListItem])
             
@@ -106,7 +106,16 @@ class MultiSectionListCollectionView: UICollectionView {
 extension MultiSectionListCollectionView: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("?? test indexPath: ", indexPath)
+        
+        guard let item = datasource.itemIdentifier(for: indexPath) else {return}
+        
+        switch item {
+        case .listCell(let menuListItem):
+            print("?? menuListItem : ", menuListItem.title)
+        default:
+            break
+        }
+        
     }
     
 }
