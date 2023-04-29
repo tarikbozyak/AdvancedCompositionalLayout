@@ -9,14 +9,20 @@ import UIKit
 
 class MenuViewController: UIViewController {
     
-    @IBOutlet weak var collectionView: MultiSectionListCollectionView!
+    lazy var collectionView = MultiSectionListCollectionView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureHierarchy()
         configureNavigationBar()
     }
     
-    func configureNavigationBar(){
+    private func configureHierarchy(){
+        view.addSubview(collectionView)
+        collectionView.edgesToSuperview()
+    }
+    
+    private func configureNavigationBar(){
         title = "Menu"
         let appearance = UINavigationBarAppearance()
         appearance.backgroundColor = .systemGray5
