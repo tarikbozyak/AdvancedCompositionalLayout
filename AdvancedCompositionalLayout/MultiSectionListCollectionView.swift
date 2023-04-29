@@ -8,8 +8,8 @@
 import Foundation
 import UIKit
 
-typealias MultiSectionListSnapshot = NSDiffableDataSourceSnapshot<MenuHeaderItem, ListSection>
-typealias MultiSectionListDataSource = UICollectionViewDiffableDataSource<MenuHeaderItem, ListSection>
+typealias MultiSectionListSnapshot = NSDiffableDataSourceSnapshot<MenuSection, MenuDataType>
+typealias MultiSectionListDataSource = UICollectionViewDiffableDataSource<MenuSection, MenuDataType>
 
 class MultiSectionListCollectionView: UICollectionView {
     
@@ -17,14 +17,14 @@ class MultiSectionListCollectionView: UICollectionView {
     
     let data = [
         
-        MenuHeaderItem(title: "Collection View List", items: [
-            MenuListItem(type: .singleSectionList),
-            MenuListItem(type: .multiSectionList)
+        MenuSection(title: "Collection View List", menuList: [
+            ListItem(type: .singleSectionList),
+            ListItem(type: .multiSectionList)
         ]),
         
-        MenuHeaderItem(title: "Grid", items: [
-            MenuListItem(type: .gridLayout),
-            MenuListItem(type: .waterfallLayout)
+        MenuSection(title: "Grid", menuList: [
+            ListItem(type: .gridLayout),
+            ListItem(type: .waterfallLayout)
         ])
         
     ]
@@ -48,29 +48,29 @@ class MultiSectionListCollectionView: UICollectionView {
     
     func configureDataSource(){
         
-        let headerCellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, MenuHeaderItem> { (cell, indexPath, headerItem) in
+        let headerCellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, MenuSection> { (cell, indexPath, headerItem) in
             var content = cell.defaultContentConfiguration()
             content.text = headerItem.title
             cell.contentConfiguration = content
             cell.accessories = [.outlineDisclosure(options: UICellAccessory.OutlineDisclosureOptions(style: .header))]
         }
         
-        let listCellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, MenuListItem> { (cell, indexPath, symbolItem) in
+        let listCellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, ListItem> { (cell, indexPath, listItem) in
             var content = cell.defaultContentConfiguration()
-            content.image = symbolItem.image
-            content.text = symbolItem.title
+            content.image = listItem.image
+            content.text = listItem.title
             cell.contentConfiguration = content
         }
         
-        datasource = UICollectionViewDiffableDataSource<MenuHeaderItem, ListSection>(collectionView: self) {
+        datasource = UICollectionViewDiffableDataSource<MenuSection, MenuDataType>(collectionView: self) {
             (collectionView, indexPath, item) -> UICollectionViewCell? in
             
             switch item {
-            case .headerCell(let headerItem):
+            case .header(let headerItem):
                 return collectionView.dequeueConfiguredReusableCell(using: headerCellRegistration, for: indexPath, item: headerItem)
                 
-            case .listCell(let symbolItem):
-                return collectionView.dequeueConfiguredReusableCell(using: listCellRegistration, for: indexPath, item: symbolItem)
+            case .list(let listItem):
+                return collectionView.dequeueConfiguredReusableCell(using: listCellRegistration, for: indexPath, item: listItem)
             }
         }
     }
@@ -88,14 +88,14 @@ class MultiSectionListCollectionView: UICollectionView {
         datasource.apply(snapshot)
         
         data.forEach { item in
-            var sectionSnapshot = NSDiffableDataSourceSectionSnapshot<ListSection>()
+            var sectionSnapshot = NSDiffableDataSourceSectionSnapshot<MenuDataType>()
             
-            let headerListItem = ListSection.headerCell(item)
-            sectionSnapshot.append([headerListItem])
+            let section = MenuDataType.header(item)
+            sectionSnapshot.append([section])
             
-            let symbolListItemArray = item.items.map { ListSection.listCell($0) }
-            sectionSnapshot.append(symbolListItemArray, to: headerListItem)
-            sectionSnapshot.expand([headerListItem])
+            let listItemArray = item.menuList.map { MenuDataType.list($0) }
+            sectionSnapshot.append(listItemArray, to: section)
+            sectionSnapshot.expand([section])
             
             datasource.apply(sectionSnapshot, to: item, animatingDifferences: false)
         }
@@ -110,8 +110,8 @@ extension MultiSectionListCollectionView: UICollectionViewDelegate {
         guard let item = datasource.itemIdentifier(for: indexPath) else {return}
         
         switch item {
-        case .listCell(let menuListItem):
-            print("?? menuListItem : ", menuListItem.title)
+        case .list(let listItem):
+            print("?? listItem : ", listItem.title)
         default:
             break
         }

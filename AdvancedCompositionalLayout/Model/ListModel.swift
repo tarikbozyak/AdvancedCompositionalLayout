@@ -16,17 +16,17 @@ enum ListType {
 }
 
 
-enum ListSection: Hashable {
-    case headerCell(MenuHeaderItem)
-    case listCell(MenuListItem)
+enum MenuDataType: Hashable {
+    case header(MenuSection)
+    case list(ListItem)
 }
 
-struct MenuHeaderItem: Hashable {
+struct MenuSection: Hashable {
     let title: String
-    let items: [MenuListItem]
+    let menuList: [ListItem]
 }
 
-struct MenuListItem: Hashable {
+struct ListItem: Hashable {
     let type: ListType
     let title: String
     let image: UIImage
