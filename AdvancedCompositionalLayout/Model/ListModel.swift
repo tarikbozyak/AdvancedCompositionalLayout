@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 enum ListType {
-    case singleSectionList
+    case simpleList
     case multiSectionList
     case gridLayout
     case waterfallLayout
@@ -34,9 +34,9 @@ struct ListItem: Hashable {
     init(type: ListType) {
         self.type = type
         switch type {
-        case .singleSectionList:
+        case .simpleList:
             self.image = UIImage(systemName: "star.fill")!
-            self.title = "Single Section List"
+            self.title = "Simple List"
         case .multiSectionList:
             self.image = UIImage(systemName: "star.fill")!
             self.title = "Multi Section List"

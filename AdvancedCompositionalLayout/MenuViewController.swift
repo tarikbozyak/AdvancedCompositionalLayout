@@ -9,17 +9,33 @@ import UIKit
 
 class MenuViewController: UIViewController {
     
-    lazy var collectionView = MultiSectionListCollectionView()
+    lazy var collectionView = MultiSectionExpandableList()
+    
+    let sectionData = [
+        
+        MenuSection(title: "Collection View List", menuList: [
+            ListItem(type: .simpleList),
+            ListItem(type: .multiSectionList)
+        ]),
+        
+        MenuSection(title: "Grid", menuList: [
+            ListItem(type: .gridLayout),
+            ListItem(type: .waterfallLayout)
+        ])
+        
+    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureHierarchy()
+        configureCollectionView()
         configureNavigationBar()
     }
     
-    private func configureHierarchy(){
+    private func configureCollectionView(){
         view.addSubview(collectionView)
         collectionView.edgesToSuperview()
+        collectionView.rootVC = self
+        collectionView.performUpdates()
     }
     
     private func configureNavigationBar(){
@@ -30,5 +46,11 @@ class MenuViewController: UIViewController {
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.compactAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
+    }
+}
+
+extension MenuViewController: CollectionViewDataDelegte {
+    func data() -> [AnyHashable] {
+        return sectionData
     }
 }

@@ -14,7 +14,10 @@
 		8A091CCD29F57076001EAE4F /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A091CCC29F57076001EAE4F /* MenuViewController.swift */; };
 		8A13F16929F81ABB00CAB09F /* ListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A13F16829F81ABB00CAB09F /* ListModel.swift */; };
 		8A47565929FCE2A000F4E44D /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A47565829FCE2A000F4E44D /* UIView.swift */; };
-		8AEAAB0129FA83F200ED6B14 /* MultiSectionListCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEAAB0029FA83F200ED6B14 /* MultiSectionListCollectionView.swift */; };
+		8AD8ACEE29FE1A1100170258 /* SimpleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD8ACED29FE1A1100170258 /* SimpleListViewController.swift */; };
+		8AD8ACF029FE1E6300170258 /* SimpleList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD8ACEF29FE1E6300170258 /* SimpleList.swift */; };
+		8AD8ACF229FE567F00170258 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD8ACF129FE567F00170258 /* Person.swift */; };
+		8AEAAB0129FA83F200ED6B14 /* MultiSectionExpandableList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEAAB0029FA83F200ED6B14 /* MultiSectionExpandableList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +30,10 @@
 		8A091CCC29F57076001EAE4F /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		8A13F16829F81ABB00CAB09F /* ListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModel.swift; sourceTree = "<group>"; };
 		8A47565829FCE2A000F4E44D /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
-		8AEAAB0029FA83F200ED6B14 /* MultiSectionListCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSectionListCollectionView.swift; sourceTree = "<group>"; };
+		8AD8ACED29FE1A1100170258 /* SimpleListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleListViewController.swift; sourceTree = "<group>"; };
+		8AD8ACEF29FE1E6300170258 /* SimpleList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleList.swift; sourceTree = "<group>"; };
+		8AD8ACF129FE567F00170258 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		8AEAAB0029FA83F200ED6B14 /* MultiSectionExpandableList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSectionExpandableList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,7 +74,9 @@
 				8A091CC129F56BDB001EAE4F /* Assets.xcassets */,
 				8A091CC329F56BDB001EAE4F /* LaunchScreen.storyboard */,
 				8A091CC629F56BDB001EAE4F /* Info.plist */,
-				8AEAAB0029FA83F200ED6B14 /* MultiSectionListCollectionView.swift */,
+				8AEAAB0029FA83F200ED6B14 /* MultiSectionExpandableList.swift */,
+				8AD8ACED29FE1A1100170258 /* SimpleListViewController.swift */,
+				8AD8ACEF29FE1E6300170258 /* SimpleList.swift */,
 			);
 			path = AdvancedCompositionalLayout;
 			sourceTree = "<group>";
@@ -77,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				8A13F16829F81ABB00CAB09F /* ListModel.swift */,
+				8AD8ACF129FE567F00170258 /* Person.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -159,10 +168,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AD8ACEE29FE1A1100170258 /* SimpleListViewController.swift in Sources */,
+				8AD8ACF029FE1E6300170258 /* SimpleList.swift in Sources */,
 				8A091CCD29F57076001EAE4F /* MenuViewController.swift in Sources */,
-				8AEAAB0129FA83F200ED6B14 /* MultiSectionListCollectionView.swift in Sources */,
+				8AEAAB0129FA83F200ED6B14 /* MultiSectionExpandableList.swift in Sources */,
 				8A091CB929F56BDA001EAE4F /* AppDelegate.swift in Sources */,
 				8A091CBB29F56BDA001EAE4F /* SceneDelegate.swift in Sources */,
+				8AD8ACF229FE567F00170258 /* Person.swift in Sources */,
 				8A47565929FCE2A000F4E44D /* UIView.swift in Sources */,
 				8A13F16929F81ABB00CAB09F /* ListModel.swift in Sources */,
 			);

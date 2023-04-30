@@ -11,23 +11,20 @@ import UIKit
 typealias MultiSectionListSnapshot = NSDiffableDataSourceSnapshot<MenuSection, MenuDataType>
 typealias MultiSectionListDataSource = UICollectionViewDiffableDataSource<MenuSection, MenuDataType>
 
-class MultiSectionListCollectionView: UICollectionView {
+protocol CollectionViewDataDelegte: AnyObject {
+    func data() -> [AnyHashable]
+}
+
+class MultiSectionExpandableList: UICollectionView {
+    
+    weak var rootVC: UIViewController!
     
     var datasource: MultiSectionListDataSource!
     
-    let data = [
-        
-        MenuSection(title: "Collection View List", menuList: [
-            ListItem(type: .singleSectionList),
-            ListItem(type: .multiSectionList)
-        ]),
-        
-        MenuSection(title: "Grid", menuList: [
-            ListItem(type: .gridLayout),
-            ListItem(type: .waterfallLayout)
-        ])
-        
-    ]
+    var data: [MenuSection] {
+        let delegate = rootVC as? CollectionViewDataDelegte
+        return delegate?.data() as? [MenuSection] ?? []
+    }
     
     override init(frame: CGRect = .zero, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: UICollectionViewLayout())
@@ -43,7 +40,6 @@ class MultiSectionListCollectionView: UICollectionView {
         delegate = self
         setCollectionViewLayout(layout(), animated: false)
         configureDataSource()
-        performUpdates()
     }
     
     func configureDataSource(){
@@ -103,7 +99,7 @@ class MultiSectionListCollectionView: UICollectionView {
     
 }
 
-extension MultiSectionListCollectionView: UICollectionViewDelegate {
+extension MultiSectionExpandableList: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
@@ -111,7 +107,9 @@ extension MultiSectionListCollectionView: UICollectionViewDelegate {
         
         switch item {
         case .list(let listItem):
-            print("?? listItem : ", listItem.title)
+            if listItem.type == .simpleList {
+                rootVC.navigationController?.pushViewController(SimpleListViewController(), animated: true)
+            }
         default:
             break
         }
