@@ -1,14 +1,14 @@
 //
-//  GridCell.swift
+//  WaterfallCell.swift
 //  AdvancedCompositionalLayout
 //
-//  Created by Ahmed Tarık Bozyak on 1.05.2023.
+//  Created by AHMED TARIK BOZYAK on 22.05.2023.
 //
 
 import Foundation
 import UIKit
 
-class GridCell: UICollectionViewCell {
+class WaterfallCell: UICollectionViewCell {
     
     lazy var textLabel: UILabel = {
         let label = UILabel()
@@ -28,7 +28,7 @@ class GridCell: UICollectionViewCell {
         layerConfigure()
         addSubview(textLabel)
         textLabel.edgesToSuperview()
-        backgroundColor = .systemOrange
+        backgroundColor = .systemPurple
     }
     
     required init?(coder: NSCoder) {

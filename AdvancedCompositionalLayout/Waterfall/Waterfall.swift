@@ -1,21 +1,21 @@
 //
-//  Grid.swift
+//  Waterfall.swift
 //  AdvancedCompositionalLayout
 //
-//  Created by Ahmed Tarık Bozyak on 1.05.2023.
+//  Created by AHMED TARIK BOZYAK on 22.05.2023.
 //
 
-
+import Foundation
 import UIKit
 
-typealias GridSnapshot = NSDiffableDataSourceSnapshot<Int, Int>
-typealias GridDataSource = UICollectionViewDiffableDataSource<Int, Int>
+typealias WaterfallSnapshot = NSDiffableDataSourceSnapshot<Int, Int>
+typealias WaterfallDataSource = UICollectionViewDiffableDataSource<Int, Int>
 
-class Grid: UICollectionView {
+class Waterfall: UICollectionView {
     
     weak var rootVC: UIViewController!
     
-    var datasource: GridDataSource!
+    var datasource: WaterfallDataSource!
     
     var columnCount: Int = 2
     
@@ -41,7 +41,7 @@ class Grid: UICollectionView {
     
     func configureDataSource(){
         
-        let listCellRegistration = UICollectionView.CellRegistration<GridCell, Int> { (cell, _, item) in
+        let listCellRegistration = UICollectionView.CellRegistration<WaterfallCell, Int> { (cell, indexPath, item) in
             cell.configure(with: item)
         }
         
@@ -59,10 +59,11 @@ class Grid: UICollectionView {
     }
     
     func performUpdates(){
-        var snapshot = GridSnapshot()
+        var snapshot = WaterfallSnapshot()
         snapshot.appendSections([0])
         snapshot.appendItems(data)
         datasource.apply(snapshot,animatingDifferences: true)
     }
     
 }
+

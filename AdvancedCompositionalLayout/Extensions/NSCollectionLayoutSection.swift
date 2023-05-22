@@ -20,21 +20,31 @@ extension NSCollectionLayoutSection {
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
         let section = NSCollectionLayoutSection(group: group)
         return section
-
-
     }
     
-    static func loadingSection() -> NSCollectionLayoutSection {
+    static func waterfallSection(config: WaterfallConfiguration, enviroment: NSCollectionLayoutEnvironment, sectionIndex: Int ) -> NSCollectionLayoutSection {
         
-        let layoutSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(80))
-        let item = NSCollectionLayoutItem(layoutSize: layoutSize)
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: layoutSize, subitems: [item])
+        // NSCollectionLayoutGroupCustomItem to create layout with custom frames
+        var items = [NSCollectionLayoutGroupCustomItem]()
+        
+        
+        let itemProvider = WaterfallBuilder(config: config)
+        
+        for i in 0..<config.itemCountProvider() {
+            let item = itemProvider.makeLayoutItem(for: i)
+            items.append(item)
+        }
+        
+        let groupLayoutSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(itemProvider.maxHeight))
+        
+        let group = NSCollectionLayoutGroup.custom(layoutSize: groupLayoutSize) { _ in
+            return items
+        }
         
         let section = NSCollectionLayoutSection(group: group)
-        section.contentInsets.top = 10
-        section.contentInsets.bottom = 30
-        
+        section.contentInsetsReference = config.contentInsetsReference
         return section
     }
+    
 }
 
