@@ -10,19 +10,11 @@ import UIKit
 
 class GridViewController: UIViewController {
     
+    lazy var collectionView = Grid()
+    
     var maxColumnCount = 5
     
-    var menuItems: [UIAction] {
-        return [
-            UIAction(title: "Standard item", image: UIImage(systemName: "sun.max"), handler: { (_) in
-                print("Standart Item")
-            }),
-        ]
-    }
-    
     let sectionData = [Int](1...100)
-    
-    lazy var collectionView = Grid()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,10 +23,11 @@ class GridViewController: UIViewController {
     }
     
     private func configureNavigationBar(){
-        let menuItems1 = (1...maxColumnCount).map({UIAction(title: "\($0)x\($0)", handler: { [weak self] action in
-            self?.setColumnCount(Int(String(action.title.first!)) ?? 0)
+        let menuItems = (1...maxColumnCount).map({UIAction(title: "\($0)x\($0)", handler: { [weak self] action in
+            let firstCharacter = String(action.title.first!)
+            self?.setColumnCount(Int(firstCharacter) ?? 0)
         })})
-        let menu = UIMenu(title: "Column Count", image: nil, identifier: nil, options: [], children: menuItems1)
+        let menu = UIMenu(title: "Column Count", image: nil, identifier: nil, options: [], children: menuItems)
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "square.dashed"), primaryAction: nil, menu: menu)
     }
     
@@ -46,7 +39,6 @@ class GridViewController: UIViewController {
     }
     
     private func setColumnCount(_ item: Int){
-        print("?? columncount : \(item)")
         collectionView.columnCount = item
         collectionView.reloadData()
     }

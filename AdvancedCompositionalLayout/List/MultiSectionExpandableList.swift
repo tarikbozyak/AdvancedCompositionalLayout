@@ -20,13 +20,15 @@ class MultiSectionExpandableList: UICollectionView {
     weak var rootVC: UIViewController!
     
     var datasource: MultiSectionListDataSource!
+    var style: UICollectionLayoutListConfiguration.Appearance = .grouped
     
     var data: [MenuSection] {
         let delegate = rootVC as? CollectionViewDataDelegte
         return delegate?.data() as? [MenuSection] ?? []
     }
     
-    override init(frame: CGRect = .zero, collectionViewLayout layout: UICollectionViewLayout) {
+    init(frame: CGRect = .zero, style: UICollectionLayoutListConfiguration.Appearance = .grouped) {
+        self.style = style
         super.init(frame: frame, collectionViewLayout: UICollectionViewLayout())
         commonInit()
     }

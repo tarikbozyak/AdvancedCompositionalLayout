@@ -17,6 +17,11 @@ class GridCell: UICollectionViewCell {
         return label
     }()
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        layerConfigure()
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         layerConfigure()
