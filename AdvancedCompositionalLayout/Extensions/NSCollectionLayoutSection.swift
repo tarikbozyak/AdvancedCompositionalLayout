@@ -38,7 +38,7 @@ extension NSCollectionLayoutSection {
         }
         
         let section = NSCollectionLayoutSection(group: group)
-        section.contentInsets = .init(top: 16, leading: config.sectionHorizontalSpacing/2, bottom: 16, trailing: config.sectionHorizontalSpacing/2)
+        section.contentInsets = .init(top: 16, leading: config.sectionHorizontalSpacing, bottom: 16, trailing: config.sectionHorizontalSpacing)
         
         return section
     }

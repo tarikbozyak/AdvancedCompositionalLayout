@@ -15,7 +15,7 @@ final class WaterfallBuilder {
     var columnCount: CGFloat { CGFloat(config.columnCount) }
     var itemHeightProvider: ItemHeightProvider { config.itemHeightProvider }
     var interItemSpacing: CGFloat { config.itemSpacing }
-    var sectionHorizontalSpacing: CGFloat { config.sectionHorizontalSpacing }
+    var sectionHorizontalSpacing: CGFloat { config.sectionHorizontalSpacing * 2 }
     var maxHeight: CGFloat { columnHeights.max() ?? 0 }
     var columnIndex: Int { columnHeights.enumerated().min(by: { $0.element < $1.element })?.offset ?? 0 }
     var collectionWidth: CGFloat {config.environment.container.contentSize.width}

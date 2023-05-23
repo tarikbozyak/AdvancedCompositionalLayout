@@ -60,7 +60,7 @@ class Waterfall: UICollectionView {
             return CGFloat.random(in: 250...500)
         }
         
-        let config = WaterfallConfiguration(dataCount: data.count, columnCount: 2, itemSpacing: 10, sectionHorizontalSpacing: 16, itemHeightProvider: itemHeightProvider, environment: environment)
+        let config = WaterfallConfiguration(dataCount: data.count, columnCount: columnCount, itemSpacing: 10, sectionHorizontalSpacing: 16, itemHeightProvider: itemHeightProvider, environment: environment)
         
         return .waterfallSection(config: config)
     }

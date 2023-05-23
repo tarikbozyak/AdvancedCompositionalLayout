@@ -29,7 +29,7 @@ struct WaterfallConfiguration {
         self.dataCount = dataCount
         self.columnCount = columnCount
         self.itemSpacing = itemSpacing
-        self.sectionHorizontalSpacing = sectionHorizontalSpacing * 2
+        self.sectionHorizontalSpacing = sectionHorizontalSpacing
         self.itemHeightProvider = itemHeightProvider
         self.environment = environment
     }
