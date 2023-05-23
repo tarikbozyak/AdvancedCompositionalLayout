@@ -26,7 +26,7 @@ extension NSCollectionLayoutSection {
         var items = [NSCollectionLayoutGroupCustomItem]()
         let builder = WaterfallBuilder(config: config)
         
-        for i in 0..<config.itemCountProvider() {
+        for i in 0..<config.dataCount {
             let item = builder.prepareItem(for: i)
             items.append(item)
         }
