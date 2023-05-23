@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-typealias ItemHeightProvider = (_ index: Int, _ itemWidth: CGFloat) -> CGFloat
+typealias ItemHeightProvider = () -> CGFloat
 
 struct WaterfallConfiguration {
     public let dataCount: Int

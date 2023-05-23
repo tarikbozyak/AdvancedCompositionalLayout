@@ -55,13 +55,8 @@ class Waterfall: UICollectionView {
     
     // MARK: Layout
     private func layout(for sectionIndex: Int, environment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? {
-        
-        let itemHeightProvider: ItemHeightProvider = { index, itemWidth in
-            return CGFloat.random(in: 250...500)
-        }
-        
+        let itemHeightProvider: ItemHeightProvider = { return CGFloat.random(in: 250...500) }
         let config = WaterfallConfiguration(dataCount: data.count, columnCount: columnCount, itemSpacing: 10, sectionHorizontalSpacing: 16, itemHeightProvider: itemHeightProvider, environment: environment)
-        
         return .waterfallSection(config: config)
     }
     

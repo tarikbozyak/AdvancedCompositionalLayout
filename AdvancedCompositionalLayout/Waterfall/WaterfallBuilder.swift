@@ -28,7 +28,7 @@ final class WaterfallBuilder {
         let spacing = (columnCount - 1) * interItemSpacing
         let columnWidth = (collectionWidth - spacing - sectionHorizontalSpacing) / columnCount
         let width = columnWidth
-        let height = itemHeightProvider(row, width)
+        let height = itemHeightProvider()
         let size = CGSize(width: width, height: height)
         let xCoordinate = (width + interItemSpacing) * CGFloat(columnIndex)
         let yCoordinate = columnHeights[columnIndex].rounded()
