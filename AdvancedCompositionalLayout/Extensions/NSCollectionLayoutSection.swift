@@ -22,27 +22,24 @@ extension NSCollectionLayoutSection {
         return section
     }
     
-    static func waterfallSection(config: WaterfallConfiguration, enviroment: NSCollectionLayoutEnvironment, sectionIndex: Int ) -> NSCollectionLayoutSection {
-        
-        // NSCollectionLayoutGroupCustomItem to create layout with custom frames
+    static func waterfallSection(config: WaterfallConfiguration) -> NSCollectionLayoutSection {
         var items = [NSCollectionLayoutGroupCustomItem]()
-        
-        
-        let itemProvider = WaterfallBuilder(config: config)
+        let builder = WaterfallBuilder(config: config)
         
         for i in 0..<config.itemCountProvider() {
-            let item = itemProvider.makeLayoutItem(for: i)
+            let item = builder.prepareItem(for: i)
             items.append(item)
         }
         
-        let groupLayoutSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(itemProvider.maxHeight))
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(builder.maxHeight))
         
-        let group = NSCollectionLayoutGroup.custom(layoutSize: groupLayoutSize) { _ in
+        let group = NSCollectionLayoutGroup.custom(layoutSize: groupSize) { _ in
             return items
         }
         
         let section = NSCollectionLayoutSection(group: group)
-        section.contentInsetsReference = config.contentInsetsReference
+        section.contentInsets = .init(top: 16, leading: config.sectionHorizontalSpacing/2, bottom: 16, trailing: config.sectionHorizontalSpacing/2)
+        
         return section
     }
     
