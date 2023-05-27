@@ -8,22 +8,22 @@
 import Foundation
 import UIKit
 
-typealias ListSnapshot = NSDiffableDataSourceSnapshot<MenuSection, ListItem>
-typealias ListDataSource = UICollectionViewDiffableDataSource<MenuSection, ListItem>
+typealias CountrySnapshot = NSDiffableDataSourceSnapshot<CountrySection, Country>
+typealias CountryDataSource = UICollectionViewDiffableDataSource<CountrySection, Country>
 
 class Supplementary: UICollectionView {
     
     weak var rootVC: UIViewController!
     
-    var datasource: ListDataSource!
+    var datasource: CountryDataSource!
     var style: UICollectionLayoutListConfiguration.Appearance = .grouped
     
     var headerRegistration: UICollectionView.SupplementaryRegistration<UICollectionViewListCell>!
     var footerRegistration: UICollectionView.SupplementaryRegistration<UICollectionViewListCell>!
     
-    var data: [MenuSection] {
+    var data: [CountrySection] {
         let delegate = rootVC as? CollectionViewDataDelegte
-        return delegate?.data() as? [MenuSection] ?? []
+        return delegate?.data() as? [CountrySection] ?? []
     }
     
     init(frame: CGRect = .zero, style: UICollectionLayoutListConfiguration.Appearance = .grouped) {
@@ -46,10 +46,9 @@ class Supplementary: UICollectionView {
     
     private func configureDataSource(){
         
-        let cellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, ListItem> { (cell, indexPath, listItem) in
+        let cellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, Country> { (cell, indexPath, item) in
             var content = cell.defaultContentConfiguration()
-            content.image = listItem.image
-            content.text = listItem.title
+            content.text = "\(item.flag)  \(item.name)"
             cell.contentConfiguration = content
         }
         
@@ -60,8 +59,8 @@ class Supplementary: UICollectionView {
     
     private func configureSupplementaryViews(){
         
-        headerRegistration = .init(elementKind: UICollectionView.elementKindSectionHeader) {
-            [unowned self] (header, elementKind, indexPath) in
+        headerRegistration = .init(elementKind: UICollectionView.elementKindSectionHeader) { [unowned self]
+            (header, elementKind, indexPath) in
             var configuration = header.defaultContentConfiguration()
             let headerItem = self.datasource.snapshot().sectionIdentifiers[indexPath.section]
             configuration.text = headerItem.title
@@ -71,9 +70,10 @@ class Supplementary: UICollectionView {
             header.contentConfiguration = configuration
         }
         
-        footerRegistration = .init(elementKind: UICollectionView.elementKindSectionFooter) { [unowned self] (footer, elementKind, indexPath) in
+        footerRegistration = .init(elementKind: UICollectionView.elementKindSectionFooter) { [unowned self]
+            (footer, elementKind, indexPath) in
             var configuration = footer.defaultContentConfiguration()
-            let itemCount = self.datasource.snapshot().sectionIdentifiers[indexPath.section].menuList.count
+            let itemCount = self.datasource.snapshot().sectionIdentifiers[indexPath.section].countryList.count
             configuration.text = "Item count: " + String(itemCount)
             footer.contentConfiguration = configuration
         }
@@ -99,10 +99,10 @@ class Supplementary: UICollectionView {
     }
     
     func performUpdates(){
-        var snapshot = ListSnapshot()
+        var snapshot = CountrySnapshot()
         snapshot.appendSections(data)
         data.forEach ({
-            snapshot.appendItems($0.menuList, toSection: $0)
+            snapshot.appendItems($0.countryList, toSection: $0)
             datasource.apply(snapshot, animatingDifferences: false)
         })
     }

@@ -12,19 +12,7 @@ class SupplementaryViewController: UIViewController {
     
     lazy var collectionView = Supplementary()
     
-    let sectionData = [
-        
-        MenuSection(title: "Grid", menuList: [
-            ListItem(type: .gridLayout),
-            ListItem(type: .waterfallLayout)
-        ]),
-        
-        MenuSection(title: "Collection View List", menuList: [
-            ListItem(type: .simpleList),
-            ListItem(type: .multiSectionList)
-        ])
-        
-    ]
+    let sectionData = Country.getCountrySection()
     
     override func viewDidLoad() {
         super.viewDidLoad()

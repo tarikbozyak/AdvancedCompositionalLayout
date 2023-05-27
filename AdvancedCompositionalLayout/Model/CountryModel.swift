@@ -8,6 +8,16 @@
 import Foundation
 import UIKit
 
+struct CountrySection: Hashable {
+    let title: String
+    let countryList: [Country]
+    
+    init(_ countryList: [Country]) {
+        self.title = countryList.first?.continent.rawValue ?? ""
+        self.countryList = countryList
+    }
+}
+
 struct Country: Hashable {
     let name: String
     let capital: String
@@ -15,7 +25,7 @@ struct Country: Hashable {
     let flag: String
 }
 
-enum Continent: String{
+enum Continent: String, CaseIterable{
     case Africa
     case Antarctica
     case Asia
@@ -37,10 +47,9 @@ extension Country {
             Country(name: "Canada", capital: "Ottawa", continent: .NourthAmerica, flag: "🇨🇦"),
             Country(name: "Puerto Rico", capital: "San Juan", continent: .NourthAmerica, flag: "🇵🇷"),
             Country(name: "Belgium", capital: "Brussels", continent: .Europe, flag: "🇧🇪"),
-            Country(name: "Saudi Arabia", capital: "Riyadh", continent: .Asia, flag: "🇸🇦"),
             Country(name: "Qatar", capital: "Doha", continent: .Asia, flag: "🇶🇦"),
-            Country(name: "India", capital: "New Delhi", continent: .Asia, flag: "🇮🇳"),
             Country(name: "Pakistan", capital: "Islamabad", continent: .Asia, flag: "🇵🇰"),
+            Country(name: "India", capital: "New Delhi", continent: .Asia, flag: "🇮🇳"),
             Country(name: "Brazil", capital: "Brasil", continent: .SouthAmerica, flag: "🇧🇷"),
             Country(name: "Peru", capital: "Lima", continent: .SouthAmerica, flag: "🇵🇪"),
             Country(name: "Chile", capital: "Santiago", continent: .SouthAmerica, flag: "🇨🇱"),
@@ -49,5 +58,11 @@ extension Country {
             Country(name: "Papua New Guinea", capital: "Port Moresb", continent: .Oceania, flag: "🇵🇬"),
             Country(name: "Marshall Islands", capital: "Majuro", continent: .Oceania, flag: "🇲🇭")
         ]
+    }
+    
+    static func getCountrySection() -> [CountrySection] {
+        return Dictionary(grouping: getAllCountry()) {$0.continent}
+            .map{CountrySection($0.value)}
+            .sorted {$0.countryList.count > $1.countryList.count}
     }
 }
