@@ -112,6 +112,9 @@ extension MultiSectionExpandableList: UICollectionViewDelegate {
             if listItem.type == .simpleList {
                 rootVC.navigationController?.pushViewController(SimpleListViewController(), animated: true)
             }
+            else if listItem.type == .supplementary {
+                rootVC.navigationController?.pushViewController(SupplementaryViewController(), animated: true)
+            }
             else if listItem.type == .gridLayout {
                 rootVC.navigationController?.pushViewController(GridViewController(), animated: true)
             }

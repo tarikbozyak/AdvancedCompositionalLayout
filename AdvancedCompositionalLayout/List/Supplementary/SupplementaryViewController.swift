@@ -1,15 +1,16 @@
 //
-//  MenuViewController.swift
+//  SupplementaryViewController.swift
 //  AdvancedCompositionalLayout
 //
-//  Created by Ahmed Tarık Bozyak on 23.04.2023.
+//  Created by Ahmed Tarık Bozyak on 27.05.2023.
 //
 
+import Foundation
 import UIKit
 
-class MenuViewController: UIViewController {
+class SupplementaryViewController: UIViewController {
     
-    lazy var collectionView = MultiSectionExpandableList()
+    lazy var collectionView = Supplementary()
     
     let sectionData = [
         
@@ -20,7 +21,6 @@ class MenuViewController: UIViewController {
         
         MenuSection(title: "Collection View List", menuList: [
             ListItem(type: .simpleList),
-            ListItem(type: .supplementary),
             ListItem(type: .multiSectionList)
         ])
         
@@ -28,8 +28,8 @@ class MenuViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Header & Footer"
         configureCollectionView()
-        configureNavigationBar()
     }
     
     private func configureCollectionView(){
@@ -38,19 +38,9 @@ class MenuViewController: UIViewController {
         collectionView.rootVC = self
         collectionView.performUpdates()
     }
-    
-    private func configureNavigationBar(){
-        title = "Menu"
-        let appearance = UINavigationBarAppearance()
-        appearance.backgroundColor = .systemGray5
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationBar.standardAppearance = appearance
-        navigationController?.navigationBar.compactAppearance = appearance
-        navigationController?.navigationBar.scrollEdgeAppearance = appearance
-    }
 }
 
-extension MenuViewController: CollectionViewDataDelegte {
+extension SupplementaryViewController: CollectionViewDataDelegte {
     func data() -> [AnyHashable] {
         return sectionData
     }

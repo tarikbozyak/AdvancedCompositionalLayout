@@ -10,6 +10,7 @@ import UIKit
 
 enum ListType {
     case simpleList
+    case supplementary
     case multiSectionList
     case gridLayout
     case waterfallLayout
@@ -40,6 +41,9 @@ struct ListItem: Hashable {
         case .multiSectionList:
             self.image = UIImage(systemName: "star.fill")!
             self.title = "Multi Section List"
+        case .supplementary:
+            self.image = UIImage(systemName: "star.fill")!
+            self.title = "Supplementary View List"
         case .gridLayout:
             self.image = UIImage(systemName: "star.fill")!
             self.title = "Grid Layout"

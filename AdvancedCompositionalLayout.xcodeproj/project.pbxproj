@@ -16,7 +16,10 @@
 		8A091CC229F56BDB001EAE4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A091CC129F56BDB001EAE4F /* Assets.xcassets */; };
 		8A091CC529F56BDB001EAE4F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A091CC329F56BDB001EAE4F /* LaunchScreen.storyboard */; };
 		8A091CCD29F57076001EAE4F /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A091CCC29F57076001EAE4F /* MenuViewController.swift */; };
+		8A10D9822A2226790029BE92 /* SupplementaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A10D9812A2226790029BE92 /* SupplementaryViewController.swift */; };
+		8A10D9852A2233DE0029BE92 /* CountryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A10D9842A2233DE0029BE92 /* CountryModel.swift */; };
 		8A13F16929F81ABB00CAB09F /* ListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A13F16829F81ABB00CAB09F /* ListModel.swift */; };
+		8A189A1F2A1DCE2F005E6E88 /* Supplementary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A189A1E2A1DCE2F005E6E88 /* Supplementary.swift */; };
 		8A47565929FCE2A000F4E44D /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A47565829FCE2A000F4E44D /* UIView.swift */; };
 		8AD8ACEE29FE1A1100170258 /* SimpleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD8ACED29FE1A1100170258 /* SimpleListViewController.swift */; };
 		8AD8ACF029FE1E6300170258 /* SimpleList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD8ACEF29FE1E6300170258 /* SimpleList.swift */; };
@@ -41,7 +44,10 @@
 		8A091CC429F56BDB001EAE4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8A091CC629F56BDB001EAE4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8A091CCC29F57076001EAE4F /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		8A10D9812A2226790029BE92 /* SupplementaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupplementaryViewController.swift; sourceTree = "<group>"; };
+		8A10D9842A2233DE0029BE92 /* CountryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryModel.swift; sourceTree = "<group>"; };
 		8A13F16829F81ABB00CAB09F /* ListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModel.swift; sourceTree = "<group>"; };
+		8A189A1E2A1DCE2F005E6E88 /* Supplementary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Supplementary.swift; sourceTree = "<group>"; };
 		8A47565829FCE2A000F4E44D /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		8AD8ACED29FE1A1100170258 /* SimpleListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleListViewController.swift; sourceTree = "<group>"; };
 		8AD8ACEF29FE1E6300170258 /* SimpleList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleList.swift; sourceTree = "<group>"; };
@@ -71,6 +77,7 @@
 				8AD8ACED29FE1A1100170258 /* SimpleListViewController.swift */,
 				8AD8ACEF29FE1E6300170258 /* SimpleList.swift */,
 				8AEAAB0029FA83F200ED6B14 /* MultiSectionExpandableList.swift */,
+				8A10D9832A2229200029BE92 /* Supplementary */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -119,11 +126,21 @@
 			path = AdvancedCompositionalLayout;
 			sourceTree = "<group>";
 		};
+		8A10D9832A2229200029BE92 /* Supplementary */ = {
+			isa = PBXGroup;
+			children = (
+				8A10D9812A2226790029BE92 /* SupplementaryViewController.swift */,
+				8A189A1E2A1DCE2F005E6E88 /* Supplementary.swift */,
+			);
+			path = Supplementary;
+			sourceTree = "<group>";
+		};
 		8A13F16729F81A8400CAB09F /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				8A13F16829F81ABB00CAB09F /* ListModel.swift */,
 				8AD8ACF129FE567F00170258 /* Person.swift */,
+				8A10D9842A2233DE0029BE92 /* CountryModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -221,6 +238,7 @@
 			files = (
 				E2A102B32A1BD18D002041F6 /* WaterfallCell.swift in Sources */,
 				8AD8ACEE29FE1A1100170258 /* SimpleListViewController.swift in Sources */,
+				8A10D9822A2226790029BE92 /* SupplementaryViewController.swift in Sources */,
 				E2A102B72A1BDACF002041F6 /* WaterfallConfiguration.swift in Sources */,
 				E2A102AB2A1BCEF2002041F6 /* WaterfallViewController.swift in Sources */,
 				8AD8ACF029FE1E6300170258 /* SimpleList.swift in Sources */,
@@ -232,8 +250,10 @@
 				8A091CB929F56BDA001EAE4F /* AppDelegate.swift in Sources */,
 				8A091CBB29F56BDA001EAE4F /* SceneDelegate.swift in Sources */,
 				8A05EE322A002B0A00134E22 /* GridViewController.swift in Sources */,
+				8A10D9852A2233DE0029BE92 /* CountryModel.swift in Sources */,
 				8AD8ACF229FE567F00170258 /* Person.swift in Sources */,
 				8A05EE3A2A00BB5A00134E22 /* NSCollectionLayoutSection.swift in Sources */,
+				8A189A1F2A1DCE2F005E6E88 /* Supplementary.swift in Sources */,
 				8A47565929FCE2A000F4E44D /* UIView.swift in Sources */,
 				8A13F16929F81ABB00CAB09F /* ListModel.swift in Sources */,
 				8A05EE382A002C1C00134E22 /* GridCell.swift in Sources */,
