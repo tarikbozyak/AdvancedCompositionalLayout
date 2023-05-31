@@ -1,5 +1,5 @@
 //
-//  WaterfallBuilder.swift
+//  VerticalWaterfallBuilder.swift
 //  AdvancedCompositionalLayout
 //
 //  Created by AHMED TARIK BOZYAK on 22.05.2023.
@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-final class WaterfallBuilder {
+final class VerticalWaterfallBuilder {
     private let config: WaterfallConfiguration
     private lazy var columnHeights = [CGFloat](repeating: 0, count: self.config.columnCount)
     

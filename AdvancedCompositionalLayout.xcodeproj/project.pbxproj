@@ -21,6 +21,7 @@
 		8A13F16929F81ABB00CAB09F /* ListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A13F16829F81ABB00CAB09F /* ListModel.swift */; };
 		8A189A1F2A1DCE2F005E6E88 /* Supplementary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A189A1E2A1DCE2F005E6E88 /* Supplementary.swift */; };
 		8A47565929FCE2A000F4E44D /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A47565829FCE2A000F4E44D /* UIView.swift */; };
+		8AA67A732A27CE020052D3CA /* HorizontalWaterfallBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA67A722A27CE020052D3CA /* HorizontalWaterfallBuilder.swift */; };
 		8AD8ACEE29FE1A1100170258 /* SimpleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD8ACED29FE1A1100170258 /* SimpleListViewController.swift */; };
 		8AD8ACF029FE1E6300170258 /* SimpleList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD8ACEF29FE1E6300170258 /* SimpleList.swift */; };
 		8AD8ACF229FE567F00170258 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD8ACF129FE567F00170258 /* Person.swift */; };
@@ -29,7 +30,7 @@
 		E2A102AF2A1BCF56002041F6 /* Waterfall.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A102AE2A1BCF56002041F6 /* Waterfall.swift */; };
 		E2A102B32A1BD18D002041F6 /* WaterfallCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A102B22A1BD18D002041F6 /* WaterfallCell.swift */; };
 		E2A102B72A1BDACF002041F6 /* WaterfallConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A102B62A1BDACF002041F6 /* WaterfallConfiguration.swift */; };
-		E2A102B92A1BDAF5002041F6 /* WaterfallBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A102B82A1BDAF5002041F6 /* WaterfallBuilder.swift */; };
+		E2A102B92A1BDAF5002041F6 /* VerticalWaterfallBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A102B82A1BDAF5002041F6 /* VerticalWaterfallBuilder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		8A13F16829F81ABB00CAB09F /* ListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModel.swift; sourceTree = "<group>"; };
 		8A189A1E2A1DCE2F005E6E88 /* Supplementary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Supplementary.swift; sourceTree = "<group>"; };
 		8A47565829FCE2A000F4E44D /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		8AA67A722A27CE020052D3CA /* HorizontalWaterfallBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalWaterfallBuilder.swift; sourceTree = "<group>"; };
 		8AD8ACED29FE1A1100170258 /* SimpleListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleListViewController.swift; sourceTree = "<group>"; };
 		8AD8ACEF29FE1E6300170258 /* SimpleList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleList.swift; sourceTree = "<group>"; };
 		8AD8ACF129FE567F00170258 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
@@ -57,7 +59,7 @@
 		E2A102AE2A1BCF56002041F6 /* Waterfall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Waterfall.swift; sourceTree = "<group>"; };
 		E2A102B22A1BD18D002041F6 /* WaterfallCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterfallCell.swift; sourceTree = "<group>"; };
 		E2A102B62A1BDACF002041F6 /* WaterfallConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterfallConfiguration.swift; sourceTree = "<group>"; };
-		E2A102B82A1BDAF5002041F6 /* WaterfallBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterfallBuilder.swift; sourceTree = "<group>"; };
+		E2A102B82A1BDAF5002041F6 /* VerticalWaterfallBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalWaterfallBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,7 +163,8 @@
 				E2A102AE2A1BCF56002041F6 /* Waterfall.swift */,
 				E2A102B22A1BD18D002041F6 /* WaterfallCell.swift */,
 				E2A102B62A1BDACF002041F6 /* WaterfallConfiguration.swift */,
-				E2A102B82A1BDAF5002041F6 /* WaterfallBuilder.swift */,
+				E2A102B82A1BDAF5002041F6 /* VerticalWaterfallBuilder.swift */,
+				8AA67A722A27CE020052D3CA /* HorizontalWaterfallBuilder.swift */,
 			);
 			path = Waterfall;
 			sourceTree = "<group>";
@@ -243,7 +246,7 @@
 				E2A102AB2A1BCEF2002041F6 /* WaterfallViewController.swift in Sources */,
 				8AD8ACF029FE1E6300170258 /* SimpleList.swift in Sources */,
 				E2A102AF2A1BCF56002041F6 /* Waterfall.swift in Sources */,
-				E2A102B92A1BDAF5002041F6 /* WaterfallBuilder.swift in Sources */,
+				E2A102B92A1BDAF5002041F6 /* VerticalWaterfallBuilder.swift in Sources */,
 				8A091CCD29F57076001EAE4F /* MenuViewController.swift in Sources */,
 				8AEAAB0129FA83F200ED6B14 /* MultiSectionExpandableList.swift in Sources */,
 				8A05EE362A002B7900134E22 /* Grid.swift in Sources */,
@@ -252,6 +255,7 @@
 				8A05EE322A002B0A00134E22 /* GridViewController.swift in Sources */,
 				8A10D9852A2233DE0029BE92 /* CountryModel.swift in Sources */,
 				8AD8ACF229FE567F00170258 /* Person.swift in Sources */,
+				8AA67A732A27CE020052D3CA /* HorizontalWaterfallBuilder.swift in Sources */,
 				8A05EE3A2A00BB5A00134E22 /* NSCollectionLayoutSection.swift in Sources */,
 				8A189A1F2A1DCE2F005E6E88 /* Supplementary.swift in Sources */,
 				8A47565929FCE2A000F4E44D /* UIView.swift in Sources */,
