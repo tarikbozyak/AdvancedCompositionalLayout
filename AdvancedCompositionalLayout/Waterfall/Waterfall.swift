@@ -11,6 +11,11 @@ import UIKit
 typealias WaterfallSnapshot = NSDiffableDataSourceSnapshot<Int, Int>
 typealias WaterfallDataSource = UICollectionViewDiffableDataSource<Int, Int>
 
+enum WaterfallType {
+    case horizontal
+    case vertical
+}
+
 class Waterfall: UICollectionView {
     
     weak var rootVC: UIViewController!
@@ -18,6 +23,10 @@ class Waterfall: UICollectionView {
     var datasource: WaterfallDataSource!
     
     var columnCount: Int = 2
+    
+    var rowCount: Int = 8
+    
+    var type: WaterfallType?
     
     var data: [Int] {
         let delegate = rootVC as? CollectionViewDataDelegte
@@ -41,8 +50,8 @@ class Waterfall: UICollectionView {
     
     func configureDataSource(){
         
-        let listCellRegistration = UICollectionView.CellRegistration<WaterfallCell, Int> { (cell, indexPath, item) in
-            cell.configure(with: item)
+        let listCellRegistration = UICollectionView.CellRegistration<WaterfallCell, Int> { [weak self] (cell, indexPath, item) in
+            cell.configure(with: item, type: self?.type ?? .vertical)
         }
         
         datasource = UICollectionViewDiffableDataSource<Int, Int>(collectionView: self) {
@@ -55,18 +64,21 @@ class Waterfall: UICollectionView {
     
     // MARK: Layout
     private func layout(for sectionIndex: Int, environment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? {
-        let itemHeightProvider: ItemHeightProvider = { return CGFloat.random(in: 250...500) }
-        let config = WaterfallConfiguration(dataCount: data.count, columnCount: columnCount, itemSpacing: 10, sectionHorizontalSpacing: 16, itemHeightProvider: itemHeightProvider, environment: environment)
-        return .verticalWaterfallSection(config: config)
+        
+        let type = type ?? .vertical
+        
+        switch type {
+        case .horizontal:
+            let itemWidthProvider: ItemWidthProvider = { return CGFloat.random(in: 150...300) }
+            let config = WaterfallConfiguration(dataCount: data.count, rowCount: rowCount, itemSpacing: 10, sectionVerticalSpacing: 16, itemWidthProvider: itemWidthProvider, environment: environment)
+            return .horizontalWaterfallSection(config: config)
+        case .vertical:
+            let itemHeightProvider: ItemHeightProvider = { return CGFloat.random(in: 250...500) }
+            let config = WaterfallConfiguration(dataCount: data.count, columnCount: columnCount, itemSpacing: 10, sectionHorizontalSpacing: 16, itemHeightProvider: itemHeightProvider, environment: environment)
+            return .verticalWaterfallSection(config: config)
+        }
+        
     }
-    
-    /*
-    private func layout(for sectionIndex: Int, environment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? {
-        let itemWidthProvider: ItemWidthProvider = { return CGFloat.random(in: 150...300) }
-        let config = WaterfallConfiguration(dataCount: data.count, rowCount: 8, itemSpacing: 10, sectionVerticalSpacing: 16, itemWidthProvider: itemWidthProvider, environment: environment)
-        return .horizontalWaterfallSection(config: config)
-    }
-     */
     
     func performUpdates(){
         var snapshot = WaterfallSnapshot()

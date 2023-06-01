@@ -14,6 +14,7 @@ enum ListType {
     case multiSectionList
     case gridLayout
     case waterfallLayout
+    case horizontalWaterfallLayout
 }
 
 
@@ -50,6 +51,9 @@ struct ListItem: Hashable {
         case .waterfallLayout:
             self.image = UIImage(systemName: "star.fill")!
             self.title = "Waterfall Layout"
+        case .horizontalWaterfallLayout:
+            self.image = UIImage(systemName: "star.fill")!
+            self.title = "Horizontal Waterfall Layout"
         }
     }
 }

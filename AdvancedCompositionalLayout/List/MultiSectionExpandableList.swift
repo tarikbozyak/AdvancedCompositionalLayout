@@ -121,6 +121,9 @@ extension MultiSectionExpandableList: UICollectionViewDelegate {
             else if listItem.type == .waterfallLayout {
                 rootVC.navigationController?.pushViewController(WaterfallViewController(), animated: true)
             }
+            else if listItem.type == .horizontalWaterfallLayout {
+                rootVC.navigationController?.pushViewController(WaterfallViewController(type: .horizontal), animated: true)
+            }
             
         default:
             break

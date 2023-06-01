@@ -10,6 +10,8 @@ import UIKit
 
 class WaterfallCell: UICollectionViewCell {
     
+    var type: WaterfallType?
+    
     lazy var textLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 20, weight: .semibold)
@@ -35,12 +37,14 @@ class WaterfallCell: UICollectionViewCell {
         fatalError("GridCell coder has not been implemented")
     }
     
-    func configure(with item: Int) {
+    func configure(with item: Int, type: WaterfallType) {
+        self.type = type
         textLabel.text = String(item)
     }
     
     func layerConfigure(){
-        let cornerRadius = frame.width / 10
+        
+        let cornerRadius = type == .vertical ? frame.width / 10 : frame.height / 2
         contentView.layer.cornerRadius = cornerRadius
         contentView.layer.masksToBounds = true
         layer.cornerRadius = cornerRadius

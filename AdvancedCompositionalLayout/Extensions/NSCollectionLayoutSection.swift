@@ -52,7 +52,7 @@ extension NSCollectionLayoutSection {
             items.append(item)
         }
         
-        let groupSize = NSCollectionLayoutSize(widthDimension: .absolute(builder.maxWidth) , heightDimension: .fractionalHeight(0.5))
+        let groupSize = NSCollectionLayoutSize(widthDimension: .absolute(builder.maxWidth) , heightDimension: .fractionalHeight(0.6))
         
         let group = NSCollectionLayoutGroup.custom(layoutSize: groupSize) { _ in
             return items

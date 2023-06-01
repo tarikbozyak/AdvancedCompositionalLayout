@@ -15,7 +15,8 @@ class MenuViewController: UIViewController {
         
         MenuSection(title: "Grid", menuList: [
             ListItem(type: .gridLayout),
-            ListItem(type: .waterfallLayout)
+            ListItem(type: .waterfallLayout),
+            ListItem(type: .horizontalWaterfallLayout)
         ]),
         
         MenuSection(title: "Collection View List", menuList: [

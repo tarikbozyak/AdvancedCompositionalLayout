@@ -18,7 +18,7 @@ final class HorizontalWaterfallBuilder {
     var sectionVerticalSpacing: CGFloat { config.sectionVerticalSpacing * 2 }
     var maxWidth: CGFloat { rowWidths.max() ?? 0 }
     var rowIndex: Int { rowWidths.enumerated().min(by: { $0.element < $1.element })?.offset ?? 0 }
-    var collectionHeight: CGFloat { return config.environment.container.contentSize.height * 0.5}
+    var collectionHeight: CGFloat { return config.environment.container.contentSize.height * 0.6}
     
     init(config: WaterfallConfiguration) {
         self.config = config
