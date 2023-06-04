@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 typealias ItemHeightProvider = () -> CGFloat
+typealias ItemWidthProviderByIndex = (_ index: Int) -> (CGFloat)
 typealias ItemWidthProvider = () -> CGFloat
 
 struct WaterfallConfiguration {
@@ -19,6 +20,7 @@ struct WaterfallConfiguration {
     public let sectionHorizontalSpacing: CGFloat
     public let sectionVerticalSpacing: CGFloat
     public let itemHeightProvider: ItemHeightProvider
+    public let itemWitdthProviderByIndex: ItemWidthProviderByIndex
     public let itemWidthProvider: ItemWidthProvider
     public let environment: NSCollectionLayoutEnvironment
         
@@ -30,6 +32,7 @@ struct WaterfallConfiguration {
         sectionHorizontalSpacing: CGFloat = 0,
         sectionVerticalSpacing: CGFloat = 0,
         itemHeightProvider: @escaping ItemHeightProvider = { return CGFloat.random(in: 250...500) },
+        itemWitdthProviderByIndex: @escaping ItemWidthProviderByIndex = { index in return (0) },
         itemWidthProvider: @escaping ItemWidthProvider = { return CGFloat.random(in: 50...120) },
         environment: NSCollectionLayoutEnvironment
     ) {
@@ -40,6 +43,7 @@ struct WaterfallConfiguration {
         self.sectionHorizontalSpacing = sectionHorizontalSpacing
         self.sectionVerticalSpacing = sectionVerticalSpacing
         self.itemHeightProvider = itemHeightProvider
+        self.itemWitdthProviderByIndex = itemWitdthProviderByIndex
         self.itemWidthProvider = itemWidthProvider
         self.environment = environment
     }

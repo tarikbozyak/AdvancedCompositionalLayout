@@ -119,10 +119,13 @@ extension MultiSectionExpandableList: UICollectionViewDelegate {
                 rootVC.navigationController?.pushViewController(GridViewController(), animated: true)
             }
             else if listItem.type == .waterfallLayout {
-                rootVC.navigationController?.pushViewController(WaterfallViewController(), animated: true)
+                rootVC.navigationController?.pushViewController(WaterfallViewController(type: .vertical), animated: true)
             }
             else if listItem.type == .horizontalWaterfallLayout {
                 rootVC.navigationController?.pushViewController(WaterfallViewController(type: .horizontal), animated: true)
+            }
+            else if listItem.type == .stackWaterfallLayout {
+                rootVC.navigationController?.pushViewController(WaterfallViewController(type: .stack), animated: true)
             }
             
         default:

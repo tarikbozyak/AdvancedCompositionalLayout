@@ -10,7 +10,7 @@ import UIKit
 
 class WaterfallCell: UICollectionViewCell {
     
-    var type: WaterfallType?
+    var cornerRadius: CGFloat?
     
     lazy var textLabel: UILabel = {
         let label = UILabel()
@@ -30,24 +30,23 @@ class WaterfallCell: UICollectionViewCell {
         layerConfigure()
         addSubview(textLabel)
         textLabel.edgesToSuperview()
-        backgroundColor = .systemPurple
     }
     
     required init?(coder: NSCoder) {
         fatalError("GridCell coder has not been implemented")
     }
     
-    func configure(with item: Int, type: WaterfallType) {
-        self.type = type
+    func configure(with item: Int, bgColor: UIColor?, cornerRadius: CGFloat) {
+        self.cornerRadius = cornerRadius
+        self.backgroundColor = bgColor?.withAlphaComponent(0.7)
         textLabel.text = String(item)
     }
     
     func layerConfigure(){
         
-        let cornerRadius = type == .vertical ? frame.width / 10 : frame.height / 2
-        contentView.layer.cornerRadius = cornerRadius
+        contentView.layer.cornerRadius = cornerRadius ?? 0
         contentView.layer.masksToBounds = true
-        layer.cornerRadius = cornerRadius
+        layer.cornerRadius = cornerRadius ?? 0
         layer.masksToBounds = false
         layer.shadowRadius = 8.0
         layer.shadowOpacity = 0.10

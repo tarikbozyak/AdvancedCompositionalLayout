@@ -42,6 +42,26 @@ extension NSCollectionLayoutSection {
         
         return section
     }
+    static func stackWaterfallSection(config: WaterfallConfiguration) -> NSCollectionLayoutSection {
+        var items = [NSCollectionLayoutGroupCustomItem]()
+        let builder = StackWaterfallBuilder(config: config)
+        
+        for i in 0..<config.dataCount {
+            let item = builder.prepareItem(for: i)
+            items.append(item)
+        }
+        
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(builder.maxHeight))
+        
+        let group = NSCollectionLayoutGroup.custom(layoutSize: groupSize) { _ in
+            return items
+        }
+        
+        let section = NSCollectionLayoutSection(group: group)
+        section.contentInsets = .init(top: 16, leading: config.sectionHorizontalSpacing, bottom: 16, trailing: config.sectionHorizontalSpacing)
+        
+        return section
+    }
     
     static func horizontalWaterfallSection(config: WaterfallConfiguration) -> NSCollectionLayoutSection {
         var items = [NSCollectionLayoutGroupCustomItem]()

@@ -12,20 +12,24 @@ class WaterfallViewController: UIViewController {
     
     lazy var collectionView = Waterfall()
     
-    let sectionData = [Int](1...100)
+    let type: WaterfallType
+
+    var sectionData: [WaterfallData] {
+        var data = [WaterfallData]()
+        [Int](1...100).forEach{data.append(.init(id: $0))}
+        return data
+    }
     
     var maxColumnCount = 5
     var maxRowCount = 8
     
-    var type: WaterfallType = .vertical
-    
-    init(type: WaterfallType = .vertical) {
-        super.init(nibName: nil, bundle: nil)
+    init(type: WaterfallType) {
         self.type = type
+        super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
-        super.init(coder: coder)
+        fatalError("WaterfallViewController not implemented!")
     }
     
     override func viewDidLoad() {
@@ -49,16 +53,18 @@ class WaterfallViewController: UIViewController {
         switch type {
         case .horizontal:
             menuTitle = "Row Count"
-            menuItems = (4...maxRowCount).map({UIAction(title: "\($0)", handler: { [weak self] action in
+            menuItems = (4...maxRowCount).map{UIAction(title: "\($0)", handler: { [weak self] action in
                 let firstCharacter = String(action.title.first!)
                 self?.setColumnCount(Int(firstCharacter) ?? 0)
-            })})
+            })}
         case .vertical:
             menuTitle = "Column Count"
-            menuItems = (2...maxColumnCount).map({UIAction(title: "\($0)x\($0)", handler: { [weak self] action in
+            menuItems = (2...maxColumnCount).map{UIAction(title: "\($0)x\($0)", handler: { [weak self] action in
                 let firstCharacter = String(action.title.first!)
                 self?.setColumnCount(Int(firstCharacter) ?? 0)
-            })})
+            })}
+        default:
+            return
         }
         
         let menu = UIMenu(title: menuTitle, image: nil, identifier: nil, options: [], children: menuItems)

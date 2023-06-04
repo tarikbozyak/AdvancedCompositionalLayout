@@ -20,6 +20,8 @@
 		8A10D9852A2233DE0029BE92 /* CountryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A10D9842A2233DE0029BE92 /* CountryModel.swift */; };
 		8A13F16929F81ABB00CAB09F /* ListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A13F16829F81ABB00CAB09F /* ListModel.swift */; };
 		8A189A1F2A1DCE2F005E6E88 /* Supplementary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A189A1E2A1DCE2F005E6E88 /* Supplementary.swift */; };
+		8A20D0842A2A7A3000D9D698 /* StackWaterfallBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A20D0832A2A7A3000D9D698 /* StackWaterfallBuilder.swift */; };
+		8A20D0862A2C6D0200D9D698 /* WaterfallModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A20D0852A2C6D0200D9D698 /* WaterfallModel.swift */; };
 		8A47565929FCE2A000F4E44D /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A47565829FCE2A000F4E44D /* UIView.swift */; };
 		8AA67A732A27CE020052D3CA /* HorizontalWaterfallBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA67A722A27CE020052D3CA /* HorizontalWaterfallBuilder.swift */; };
 		8AD8ACEE29FE1A1100170258 /* SimpleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD8ACED29FE1A1100170258 /* SimpleListViewController.swift */; };
@@ -49,6 +51,8 @@
 		8A10D9842A2233DE0029BE92 /* CountryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryModel.swift; sourceTree = "<group>"; };
 		8A13F16829F81ABB00CAB09F /* ListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModel.swift; sourceTree = "<group>"; };
 		8A189A1E2A1DCE2F005E6E88 /* Supplementary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Supplementary.swift; sourceTree = "<group>"; };
+		8A20D0832A2A7A3000D9D698 /* StackWaterfallBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackWaterfallBuilder.swift; sourceTree = "<group>"; };
+		8A20D0852A2C6D0200D9D698 /* WaterfallModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterfallModel.swift; sourceTree = "<group>"; };
 		8A47565829FCE2A000F4E44D /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		8AA67A722A27CE020052D3CA /* HorizontalWaterfallBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalWaterfallBuilder.swift; sourceTree = "<group>"; };
 		8AD8ACED29FE1A1100170258 /* SimpleListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleListViewController.swift; sourceTree = "<group>"; };
@@ -143,6 +147,7 @@
 				8A13F16829F81ABB00CAB09F /* ListModel.swift */,
 				8AD8ACF129FE567F00170258 /* Person.swift */,
 				8A10D9842A2233DE0029BE92 /* CountryModel.swift */,
+				8A20D0852A2C6D0200D9D698 /* WaterfallModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -165,6 +170,7 @@
 				E2A102B62A1BDACF002041F6 /* WaterfallConfiguration.swift */,
 				E2A102B82A1BDAF5002041F6 /* VerticalWaterfallBuilder.swift */,
 				8AA67A722A27CE020052D3CA /* HorizontalWaterfallBuilder.swift */,
+				8A20D0832A2A7A3000D9D698 /* StackWaterfallBuilder.swift */,
 			);
 			path = Waterfall;
 			sourceTree = "<group>";
@@ -239,6 +245,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A20D0842A2A7A3000D9D698 /* StackWaterfallBuilder.swift in Sources */,
 				E2A102B32A1BD18D002041F6 /* WaterfallCell.swift in Sources */,
 				8AD8ACEE29FE1A1100170258 /* SimpleListViewController.swift in Sources */,
 				8A10D9822A2226790029BE92 /* SupplementaryViewController.swift in Sources */,
@@ -248,6 +255,7 @@
 				E2A102AF2A1BCF56002041F6 /* Waterfall.swift in Sources */,
 				E2A102B92A1BDAF5002041F6 /* VerticalWaterfallBuilder.swift in Sources */,
 				8A091CCD29F57076001EAE4F /* MenuViewController.swift in Sources */,
+				8A20D0862A2C6D0200D9D698 /* WaterfallModel.swift in Sources */,
 				8AEAAB0129FA83F200ED6B14 /* MultiSectionExpandableList.swift in Sources */,
 				8A05EE362A002B7900134E22 /* Grid.swift in Sources */,
 				8A091CB929F56BDA001EAE4F /* AppDelegate.swift in Sources */,
