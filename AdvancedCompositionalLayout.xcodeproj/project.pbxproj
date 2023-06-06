@@ -23,6 +23,8 @@
 		8A20D0842A2A7A3000D9D698 /* StackWaterfallBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A20D0832A2A7A3000D9D698 /* StackWaterfallBuilder.swift */; };
 		8A20D0862A2C6D0200D9D698 /* WaterfallModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A20D0852A2C6D0200D9D698 /* WaterfallModel.swift */; };
 		8A47565929FCE2A000F4E44D /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A47565829FCE2A000F4E44D /* UIView.swift */; };
+		8A5C71A62A2E41C0001C1C56 /* NestedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5C71A52A2E41C0001C1C56 /* NestedViewController.swift */; };
+		8A5C71A82A2E422C001C1C56 /* NestedGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5C71A72A2E422C001C1C56 /* NestedGroup.swift */; };
 		8AA67A732A27CE020052D3CA /* HorizontalWaterfallBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA67A722A27CE020052D3CA /* HorizontalWaterfallBuilder.swift */; };
 		8AD8ACEE29FE1A1100170258 /* SimpleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD8ACED29FE1A1100170258 /* SimpleListViewController.swift */; };
 		8AD8ACF029FE1E6300170258 /* SimpleList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD8ACEF29FE1E6300170258 /* SimpleList.swift */; };
@@ -54,6 +56,8 @@
 		8A20D0832A2A7A3000D9D698 /* StackWaterfallBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackWaterfallBuilder.swift; sourceTree = "<group>"; };
 		8A20D0852A2C6D0200D9D698 /* WaterfallModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterfallModel.swift; sourceTree = "<group>"; };
 		8A47565829FCE2A000F4E44D /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		8A5C71A52A2E41C0001C1C56 /* NestedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestedViewController.swift; sourceTree = "<group>"; };
+		8A5C71A72A2E422C001C1C56 /* NestedGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestedGroup.swift; sourceTree = "<group>"; };
 		8AA67A722A27CE020052D3CA /* HorizontalWaterfallBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalWaterfallBuilder.swift; sourceTree = "<group>"; };
 		8AD8ACED29FE1A1100170258 /* SimpleListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleListViewController.swift; sourceTree = "<group>"; };
 		8AD8ACEF29FE1E6300170258 /* SimpleList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleList.swift; sourceTree = "<group>"; };
@@ -118,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				8A05EE342A002B5900134E22 /* Grid */,
+				8A5C71A92A2E4271001C1C56 /* NestedGroup */,
 				E2A102A92A1BCED8002041F6 /* Waterfall */,
 				8A05EE332A002B3900134E22 /* List */,
 				8A47565729FCE29300F4E44D /* Extensions */,
@@ -159,6 +164,15 @@
 				8A05EE392A00BB5A00134E22 /* NSCollectionLayoutSection.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		8A5C71A92A2E4271001C1C56 /* NestedGroup */ = {
+			isa = PBXGroup;
+			children = (
+				8A5C71A52A2E41C0001C1C56 /* NestedViewController.swift */,
+				8A5C71A72A2E422C001C1C56 /* NestedGroup.swift */,
+			);
+			path = NestedGroup;
 			sourceTree = "<group>";
 		};
 		E2A102A92A1BCED8002041F6 /* Waterfall */ = {
@@ -267,7 +281,9 @@
 				8A05EE3A2A00BB5A00134E22 /* NSCollectionLayoutSection.swift in Sources */,
 				8A189A1F2A1DCE2F005E6E88 /* Supplementary.swift in Sources */,
 				8A47565929FCE2A000F4E44D /* UIView.swift in Sources */,
+				8A5C71A62A2E41C0001C1C56 /* NestedViewController.swift in Sources */,
 				8A13F16929F81ABB00CAB09F /* ListModel.swift in Sources */,
+				8A5C71A82A2E422C001C1C56 /* NestedGroup.swift in Sources */,
 				8A05EE382A002C1C00134E22 /* GridCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
