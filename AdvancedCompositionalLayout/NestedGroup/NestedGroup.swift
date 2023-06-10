@@ -38,7 +38,7 @@ class NestedGroup: UICollectionView {
     
     func configureDataSource(){
         
-        let listCellRegistration = UICollectionView.CellRegistration<GridCell, Int> { (cell, _, item) in
+        let listCellRegistration = UICollectionView.CellRegistration<NestedCell, Int> { (cell, _, item) in
             cell.configure(with: item)
         }
         
@@ -52,7 +52,7 @@ class NestedGroup: UICollectionView {
     
     // MARK: Layout
     private func layout(for sectionIndex: Int, environment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? {
-        return .nestedGroupLayout4()
+        return .nestedGroupLayout3()
     }
     
     func performUpdates(){
