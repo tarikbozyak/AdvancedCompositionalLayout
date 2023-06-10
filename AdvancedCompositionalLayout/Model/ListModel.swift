@@ -8,14 +8,15 @@
 import Foundation
 import UIKit
 
-enum ListType {
-    case simpleList
-    case supplementary
-    case multiSectionList
-    case gridLayout
-    case waterfallLayout
-    case horizontalWaterfallLayout
-    case stackWaterfallLayout
+enum ListType: String {
+    case simpleList = "Simple List Layout"
+    case supplementary = "Supplementary View List"
+    case multiSectionList = "Multi Section List"
+    case gridLayout = "Grid Layout"
+    case nestedGroup = "Nested Group Layout"
+    case waterfall = "Waterfall Layout"
+    case horizontalWaterfall = "Horizontal Waterfall Layout"
+    case stackWaterfall = "Stack Waterfall Layout"
 }
 
 
@@ -36,28 +37,7 @@ struct ListItem: Hashable {
     
     init(type: ListType) {
         self.type = type
-        switch type {
-        case .simpleList:
-            self.image = UIImage(systemName: "star.fill")!
-            self.title = "Simple List"
-        case .multiSectionList:
-            self.image = UIImage(systemName: "star.fill")!
-            self.title = "Multi Section List"
-        case .supplementary:
-            self.image = UIImage(systemName: "star.fill")!
-            self.title = "Supplementary View List"
-        case .gridLayout:
-            self.image = UIImage(systemName: "star.fill")!
-            self.title = "Grid Layout"
-        case .waterfallLayout:
-            self.image = UIImage(systemName: "star.fill")!
-            self.title = "Waterfall Layout"
-        case .horizontalWaterfallLayout:
-            self.image = UIImage(systemName: "star.fill")!
-            self.title = "Horizontal Waterfall Layout"
-        case .stackWaterfallLayout:
-            self.image = UIImage(systemName: "star.fill")!
-            self.title = "Stack Waterfall Layout"
-        }
+        self.title = type.rawValue
+        self.image = UIImage(systemName: "star.fill")!
     }
 }

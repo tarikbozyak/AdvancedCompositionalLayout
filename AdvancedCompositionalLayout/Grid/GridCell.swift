@@ -40,7 +40,8 @@ class GridCell: UICollectionViewCell {
     }
     
     func layerConfigure(){
-        let cornerRadius = frame.width / 10
+        let isLandscape = frame.width / frame.height > 1 ? true : false
+        let cornerRadius = isLandscape ? frame.height / 10 : frame.width / 10
         contentView.layer.cornerRadius = cornerRadius
         contentView.layer.masksToBounds = true
         layer.cornerRadius = cornerRadius

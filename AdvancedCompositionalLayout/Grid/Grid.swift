@@ -58,6 +58,7 @@ class Grid: UICollectionView {
         return .gridSection(columnCount: columnCount)
     }
     
+    // MARK: PerformUpdates
     func performUpdates(){
         var snapshot = GridSnapshot()
         snapshot.appendSections([0])

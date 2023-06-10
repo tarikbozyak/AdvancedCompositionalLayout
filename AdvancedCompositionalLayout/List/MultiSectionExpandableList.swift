@@ -118,13 +118,16 @@ extension MultiSectionExpandableList: UICollectionViewDelegate {
             else if listItem.type == .gridLayout {
                 rootVC.navigationController?.pushViewController(GridViewController(), animated: true)
             }
-            else if listItem.type == .waterfallLayout {
+            else if listItem.type == .nestedGroup {
+                rootVC.navigationController?.pushViewController(NestedViewController(), animated: true)
+            }
+            else if listItem.type == .waterfall {
                 rootVC.navigationController?.pushViewController(WaterfallViewController(type: .vertical), animated: true)
             }
-            else if listItem.type == .horizontalWaterfallLayout {
+            else if listItem.type == .horizontalWaterfall {
                 rootVC.navigationController?.pushViewController(WaterfallViewController(type: .horizontal), animated: true)
             }
-            else if listItem.type == .stackWaterfallLayout {
+            else if listItem.type == .stackWaterfall {
                 rootVC.navigationController?.pushViewController(WaterfallViewController(type: .stack), animated: true)
             }
             
