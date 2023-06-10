@@ -52,7 +52,7 @@ class NestedGroup: UICollectionView {
     
     // MARK: Layout
     private func layout(for sectionIndex: Int, environment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? {
-        return .nestedGroupLayout2()
+        return .nestedGroupLayout4()
     }
     
     func performUpdates(){
