@@ -10,6 +10,87 @@ import UIKit
 
 extension NSCollectionLayoutSection {
     
+    static func gridSection(columnCount: Int) -> NSCollectionLayoutSection {
+        let columnCount = CGFloat(columnCount)
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1/columnCount), heightDimension: .fractionalHeight(1.0))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        
+        item.contentInsets = .init(top: 5, leading: 5, bottom: 5, trailing: 5)
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalWidth(1/columnCount))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+        let section = NSCollectionLayoutSection(group: group)
+        return section
+    }
+    
+    static func verticalWaterfallSection(config: WaterfallConfiguration) -> NSCollectionLayoutSection {
+        var items = [NSCollectionLayoutGroupCustomItem]()
+        let builder = VerticalWaterfallBuilder(config: config)
+        
+        for i in 0..<config.dataCount {
+            let item = builder.prepareItem(for: i)
+            items.append(item)
+        }
+        
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(builder.maxHeight))
+        
+        let group = NSCollectionLayoutGroup.custom(layoutSize: groupSize) { _ in
+            return items
+        }
+        
+        let section = NSCollectionLayoutSection(group: group)
+        section.contentInsets = .init(top: 16, leading: config.sectionHorizontalSpacing, bottom: 16, trailing: config.sectionHorizontalSpacing)
+        
+        return section
+    }
+    
+    static func stackWaterfallSection(config: WaterfallConfiguration) -> NSCollectionLayoutSection {
+        var items = [NSCollectionLayoutGroupCustomItem]()
+        let builder = StackWaterfallBuilder(config: config)
+        
+        for i in 0..<config.dataCount {
+            let item = builder.prepareItem(for: i)
+            items.append(item)
+        }
+        
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(builder.maxHeight))
+        
+        let group = NSCollectionLayoutGroup.custom(layoutSize: groupSize) { _ in
+            return items
+        }
+        
+        let section = NSCollectionLayoutSection(group: group)
+        section.contentInsets = .init(top: 16, leading: config.sectionHorizontalSpacing, bottom: 16, trailing: config.sectionHorizontalSpacing)
+        
+        return section
+    }
+    
+    static func horizontalWaterfallSection(config: WaterfallConfiguration) -> NSCollectionLayoutSection {
+        var items = [NSCollectionLayoutGroupCustomItem]()
+        let builder = HorizontalWaterfallBuilder(config: config)
+        
+        for i in 0..<config.dataCount {
+            let item = builder.prepareItem(for: i)
+            items.append(item)
+        }
+        
+        let groupSize = NSCollectionLayoutSize(widthDimension: .absolute(builder.maxWidth) , heightDimension: .fractionalHeight(0.6))
+        
+        let group = NSCollectionLayoutGroup.custom(layoutSize: groupSize) { _ in
+            return items
+        }
+        
+        let section = NSCollectionLayoutSection(group: group)
+        section.contentInsets = .init(top: 16, leading: config.sectionVerticalSpacing, bottom: 16, trailing: config.sectionVerticalSpacing)
+        section.orthogonalScrollingBehavior = .continuous
+        
+        return section
+    }
+    
+}
+
+// Nested Group
+extension NSCollectionLayoutSection {
+    
     static func nestedGroupLayout() -> NSCollectionLayoutSection {
         //First group item
         let firstGroupItem = NSCollectionLayoutItem(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
@@ -314,83 +395,5 @@ extension NSCollectionLayoutSection {
         let section = NSCollectionLayoutSection(group: finalGroup)
         return section
     }
-    
-    
-    static func gridSection(columnCount: Int) -> NSCollectionLayoutSection {
-        let columnCount = CGFloat(columnCount)
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1/columnCount), heightDimension: .fractionalHeight(1.0))
-        let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        
-        item.contentInsets = .init(top: 5, leading: 5, bottom: 5, trailing: 5)
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalWidth(1/columnCount))
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-        let section = NSCollectionLayoutSection(group: group)
-        return section
-    }
-    
-    static func verticalWaterfallSection(config: WaterfallConfiguration) -> NSCollectionLayoutSection {
-        var items = [NSCollectionLayoutGroupCustomItem]()
-        let builder = VerticalWaterfallBuilder(config: config)
-        
-        for i in 0..<config.dataCount {
-            let item = builder.prepareItem(for: i)
-            items.append(item)
-        }
-        
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(builder.maxHeight))
-        
-        let group = NSCollectionLayoutGroup.custom(layoutSize: groupSize) { _ in
-            return items
-        }
-        
-        let section = NSCollectionLayoutSection(group: group)
-        section.contentInsets = .init(top: 16, leading: config.sectionHorizontalSpacing, bottom: 16, trailing: config.sectionHorizontalSpacing)
-        
-        return section
-    }
-    
-    static func stackWaterfallSection(config: WaterfallConfiguration) -> NSCollectionLayoutSection {
-        var items = [NSCollectionLayoutGroupCustomItem]()
-        let builder = StackWaterfallBuilder(config: config)
-        
-        for i in 0..<config.dataCount {
-            let item = builder.prepareItem(for: i)
-            items.append(item)
-        }
-        
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(builder.maxHeight))
-        
-        let group = NSCollectionLayoutGroup.custom(layoutSize: groupSize) { _ in
-            return items
-        }
-        
-        let section = NSCollectionLayoutSection(group: group)
-        section.contentInsets = .init(top: 16, leading: config.sectionHorizontalSpacing, bottom: 16, trailing: config.sectionHorizontalSpacing)
-        
-        return section
-    }
-    
-    static func horizontalWaterfallSection(config: WaterfallConfiguration) -> NSCollectionLayoutSection {
-        var items = [NSCollectionLayoutGroupCustomItem]()
-        let builder = HorizontalWaterfallBuilder(config: config)
-        
-        for i in 0..<config.dataCount {
-            let item = builder.prepareItem(for: i)
-            items.append(item)
-        }
-        
-        let groupSize = NSCollectionLayoutSize(widthDimension: .absolute(builder.maxWidth) , heightDimension: .fractionalHeight(0.6))
-        
-        let group = NSCollectionLayoutGroup.custom(layoutSize: groupSize) { _ in
-            return items
-        }
-        
-        let section = NSCollectionLayoutSection(group: group)
-        section.contentInsets = .init(top: 16, leading: config.sectionVerticalSpacing, bottom: 16, trailing: config.sectionVerticalSpacing)
-        section.orthogonalScrollingBehavior = .continuous
-        
-        return section
-    }
-    
 }
 
