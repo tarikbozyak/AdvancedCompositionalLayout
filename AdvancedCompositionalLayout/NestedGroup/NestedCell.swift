@@ -32,7 +32,7 @@ class NestedCell: UICollectionViewCell {
     }
     
     required init?(coder: NSCoder) {
-        fatalError("GridCell coder has not been implemented")
+        fatalError("NestedCell coder has not been implemented")
     }
     
     func configure(with item: Int) {

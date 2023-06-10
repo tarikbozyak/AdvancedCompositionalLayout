@@ -46,13 +46,12 @@ class NestedGroup: UICollectionView {
             (collectionView, indexPath, item) -> UICollectionViewCell? in
             
             return collectionView.dequeueConfiguredReusableCell(using: listCellRegistration, for: indexPath, item: self.data[indexPath.row])
-            
         }
     }
     
     // MARK: Layout
     private func layout(for sectionIndex: Int, environment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? {
-        return .nestedGroupLayout3()
+        return .nestedGroupLayout5()
     }
     
     func performUpdates(){
