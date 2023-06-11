@@ -11,12 +11,6 @@ import UIKit
 typealias WaterfallSnapshot = NSDiffableDataSourceSnapshot<Int, WaterfallData>
 typealias WaterfallDataSource = UICollectionViewDiffableDataSource<Int, WaterfallData>
 
-enum WaterfallType {
-    case horizontal
-    case vertical
-    case stack
-}
-
 class Waterfall: UICollectionView {
     
     weak var rootVC: UIViewController!

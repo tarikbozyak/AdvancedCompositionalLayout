@@ -8,15 +8,12 @@
 import Foundation
 import UIKit
 
-enum NestedGroupType {
-    case vertical
-    case horizontal(layoutId: Int)
-}
+
 
 class NestedGroup: UICollectionView {
     
     weak var rootVC: UIViewController!
-    
+
     var type: NestedGroupType?
     
     var datasource: GridDataSource!
@@ -71,9 +68,6 @@ class NestedGroup: UICollectionView {
             }
             else if layoutID == 3 {
                 return .horizontalNestedGroupLayout3()
-            }
-            else if layoutID == 4 {
-                return .horizontalNestedGroupLayout4()
             }
             else {
                 return .horizontalNestedGroupLayout1()

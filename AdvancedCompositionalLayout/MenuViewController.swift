@@ -17,16 +17,18 @@ class MenuViewController: UIViewController {
             ListItem(type: .gridLayout),
             ListItem(title: "Nested Groups", subItems: [
                 ListItem(title: "Vertical Nested Groups", subItems: [
-                    ListItem(type: .nestedGroup)
+                    ListItem(type: .nestedGroup(type: .vertical))
                 ]),
                 ListItem(title: "Horizontal Nested Groups", subItems: [
-                    ListItem(type: .nestedGroup)
+                    ListItem(type: .nestedGroup(type: .horizontal(layoutId: 1))),
+                    ListItem(type: .nestedGroup(type: .horizontal(layoutId: 2))),
+                    ListItem(type: .nestedGroup(type: .horizontal(layoutId: 3)))
                 ]),
             ]),
             ListItem(title: "Waterfall", subItems: [
-                ListItem(type: .waterfall),
-                ListItem(type: .horizontalWaterfall),
-                ListItem(type: .stackWaterfall)
+                ListItem(type: .waterfall(type: .vertical)),
+                ListItem(type: .waterfall(type: .horizontal)),
+                ListItem(type: .waterfall(type: .stack))
             ])
         ]),
         

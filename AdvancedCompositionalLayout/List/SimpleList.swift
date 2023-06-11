@@ -56,7 +56,7 @@ class SimpleList: UICollectionView {
     }
     
     private func layout() -> UICollectionViewCompositionalLayout {
-        var configuration = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
+        let configuration = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
         return UICollectionViewCompositionalLayout.list(using: configuration)
     }
     
