@@ -91,7 +91,7 @@ extension NSCollectionLayoutSection {
 // Nested Group
 extension NSCollectionLayoutSection {
     
-    static func nestedGroupLayout() -> NSCollectionLayoutSection {
+    static func horizontalNestedGroupLayout1() -> NSCollectionLayoutSection {
         //First group item
         let firstGroupItem = NSCollectionLayoutItem(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
         firstGroupItem.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
@@ -115,7 +115,7 @@ extension NSCollectionLayoutSection {
         return section
     }
     
-    static func nestedGroupLayout2() -> NSCollectionLayoutSection {
+    static func horizontalNestedGroupLayout2() -> NSCollectionLayoutSection {
         //First group item 1
         let firstGroupItem1 = NSCollectionLayoutItem(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.6), heightDimension: .fractionalHeight(1)))
         firstGroupItem1.contentInsets = NSDirectionalEdgeInsets(top: 3, leading: 3, bottom: 3, trailing: 3)
@@ -176,7 +176,7 @@ extension NSCollectionLayoutSection {
     }
     
     
-    static func nestedGroupLayout3() -> NSCollectionLayoutSection {
+    static func horizontalNestedGroupLayout3() -> NSCollectionLayoutSection {
         
         //First group first inner group
         let firstGroupFirstInnerGroupItem1 = NSCollectionLayoutItem(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
@@ -247,7 +247,7 @@ extension NSCollectionLayoutSection {
     }
     
     
-    static func nestedGroupLayout4() -> NSCollectionLayoutSection {
+    static func horizontalNestedGroupLayout4() -> NSCollectionLayoutSection {
         
         //First group first inner group
         let firstGroupFirstInnerGroupItem1 = NSCollectionLayoutItem(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(0.55)))
@@ -318,7 +318,7 @@ extension NSCollectionLayoutSection {
         return section
     }
     
-    static func nestedGroupLayout5() -> NSCollectionLayoutSection {
+    static func verticalNestedGroupLayout() -> NSCollectionLayoutSection {
         
         //First nested group
         

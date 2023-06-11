@@ -8,8 +8,8 @@
 import Foundation
 import UIKit
 
-typealias MultiSectionListSnapshot = NSDiffableDataSourceSnapshot<MenuSection, MenuDataType>
-typealias MultiSectionListDataSource = UICollectionViewDiffableDataSource<MenuSection, MenuDataType>
+typealias MultiSectionListSnapshot = NSDiffableDataSourceSnapshot<Int, ListItem>
+typealias MultiSectionListDataSource = UICollectionViewDiffableDataSource<Int, ListItem>
 
 protocol CollectionViewDataDelegte: AnyObject {
     func data() -> [AnyHashable]
@@ -22,9 +22,9 @@ class MultiSectionExpandableList: UICollectionView {
     var datasource: MultiSectionListDataSource!
     var style: UICollectionLayoutListConfiguration.Appearance = .grouped
     
-    var data: [MenuSection] {
+    var data: [ListItem] {
         let delegate = rootVC as? CollectionViewDataDelegte
-        return delegate?.data() as? [MenuSection] ?? []
+        return delegate?.data() as? [ListItem] ?? []
     }
     
     init(frame: CGRect = .zero, style: UICollectionLayoutListConfiguration.Appearance = .grouped) {
@@ -46,7 +46,7 @@ class MultiSectionExpandableList: UICollectionView {
     
     func configureDataSource(){
         
-        let headerCellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, MenuSection> { (cell, indexPath, headerItem) in
+        let headerCellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, ListItem> { (cell, indexPath, headerItem) in
             var content = cell.defaultContentConfiguration()
             content.text = headerItem.title
             cell.contentConfiguration = content
@@ -55,47 +55,51 @@ class MultiSectionExpandableList: UICollectionView {
         
         let listCellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, ListItem> { (cell, indexPath, listItem) in
             var content = cell.defaultContentConfiguration()
-            content.image = listItem.image
             content.text = listItem.title
             cell.contentConfiguration = content
         }
         
-        datasource = UICollectionViewDiffableDataSource<MenuSection, MenuDataType>(collectionView: self) {
+        datasource = UICollectionViewDiffableDataSource<Int, ListItem>(collectionView: self) {
             (collectionView, indexPath, item) -> UICollectionViewCell? in
             
-            switch item {
-            case .header(let headerItem):
-                return collectionView.dequeueConfiguredReusableCell(using: headerCellRegistration, for: indexPath, item: headerItem)
-                
-            case .list(let listItem):
-                return collectionView.dequeueConfiguredReusableCell(using: listCellRegistration, for: indexPath, item: listItem)
-            }
+            let cellRegistration = {
+                return item.subItems.isEmpty ? listCellRegistration : headerCellRegistration
+            }()
+            return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: item)
+            
         }
     }
     
     private func layout() -> UICollectionViewCompositionalLayout {
-        var configuration = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
+        var configuration = UICollectionLayoutListConfiguration(appearance: .plain)
         configuration.headerMode = .firstItemInSection
         return UICollectionViewCompositionalLayout.list(using: configuration)
     }
     
-    func performUpdates(){
+    func performUpdates() {
         var snapshot = MultiSectionListSnapshot()
-        
-        snapshot.appendSections(data)
+        let sections = [Int](0...data.count)
+        snapshot.appendSections(sections)
         datasource.apply(snapshot)
         
-        data.forEach { item in
-            var sectionSnapshot = NSDiffableDataSourceSectionSnapshot<MenuDataType>()
+        data.enumerated().forEach { index, item in
+            var sectionSnapshot = NSDiffableDataSourceSectionSnapshot<ListItem>()
+            sectionSnapshot.append([item])
+            sectionSnapshot.append(item.subItems, to: item)
+            sectionSnapshot.expand([item])
             
-            let section = MenuDataType.header(item)
-            sectionSnapshot.append([section])
+            item.subItems.forEach { subItem in
+                if !subItem.subItems.isEmpty{
+                    sectionSnapshot.append(subItem.subItems, to: subItem)
+                    subItem.subItems.forEach { subItem in
+                        if !subItem.subItems.isEmpty{
+                            sectionSnapshot.append(subItem.subItems, to: subItem)
+                        }
+                    }
+                }
+            }
             
-            let listItemArray = item.menuList.map { MenuDataType.list($0) }
-            sectionSnapshot.append(listItemArray, to: section)
-            sectionSnapshot.expand([section])
-            
-            datasource.apply(sectionSnapshot, to: item, animatingDifferences: false)
+            datasource.apply(sectionSnapshot, to: index, animatingDifferences: false)
         }
     }
     
@@ -104,37 +108,9 @@ class MultiSectionExpandableList: UICollectionView {
 extension MultiSectionExpandableList: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
         guard let item = datasource.itemIdentifier(for: indexPath) else {return}
-        
-        switch item {
-        case .list(let listItem):
-            if listItem.type == .simpleList {
-                rootVC.navigationController?.pushViewController(SimpleListViewController(), animated: true)
-            }
-            else if listItem.type == .supplementary {
-                rootVC.navigationController?.pushViewController(SupplementaryViewController(), animated: true)
-            }
-            else if listItem.type == .gridLayout {
-                rootVC.navigationController?.pushViewController(GridViewController(), animated: true)
-            }
-            else if listItem.type == .nestedGroup {
-                rootVC.navigationController?.pushViewController(NestedViewController(), animated: true)
-            }
-            else if listItem.type == .waterfall {
-                rootVC.navigationController?.pushViewController(WaterfallViewController(type: .vertical), animated: true)
-            }
-            else if listItem.type == .horizontalWaterfall {
-                rootVC.navigationController?.pushViewController(WaterfallViewController(type: .horizontal), animated: true)
-            }
-            else if listItem.type == .stackWaterfall {
-                rootVC.navigationController?.pushViewController(WaterfallViewController(type: .stack), animated: true)
-            }
-            
-        default:
-            break
-        }
-        
+        guard let viewController = item.type?.viewController else {return}
+        rootVC.navigationController?.pushViewController(viewController, animated: true)
     }
     
 }

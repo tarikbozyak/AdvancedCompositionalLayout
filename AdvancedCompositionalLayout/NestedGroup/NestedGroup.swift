@@ -8,9 +8,16 @@
 import Foundation
 import UIKit
 
+enum NestedGroupType {
+    case vertical
+    case horizontal(layoutId: Int)
+}
+
 class NestedGroup: UICollectionView {
     
     weak var rootVC: UIViewController!
+    
+    var type: NestedGroupType?
     
     var datasource: GridDataSource!
     
@@ -51,7 +58,27 @@ class NestedGroup: UICollectionView {
     
     // MARK: Layout
     private func layout(for sectionIndex: Int, environment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? {
-        return .nestedGroupLayout2()
+        guard let type = type else {return nil}
+        switch type {
+        case .vertical:
+            return .verticalNestedGroupLayout()
+        case .horizontal(let layoutID):
+            if layoutID == 1 {
+                return .horizontalNestedGroupLayout1()
+            }
+            else if layoutID == 2 {
+                return .horizontalNestedGroupLayout2()
+            }
+            else if layoutID == 3 {
+                return .horizontalNestedGroupLayout3()
+            }
+            else if layoutID == 4 {
+                return .horizontalNestedGroupLayout4()
+            }
+            else {
+                return .horizontalNestedGroupLayout1()
+            }
+        }
     }
     
     func performUpdates(){

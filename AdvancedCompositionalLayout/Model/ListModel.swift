@@ -17,27 +17,36 @@ enum ListType: String {
     case waterfall = "Waterfall Layout"
     case horizontalWaterfall = "Horizontal Waterfall Layout"
     case stackWaterfall = "Stack Waterfall Layout"
-}
-
-
-enum MenuDataType: Hashable {
-    case header(MenuSection)
-    case list(ListItem)
-}
-
-struct MenuSection: Hashable {
-    let title: String
-    let menuList: [ListItem]
+    
+    var viewController: UIViewController?{
+        switch self {
+        case .simpleList: return SimpleListViewController()
+        case .supplementary: return SupplementaryViewController()
+        case .multiSectionList: return nil
+        case .gridLayout: return GridViewController()
+        case .nestedGroup: return NestedViewController(type: .vertical)
+        case .waterfall: return WaterfallViewController(type: .vertical)
+        case .horizontalWaterfall: return WaterfallViewController(type: .horizontal)
+        case .stackWaterfall: return WaterfallViewController(type: .stack)
+        }
+    }
 }
 
 struct ListItem: Hashable {
-    let type: ListType
+    let id = UUID()
     let title: String
-    let image: UIImage
+    let type: ListType?
+    let subItems: [ListItem]
     
-    init(type: ListType) {
+    init(type: ListType, subItems: [ListItem] = []) {
         self.type = type
+        self.subItems = subItems
         self.title = type.rawValue
-        self.image = UIImage(systemName: "star.fill")!
+    }
+    
+    init(title: String, subItems: [ListItem] = []) {
+        self.type = ListType(rawValue: title)
+        self.subItems = subItems
+        self.title = title
     }
 }

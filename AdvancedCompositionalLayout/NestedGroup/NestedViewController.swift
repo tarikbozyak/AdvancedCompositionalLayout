@@ -14,6 +14,17 @@ class NestedViewController: UIViewController {
     
     let sectionData = [Int](1...100)
     
+    var type: NestedGroupType
+    
+    init(type: NestedGroupType) {
+        self.type = type
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("NestedViewController init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureCollectionView()
@@ -22,6 +33,7 @@ class NestedViewController: UIViewController {
     private func configureCollectionView(){
         view.addSubview(collectionView)
         collectionView.edgesToSuperview()
+        collectionView.type = type
         collectionView.rootVC = self
         collectionView.performUpdates()
     }

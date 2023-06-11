@@ -13,15 +13,24 @@ class MenuViewController: UIViewController {
     
     let sectionData = [
         
-        MenuSection(title: "Grid", menuList: [
+        ListItem(title: "Grid", subItems: [
             ListItem(type: .gridLayout),
-            ListItem(type: .nestedGroup),
-            ListItem(type: .waterfall),
-            ListItem(type: .horizontalWaterfall),
-            ListItem(type: .stackWaterfall)
+            ListItem(title: "Nested Groups", subItems: [
+                ListItem(title: "Vertical Nested Groups", subItems: [
+                    ListItem(type: .nestedGroup)
+                ]),
+                ListItem(title: "Horizontal Nested Groups", subItems: [
+                    ListItem(type: .nestedGroup)
+                ]),
+            ]),
+            ListItem(title: "Waterfall", subItems: [
+                ListItem(type: .waterfall),
+                ListItem(type: .horizontalWaterfall),
+                ListItem(type: .stackWaterfall)
+            ])
         ]),
         
-        MenuSection(title: "Collection View List", menuList: [
+        ListItem(title: "Collection View List", subItems: [
             ListItem(type: .simpleList),
             ListItem(type: .supplementary),
             ListItem(type: .multiSectionList)
