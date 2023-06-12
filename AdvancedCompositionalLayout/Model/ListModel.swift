@@ -55,8 +55,8 @@ enum ListType {
         case .waterfall(let type): return "\(type.rawValue) Waterfall Layout"
         case .nestedGroup(let type):
             switch type {
-            case .vertical: return "Vertical Nested Group"
-            case .horizontal(let layoutId): return "Horizontal Nested Group \(layoutId)"
+            case .vertical: return "Vertical Nested Group Layout"
+            case .horizontal(let layoutId): return "Horizontal Nested Group Layout \(layoutId)"
             }
         }
     }
