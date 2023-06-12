@@ -28,7 +28,7 @@ struct ListItem: Hashable {
 }
 
 enum ListType {
-    case simpleList
+    case basicList
     case supplementary
     case multiSectionList
     case gridLayout
@@ -37,7 +37,7 @@ enum ListType {
     
     var viewController: UIViewController? {
         switch self {
-        case .simpleList: return SimpleListViewController()
+        case .basicList: return BasicListViewController()
         case .supplementary: return SupplementaryViewController()
         case .multiSectionList: return nil
         case .gridLayout: return GridViewController()
@@ -48,10 +48,10 @@ enum ListType {
     
     var title: String {
         switch self {
-        case .simpleList: return "Simple List Layout"
+        case .basicList: return "Basic List Layout"
         case .supplementary: return "Supplementary View List"
         case .multiSectionList: return "Multi Section List"
-        case .gridLayout: return "Grid Layout"
+        case .gridLayout: return "Basic Grid"
         case .waterfall(let type): return "\(type.rawValue) Waterfall Layout"
         case .nestedGroup(let type):
             switch type {

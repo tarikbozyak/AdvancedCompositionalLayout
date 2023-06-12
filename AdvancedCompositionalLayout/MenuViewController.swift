@@ -33,7 +33,7 @@ class MenuViewController: UIViewController {
         ]),
         
         ListItem(title: "Collection View List", subItems: [
-            ListItem(type: .simpleList),
+            ListItem(type: .basicList),
             ListItem(type: .supplementary),
             ListItem(type: .multiSectionList)
         ])

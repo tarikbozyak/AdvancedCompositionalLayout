@@ -1,5 +1,5 @@
 //
-//  SimpleListViewController.swift
+//  BasicListViewController.swift
 //  AdvancedCompositionalLayout
 //
 //  Created by Ahmed Tarık Bozyak on 30.04.2023.
@@ -8,9 +8,9 @@
 import Foundation
 import UIKit
 
-class SimpleListViewController: UIViewController {
+class BasicListViewController: UIViewController {
     
-    lazy var collectionView = SimpleList()
+    lazy var collectionView = BasicList()
     
     let sectionData = [
         
@@ -31,7 +31,7 @@ class SimpleListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Simple List"
+        title = "Basic List"
         configureCollectionView()
     }
     
@@ -43,7 +43,7 @@ class SimpleListViewController: UIViewController {
     }
 }
 
-extension SimpleListViewController: CollectionViewDataDelegte {
+extension BasicListViewController: CollectionViewDataDelegte {
     func data() -> [AnyHashable] {
         return sectionData
     }

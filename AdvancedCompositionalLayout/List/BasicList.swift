@@ -1,5 +1,5 @@
 //
-//  SimpleList.swift
+//  BasicList.swift
 //  AdvancedCompositionalLayout
 //
 //  Created by Ahmed Tarık Bozyak on 30.04.2023.
@@ -8,14 +8,14 @@
 import Foundation
 import UIKit
 
-typealias SimpleListSnapshot = NSDiffableDataSourceSnapshot<Int, Person>
-typealias SimpleListDataSource = UICollectionViewDiffableDataSource<Int, Person>
+typealias BasicListSnapshot = NSDiffableDataSourceSnapshot<Int, Person>
+typealias BasicListDataSource = UICollectionViewDiffableDataSource<Int, Person>
 
-class SimpleList: UICollectionView {
+class BasicList: UICollectionView {
     
     weak var rootVC: UIViewController!
     
-    var datasource: SimpleListDataSource!
+    var datasource: BasicListDataSource!
     
     var data: [Person] {
         let delegate = rootVC as? CollectionViewDataDelegte
@@ -61,7 +61,7 @@ class SimpleList: UICollectionView {
     }
     
     func performUpdates(){
-        var snapshot = SimpleListSnapshot()
+        var snapshot = BasicListSnapshot()
         snapshot.appendSections([0])
         snapshot.appendItems(data)
         datasource.apply(snapshot,animatingDifferences: true)

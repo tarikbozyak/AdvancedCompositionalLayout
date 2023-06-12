@@ -49,13 +49,24 @@ class MultiSectionExpandableList: UICollectionView {
         let headerCellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, ListItem> { (cell, indexPath, headerItem) in
             var content = cell.defaultContentConfiguration()
             content.text = headerItem.title
+            if indexPath.row != 0 {
+                content.textProperties.font = .preferredFont(forTextStyle: .callout)
+                content.textProperties.color = .label
+                cell.accessories = [.outlineDisclosure(options: UICellAccessory.OutlineDisclosureOptions(style: .header)), .label(text: "\(headerItem.subItems.count) items")]
+            }
+            else {
+                content.textProperties.font = .preferredFont(forTextStyle: .headline)
+                cell.accessories = [.outlineDisclosure(options: UICellAccessory.OutlineDisclosureOptions(style: .header))]
+            }
             cell.contentConfiguration = content
-            cell.accessories = [.outlineDisclosure(options: UICellAccessory.OutlineDisclosureOptions(style: .header))]
+            
         }
         
         let listCellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, ListItem> { (cell, indexPath, listItem) in
             var content = cell.defaultContentConfiguration()
             content.text = listItem.title
+            content.textProperties.font = .preferredFont(forTextStyle: .callout)
+            content.textProperties.color = .label
             cell.contentConfiguration = content
         }
         

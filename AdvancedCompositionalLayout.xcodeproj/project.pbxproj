@@ -28,8 +28,8 @@
 		8A8716E42A36038700B97B68 /* NestedGroupType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8716E32A36038700B97B68 /* NestedGroupType.swift */; };
 		8A8716E62A3603CC00B97B68 /* WaterfallType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8716E52A3603CC00B97B68 /* WaterfallType.swift */; };
 		8AA67A732A27CE020052D3CA /* HorizontalWaterfallBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA67A722A27CE020052D3CA /* HorizontalWaterfallBuilder.swift */; };
-		8AD8ACEE29FE1A1100170258 /* SimpleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD8ACED29FE1A1100170258 /* SimpleListViewController.swift */; };
-		8AD8ACF029FE1E6300170258 /* SimpleList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD8ACEF29FE1E6300170258 /* SimpleList.swift */; };
+		8AD8ACEE29FE1A1100170258 /* BasicListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD8ACED29FE1A1100170258 /* BasicListViewController.swift */; };
+		8AD8ACF029FE1E6300170258 /* BasicList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD8ACEF29FE1E6300170258 /* BasicList.swift */; };
 		8AD8ACF229FE567F00170258 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD8ACF129FE567F00170258 /* Person.swift */; };
 		8AEAAB0129FA83F200ED6B14 /* MultiSectionExpandableList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEAAB0029FA83F200ED6B14 /* MultiSectionExpandableList.swift */; };
 		E26359E82A3484520049E877 /* NestedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26359E72A3484520049E877 /* NestedCell.swift */; };
@@ -64,8 +64,9 @@
 		8A8716E32A36038700B97B68 /* NestedGroupType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestedGroupType.swift; sourceTree = "<group>"; };
 		8A8716E52A3603CC00B97B68 /* WaterfallType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterfallType.swift; sourceTree = "<group>"; };
 		8AA67A722A27CE020052D3CA /* HorizontalWaterfallBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalWaterfallBuilder.swift; sourceTree = "<group>"; };
-		8AD8ACED29FE1A1100170258 /* SimpleListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleListViewController.swift; sourceTree = "<group>"; };
-		8AD8ACEF29FE1E6300170258 /* SimpleList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleList.swift; sourceTree = "<group>"; };
+		8ABC74532A376F4D002C2CC2 /* TodoList.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TodoList.md; sourceTree = "<group>"; };
+		8AD8ACED29FE1A1100170258 /* BasicListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicListViewController.swift; sourceTree = "<group>"; };
+		8AD8ACEF29FE1E6300170258 /* BasicList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicList.swift; sourceTree = "<group>"; };
 		8AD8ACF129FE567F00170258 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		8AEAAB0029FA83F200ED6B14 /* MultiSectionExpandableList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSectionExpandableList.swift; sourceTree = "<group>"; };
 		E26359E72A3484520049E877 /* NestedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestedCell.swift; sourceTree = "<group>"; };
@@ -90,8 +91,8 @@
 		8A05EE332A002B3900134E22 /* List */ = {
 			isa = PBXGroup;
 			children = (
-				8AD8ACED29FE1A1100170258 /* SimpleListViewController.swift */,
-				8AD8ACEF29FE1E6300170258 /* SimpleList.swift */,
+				8AD8ACED29FE1A1100170258 /* BasicListViewController.swift */,
+				8AD8ACEF29FE1E6300170258 /* BasicList.swift */,
 				8AEAAB0029FA83F200ED6B14 /* MultiSectionExpandableList.swift */,
 				8A10D9832A2229200029BE92 /* Supplementary */,
 			);
@@ -139,6 +140,7 @@
 				8A091CC129F56BDB001EAE4F /* Assets.xcassets */,
 				8A091CC329F56BDB001EAE4F /* LaunchScreen.storyboard */,
 				8A091CC629F56BDB001EAE4F /* Info.plist */,
+				8ABC74532A376F4D002C2CC2 /* TodoList.md */,
 			);
 			path = AdvancedCompositionalLayout;
 			sourceTree = "<group>";
@@ -270,11 +272,11 @@
 			files = (
 				8A20D0842A2A7A3000D9D698 /* StackWaterfallBuilder.swift in Sources */,
 				E2A102B32A1BD18D002041F6 /* WaterfallCell.swift in Sources */,
-				8AD8ACEE29FE1A1100170258 /* SimpleListViewController.swift in Sources */,
+				8AD8ACEE29FE1A1100170258 /* BasicListViewController.swift in Sources */,
 				8A10D9822A2226790029BE92 /* SupplementaryViewController.swift in Sources */,
 				E2A102B72A1BDACF002041F6 /* WaterfallConfiguration.swift in Sources */,
 				E2A102AB2A1BCEF2002041F6 /* WaterfallViewController.swift in Sources */,
-				8AD8ACF029FE1E6300170258 /* SimpleList.swift in Sources */,
+				8AD8ACF029FE1E6300170258 /* BasicList.swift in Sources */,
 				E2A102AF2A1BCF56002041F6 /* Waterfall.swift in Sources */,
 				E2A102B92A1BDAF5002041F6 /* VerticalWaterfallBuilder.swift in Sources */,
 				8A091CCD29F57076001EAE4F /* MenuViewController.swift in Sources */,

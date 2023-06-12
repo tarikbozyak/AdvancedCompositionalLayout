@@ -43,7 +43,6 @@ class WaterfallCell: UICollectionViewCell {
     }
     
     func layerConfigure(){
-        
         contentView.layer.cornerRadius = cornerRadius ?? 0
         contentView.layer.masksToBounds = true
         layer.cornerRadius = cornerRadius ?? 0
