@@ -42,9 +42,14 @@ class BasicList: UICollectionView {
         
         let listCellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, Person> { (cell, indexPath, personItem) in
             var content = cell.defaultContentConfiguration()
-            content.image = UIImage(systemName: "star.fill")
+            content.image = UIImage(named: "user\(indexPath.row + 1)")
+            content.imageProperties.maximumSize = .init(width: 60, height: 60)
+            content.imageProperties.cornerRadius = 30
             content.text = personItem.name + " " + personItem.surname
+            content.secondaryText = personItem.job
+            content.secondaryTextProperties.color = .systemGray2
             cell.contentConfiguration = content
+            cell.accessories = [.disclosureIndicator()]
         }
         
         datasource = UICollectionViewDiffableDataSource<Int, Person>(collectionView: self) {

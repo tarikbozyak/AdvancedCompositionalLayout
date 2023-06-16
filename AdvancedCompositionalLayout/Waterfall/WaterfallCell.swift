@@ -38,7 +38,7 @@ class WaterfallCell: UICollectionViewCell {
     
     func configure(with item: Int, bgColor: UIColor?, cornerRadius: CGFloat) {
         self.cornerRadius = cornerRadius
-        self.backgroundColor = bgColor?.withAlphaComponent(0.7)
+        self.backgroundColor = bgColor?.withAlphaComponent(0.8)
         textLabel.text = String(item)
     }
     

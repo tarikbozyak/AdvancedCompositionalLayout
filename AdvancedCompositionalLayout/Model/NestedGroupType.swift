@@ -8,14 +8,12 @@
 import Foundation
 
 enum NestedGroupType: Hashable {
-    case vertical
+    case vertical(layoutId: Int)
     case horizontal(layoutId: Int)
     
     func hash(into hasher: inout Hasher) {
         switch self {
-        case .vertical:
-            break
-        case .horizontal(let layoutId):
+        case .vertical(let layoutId), .horizontal(let layoutId):
             return hasher.combine(layoutId)
         }
     }

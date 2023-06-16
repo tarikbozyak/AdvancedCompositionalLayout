@@ -52,11 +52,11 @@ enum ListType {
         case .supplementary: return "Supplementary View List"
         case .multiSectionList: return "Multi Section List"
         case .gridLayout: return "Basic Grid"
-        case .waterfall(let type): return "\(type.rawValue) Waterfall Layout"
+        case .waterfall(let type): return "\(type.rawValue) Waterfall"
         case .nestedGroup(let type):
             switch type {
-            case .vertical: return "Vertical Nested Group Layout"
-            case .horizontal(let layoutId): return "Horizontal Nested Group Layout \(layoutId)"
+            case .vertical(let layoutId): return "Vertical Nested Group \(layoutId)"
+            case .horizontal(let layoutId): return "Horizontal Nested Group \(layoutId)"
             }
         }
     }

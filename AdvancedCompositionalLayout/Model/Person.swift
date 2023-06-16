@@ -10,4 +10,6 @@ import Foundation
 struct Person: Hashable {
     let name: String
     let surname: String
+    let job: String
+    let imageName: String
 }
