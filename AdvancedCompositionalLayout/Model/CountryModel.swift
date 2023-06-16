@@ -36,7 +36,7 @@ enum Continent: String, CaseIterable{
 }
 
 extension Country {
-    static func getAllCountry() -> [Country] {
+    static var defaultData: [Country] {
         return [
             Country(name: "Turkey", capital: "Ankara", continent: .Asia, flag: "🇹🇷"),
             Country(name: "China", capital: "Beijing", continent: .Asia, flag: "🇨🇳"),
@@ -60,8 +60,8 @@ extension Country {
         ]
     }
     
-    static func getCountrySection() -> [CountrySection] {
-        return Dictionary(grouping: getAllCountry()) {$0.continent}
+    static var defaultSectionData: [CountrySection] {
+        return Dictionary(grouping: defaultData) {$0.continent}
             .map{CountrySection($0.value)}
             .sorted {$0.countryList.count > $1.countryList.count}
     }

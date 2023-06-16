@@ -12,7 +12,7 @@ class SupplementaryViewController: UIViewController {
     
     lazy var collectionView = Supplementary()
     
-    let sectionData = Country.getCountrySection()
+    let sectionData = Country.defaultSectionData
     
     override func viewDidLoad() {
         super.viewDidLoad()
