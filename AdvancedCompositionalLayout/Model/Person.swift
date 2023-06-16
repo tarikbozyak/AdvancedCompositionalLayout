@@ -15,7 +15,7 @@ struct Person: Hashable {
 }
 
 extension Person {
-    static var defaultData: [Person] {
+    static var defaultData: [Self] {
         return [
             Person(name: "Hasan", surname: "Yerlikaya", job: "Director", imageName: "user1"),
             Person(name: "Mehmet", surname: "Günsur", job: "iOS Developer", imageName: "user2"),

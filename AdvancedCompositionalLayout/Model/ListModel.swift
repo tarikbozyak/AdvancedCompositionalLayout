@@ -39,7 +39,7 @@ enum ListType {
         switch self {
         case .basicList: return BasicListViewController()
         case .supplementary: return SupplementaryViewController()
-        case .multiSectionList: return nil
+        case .multiSectionList: return MultiSectionViewController()
         case .gridLayout: return GridViewController()
         case .nestedGroup(let type): return NestedViewController(type: type)
         case .waterfall(let type): return WaterfallViewController(type: type)
@@ -80,5 +80,36 @@ extension ListType: Hashable {
     
     static func == (lhs: ListType, rhs: ListType) -> Bool {
         return lhs.id == rhs.id
+    }
+}
+
+extension ListItem {
+    static var defaultData: [Self] {
+        return [
+            ListItem(title: "Grid", subItems: [
+                ListItem(type: .gridLayout),
+                ListItem(title: "Nested Groups", subItems: [
+                    ListItem(title: "Vertical Nested Groups", subItems: [
+                        ListItem(type: .nestedGroup(type: .vertical(layoutId: 1)))
+                    ]),
+                    ListItem(title: "Horizontal Nested Groups", subItems: [
+                        ListItem(type: .nestedGroup(type: .horizontal(layoutId: 1))),
+                        ListItem(type: .nestedGroup(type: .horizontal(layoutId: 2))),
+                        ListItem(type: .nestedGroup(type: .horizontal(layoutId: 3)))
+                    ]),
+                ]),
+                ListItem(title: "Waterfall", subItems: [
+                    ListItem(type: .waterfall(type: .vertical)),
+                    ListItem(type: .waterfall(type: .horizontal)),
+                    ListItem(type: .waterfall(type: .stack))
+                ])
+            ]),
+            
+            ListItem(title: "Collection View List", subItems: [
+                ListItem(type: .basicList),
+                ListItem(type: .supplementary),
+                ListItem(type: .multiSectionList)
+            ])
+        ]
     }
 }

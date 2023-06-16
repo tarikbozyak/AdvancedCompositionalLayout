@@ -36,7 +36,7 @@ enum Continent: String, CaseIterable{
 }
 
 extension Country {
-    static var defaultData: [Country] {
+    static var defaultData: [Self] {
         return [
             Country(name: "Turkey", capital: "Ankara", continent: .Asia, flag: "🇹🇷"),
             Country(name: "China", capital: "Beijing", continent: .Asia, flag: "🇨🇳"),

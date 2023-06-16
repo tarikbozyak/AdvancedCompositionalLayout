@@ -28,6 +28,9 @@
 		8A8716E42A36038700B97B68 /* NestedGroupType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8716E32A36038700B97B68 /* NestedGroupType.swift */; };
 		8A8716E62A3603CC00B97B68 /* WaterfallType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8716E52A3603CC00B97B68 /* WaterfallType.swift */; };
 		8AA67A732A27CE020052D3CA /* HorizontalWaterfallBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA67A722A27CE020052D3CA /* HorizontalWaterfallBuilder.swift */; };
+		8AB76B502A3CFE4700C2E9D1 /* MultiSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB76B4F2A3CFE4700C2E9D1 /* MultiSection.swift */; };
+		8AB76B522A3D002B00C2E9D1 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB76B512A3D002B00C2E9D1 /* Section.swift */; };
+		8AB76B542A3D03CA00C2E9D1 /* MultiSectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB76B532A3D03CA00C2E9D1 /* MultiSectionViewController.swift */; };
 		8AD8ACEE29FE1A1100170258 /* BasicListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD8ACED29FE1A1100170258 /* BasicListViewController.swift */; };
 		8AD8ACF029FE1E6300170258 /* BasicList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD8ACEF29FE1E6300170258 /* BasicList.swift */; };
 		8AD8ACF229FE567F00170258 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD8ACF129FE567F00170258 /* Person.swift */; };
@@ -64,6 +67,9 @@
 		8A8716E32A36038700B97B68 /* NestedGroupType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestedGroupType.swift; sourceTree = "<group>"; };
 		8A8716E52A3603CC00B97B68 /* WaterfallType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterfallType.swift; sourceTree = "<group>"; };
 		8AA67A722A27CE020052D3CA /* HorizontalWaterfallBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalWaterfallBuilder.swift; sourceTree = "<group>"; };
+		8AB76B4F2A3CFE4700C2E9D1 /* MultiSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSection.swift; sourceTree = "<group>"; };
+		8AB76B512A3D002B00C2E9D1 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
+		8AB76B532A3D03CA00C2E9D1 /* MultiSectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSectionViewController.swift; sourceTree = "<group>"; };
 		8ABC74532A376F4D002C2CC2 /* TodoList.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TodoList.md; sourceTree = "<group>"; };
 		8AD8ACED29FE1A1100170258 /* BasicListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicListViewController.swift; sourceTree = "<group>"; };
 		8AD8ACEF29FE1E6300170258 /* BasicList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicList.swift; sourceTree = "<group>"; };
@@ -141,6 +147,9 @@
 				8A091CC329F56BDB001EAE4F /* LaunchScreen.storyboard */,
 				8A091CC629F56BDB001EAE4F /* Info.plist */,
 				8ABC74532A376F4D002C2CC2 /* TodoList.md */,
+				8AB76B4F2A3CFE4700C2E9D1 /* MultiSection.swift */,
+				8AB76B512A3D002B00C2E9D1 /* Section.swift */,
+				8AB76B532A3D03CA00C2E9D1 /* MultiSectionViewController.swift */,
 			);
 			path = AdvancedCompositionalLayout;
 			sourceTree = "<group>";
@@ -279,6 +288,7 @@
 				8AD8ACF029FE1E6300170258 /* BasicList.swift in Sources */,
 				E2A102AF2A1BCF56002041F6 /* Waterfall.swift in Sources */,
 				E2A102B92A1BDAF5002041F6 /* VerticalWaterfallBuilder.swift in Sources */,
+				8AB76B522A3D002B00C2E9D1 /* Section.swift in Sources */,
 				8A091CCD29F57076001EAE4F /* MenuViewController.swift in Sources */,
 				8A8716E42A36038700B97B68 /* NestedGroupType.swift in Sources */,
 				8A20D0862A2C6D0200D9D698 /* WaterfallModel.swift in Sources */,
@@ -289,10 +299,12 @@
 				8A091CBB29F56BDA001EAE4F /* SceneDelegate.swift in Sources */,
 				8A05EE322A002B0A00134E22 /* GridViewController.swift in Sources */,
 				8A10D9852A2233DE0029BE92 /* CountryModel.swift in Sources */,
+				8AB76B542A3D03CA00C2E9D1 /* MultiSectionViewController.swift in Sources */,
 				8AD8ACF229FE567F00170258 /* Person.swift in Sources */,
 				8AA67A732A27CE020052D3CA /* HorizontalWaterfallBuilder.swift in Sources */,
 				E26359E82A3484520049E877 /* NestedCell.swift in Sources */,
 				8A05EE3A2A00BB5A00134E22 /* NSCollectionLayoutSection.swift in Sources */,
+				8AB76B502A3CFE4700C2E9D1 /* MultiSection.swift in Sources */,
 				8A189A1F2A1DCE2F005E6E88 /* Supplementary.swift in Sources */,
 				8A47565929FCE2A000F4E44D /* UIView.swift in Sources */,
 				8A5C71A62A2E41C0001C1C56 /* NestedViewController.swift in Sources */,

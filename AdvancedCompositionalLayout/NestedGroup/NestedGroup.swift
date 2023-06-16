@@ -8,8 +8,6 @@
 import Foundation
 import UIKit
 
-
-
 class NestedGroup: UICollectionView {
     
     weak var rootVC: UIViewController!
