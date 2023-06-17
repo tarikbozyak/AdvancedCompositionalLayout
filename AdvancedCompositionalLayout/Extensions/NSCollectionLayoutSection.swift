@@ -38,7 +38,7 @@ extension NSCollectionLayoutSection {
         }
         
         let section = NSCollectionLayoutSection(group: group)
-        section.contentInsets = .init(top: 16, leading: config.sectionHorizontalSpacing, bottom: 16, trailing: config.sectionHorizontalSpacing)
+        section.contentInsets = .init(top: 8, leading: 0, bottom: 8, trailing: 0)
         
         return section
     }
@@ -73,14 +73,14 @@ extension NSCollectionLayoutSection {
             items.append(item)
         }
         
-        let groupSize = NSCollectionLayoutSize(widthDimension: .absolute(builder.maxWidth) , heightDimension: .fractionalHeight(0.6))
+        let groupSize = NSCollectionLayoutSize(widthDimension: .absolute(builder.maxWidth) , heightDimension: config.sectionHeight!)
         
         let group = NSCollectionLayoutGroup.custom(layoutSize: groupSize) { _ in
             return items
         }
         
         let section = NSCollectionLayoutSection(group: group)
-        section.contentInsets = .init(top: 16, leading: config.sectionVerticalSpacing, bottom: 16, trailing: config.sectionVerticalSpacing)
+        section.contentInsets = .init(top: 8, leading: 0, bottom: 0, trailing: 0)
         section.orthogonalScrollingBehavior = .continuous
         
         return section
@@ -113,7 +113,7 @@ extension NSCollectionLayoutSection {
         secondGroupFirstInnerGroupItem2.contentInsets = NSDirectionalEdgeInsets(top: 3, leading: 3, bottom: 3, trailing: 3)
         
         let secondGroupFirstInnerGroup = NSCollectionLayoutGroup.horizontal(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(0.3)), subitems: [secondGroupFirstInnerGroupItem1, secondGroupFirstInnerGroupItem2])
-    
+        
         //--------------
         
         //Second group second inner group
@@ -126,7 +126,7 @@ extension NSCollectionLayoutSection {
         let secondGroupSecondInnerGroupFirstGroupFirstInner = NSCollectionLayoutGroup.horizontal(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(0.55)), subitems: [secondGroupSecondInnerGroupFirstGroupItem1, secondGroupSecondInnerGroupFirstGroupItem2])
         
         //--------------
-    
+        
         let secondGroupSecondInnerGroupFirstGroupItem3 = NSCollectionLayoutItem(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.6), heightDimension: .fractionalHeight(1.0)))
         secondGroupSecondInnerGroupFirstGroupItem3.contentInsets = NSDirectionalEdgeInsets(top: 3, leading: 3, bottom: 3, trailing: 3)
         
@@ -152,7 +152,7 @@ extension NSCollectionLayoutSection {
         let secondNestedGroup = NSCollectionLayoutGroup.vertical(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.75), heightDimension: .fractionalHeight(1.0)), subitems: [secondGroupFirstInnerGroup, secondGroupSecondInnerGroup])
         
         //--------------------------------------
-                
+        
         //Final group
         let finalGroup = NSCollectionLayoutGroup.horizontal(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.85), heightDimension: .fractionalHeight(0.25)), subitems: [firstNestedGroup, secondNestedGroup])
         
@@ -355,7 +355,7 @@ extension NSCollectionLayoutSection {
         
         let fourthGroupSecondGroupItem1 = NSCollectionLayoutItem(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(0.55)))
         fourthGroupSecondGroupItem1.contentInsets = NSDirectionalEdgeInsets(top: 3, leading: 3, bottom: 3, trailing: 3)
-
+        
         let fourthGroupSecondGroupItem2 = NSCollectionLayoutItem(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(0.45)))
         fourthGroupSecondGroupItem2.contentInsets = NSDirectionalEdgeInsets(top: 3, leading: 3, bottom: 3, trailing: 3)
         

@@ -30,7 +30,7 @@ final class VerticalWaterfallBuilder {
         let width = columnWidth
         let height = itemHeightProvider()
         let size = CGSize(width: width, height: height)
-        let xCoordinate = (width + interItemSpacing) * CGFloat(columnIndex)
+        let xCoordinate = (width + interItemSpacing) * CGFloat(columnIndex) + config.sectionHorizontalSpacing
         let yCoordinate = columnHeights[columnIndex].rounded()
         return CGRect(origin: CGPoint(x: xCoordinate, y: yCoordinate), size: size)
     }

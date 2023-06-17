@@ -45,6 +45,10 @@ class MultiSection: UICollectionView {
     
     func configureDataSource(){
         
+        let nestedCellRegistration = UICollectionView.CellRegistration<NestedCell, Int> { (cell, _, item) in
+            cell.configure(with: item)
+        }
+        
         let gridCellRegistration = UICollectionView.CellRegistration<GridCell, Int> { (cell, _, item) in
             cell.configure(with: item)
         }
@@ -58,16 +62,21 @@ class MultiSection: UICollectionView {
             
             let section = self.sectionList[indexPath.section]
             switch section.cellType {
+                
             case is GridCell.Type:
                 guard let data = section.data as? [Int] else {return nil}
                 return collectionView.dequeueConfiguredReusableCell(using: gridCellRegistration, for: indexPath, item: data[indexPath.row])
+                
             case is WaterfallCell.Type:
                 guard let data = section.data as? [Int] else {return nil}
                 return collectionView.dequeueConfiguredReusableCell(using: waterfallCellRegistration, for: indexPath, item: data[indexPath.row])
+                
+            case is NestedCell.Type:
+                guard let data = section.data as? [Int] else {return nil}
+                return collectionView.dequeueConfiguredReusableCell(using: nestedCellRegistration, for: indexPath, item: data[indexPath.row])
+                
             default : return nil
             }
-            
-            
         }
     }
     

@@ -22,6 +22,7 @@ struct WaterfallConfiguration {
     public let itemHeightProvider: ItemHeightProvider
     public let itemWitdthProviderByIndex: ItemWidthProviderByIndex
     public let itemWidthProvider: ItemWidthProvider
+    public let sectionHeight: NSCollectionLayoutDimension?
     public let environment: NSCollectionLayoutEnvironment
         
     public init(
@@ -34,6 +35,7 @@ struct WaterfallConfiguration {
         itemHeightProvider: @escaping ItemHeightProvider = { return CGFloat.random(in: 250...500) },
         itemWitdthProviderByIndex: @escaping ItemWidthProviderByIndex = { index in return (0) },
         itemWidthProvider: @escaping ItemWidthProvider = { return CGFloat.random(in: 50...120) },
+        sectionHeight: NSCollectionLayoutDimension? = nil,
         environment: NSCollectionLayoutEnvironment
     ) {
         self.dataCount = dataCount
@@ -45,6 +47,7 @@ struct WaterfallConfiguration {
         self.itemHeightProvider = itemHeightProvider
         self.itemWitdthProviderByIndex = itemWitdthProviderByIndex
         self.itemWidthProvider = itemWidthProvider
+        self.sectionHeight = sectionHeight
         self.environment = environment
     }
 }

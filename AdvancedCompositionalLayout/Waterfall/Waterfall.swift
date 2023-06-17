@@ -78,7 +78,7 @@ class Waterfall: UICollectionView {
         switch type {
         case .horizontal:
             let itemWidthProvider: ItemWidthProvider = { return CGFloat.random(in: 150...300) }
-            let config = WaterfallConfiguration(dataCount: data.count, rowCount: rowCount, itemSpacing: 10, sectionVerticalSpacing: 16, itemWidthProvider: itemWidthProvider, environment: environment)
+            let config = WaterfallConfiguration(dataCount: data.count, rowCount: rowCount, itemSpacing: 10, sectionVerticalSpacing: 16, itemWidthProvider: itemWidthProvider, sectionHeight: .absolute(500) , environment: environment)
             return .horizontalWaterfallSection(config: config)
         case .vertical:
             let itemHeightProvider: ItemHeightProvider = { return CGFloat.random(in: 250...500) }
