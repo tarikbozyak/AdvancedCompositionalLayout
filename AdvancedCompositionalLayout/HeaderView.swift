@@ -33,10 +33,10 @@ class HeaderView: UICollectionReusableView {
     func setUp(){
         addSubview(stackView)
         NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: topAnchor, constant: 8),
-            stackView.leftAnchor.constraint(equalTo: leftAnchor),
-            stackView.rightAnchor.constraint(equalTo: rightAnchor),
-            stackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8)
+            stackView.topAnchor.constraint(equalTo: topAnchor, constant: 12),
+            stackView.leftAnchor.constraint(equalTo: leftAnchor, constant: 12),
+            stackView.rightAnchor.constraint(equalTo: rightAnchor, constant: -12),
+            stackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -12)
         ])
     }
     

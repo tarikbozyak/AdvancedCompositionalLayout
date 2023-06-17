@@ -13,11 +13,13 @@ typealias SectionLayout = (NSCollectionLayoutEnvironment, Int) -> NSCollectionLa
 class Section: Hashable {
     
     let uuid = UUID()
+    let title: String
     let data: [AnyHashable]
     let cellType: UICollectionViewCell.Type
     let layout: SectionLayout
     
-    init(data: [AnyHashable], cellType: UICollectionViewCell.Type, layout: @escaping SectionLayout) {
+    init(title: String ,data: [AnyHashable], cellType: UICollectionViewCell.Type, layout: @escaping SectionLayout) {
+        self.title = title
         self.data = data
         self.cellType = cellType
         self.layout = layout

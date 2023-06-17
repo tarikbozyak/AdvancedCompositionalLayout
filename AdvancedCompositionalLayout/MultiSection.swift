@@ -82,9 +82,10 @@ class MultiSection: UICollectionView {
     
     private func configureSupplementaryViews(){
         
-        headerRegistration = .init(elementKind: UICollectionView.elementKindSectionHeader) {
+        headerRegistration = .init(elementKind: UICollectionView.elementKindSectionHeader) { [unowned self]
             (header, elementKind, indexPath) in
-            header.configure(with: "Title")
+            let sectionTitle = self.datasource.sectionIdentifier(for: indexPath.section)?.title ?? ""
+            header.configure(with: sectionTitle)
         }
         
         footerRegistration = .init(elementKind: UICollectionView.elementKindSectionFooter) {

@@ -158,6 +158,7 @@ extension NSCollectionLayoutSection {
         
         //Section
         let section = NSCollectionLayoutSection(group: finalGroup)
+        section.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 0, bottom: 10, trailing: 0)
         section.orthogonalScrollingBehavior = .continuous
         return section
     }
@@ -218,6 +219,7 @@ extension NSCollectionLayoutSection {
         
         //Section
         let section = NSCollectionLayoutSection(group: finalGroup)
+        section.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 0, bottom: 10, trailing: 0)
         section.orthogonalScrollingBehavior = .continuous
         return section
     }
@@ -288,6 +290,7 @@ extension NSCollectionLayoutSection {
         
         //Section
         let section = NSCollectionLayoutSection(group: finalGroup)
+        section.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 0, bottom: 10, trailing: 0)
         section.orthogonalScrollingBehavior = .groupPagingCentered
         return section
         
@@ -368,6 +371,7 @@ extension NSCollectionLayoutSection {
         
         //Section
         let section = NSCollectionLayoutSection(group: finalGroup)
+        section.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 0, bottom: 10, trailing: 0)
         return section
     }
 }
