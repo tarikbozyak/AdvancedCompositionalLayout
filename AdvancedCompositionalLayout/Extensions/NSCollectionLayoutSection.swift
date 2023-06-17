@@ -372,3 +372,14 @@ extension NSCollectionLayoutSection {
     }
 }
 
+// Supplementary Configuration
+extension NSCollectionLayoutSection {
+    func addHeader(_ pinToVisibleBounds: Bool = true) {
+        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(30))
+        let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
+        header.zIndex = 20
+        header.pinToVisibleBounds = pinToVisibleBounds
+        boundarySupplementaryItems = [header]
+    }
+}
+

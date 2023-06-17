@@ -11,21 +11,32 @@ class HeaderView: UICollectionReusableView {
     
     lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = .preferredFont(forTextStyle: .headline)
         return label
+    }()
+    
+    lazy var stackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [titleLabel])
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.distribution = .fill
+        stackView.alignment = .leading
+        return stackView
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = .systemGreen
-        addTitle()
+        setUp()
     }
     
-    func addTitle(){
-        addSubview(titleLabel)
+    func setUp(){
+        addSubview(stackView)
         NSLayoutConstraint.activate([
-            titleLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
-            titleLabel.leftAnchor.constraint(equalTo: leftAnchor)
+            stackView.topAnchor.constraint(equalTo: topAnchor, constant: 8),
+            stackView.leftAnchor.constraint(equalTo: leftAnchor),
+            stackView.rightAnchor.constraint(equalTo: rightAnchor),
+            stackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8)
         ])
     }
     

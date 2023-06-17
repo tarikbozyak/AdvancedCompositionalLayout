@@ -101,7 +101,8 @@ class MultiSection: UICollectionView {
     
     // MARK: Layout
     private func layout(for sectionIndex: Int, environment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? {
-        return sectionList[sectionIndex].layout(environment)
+        let dataCount = datasource.sectionIdentifier(for: sectionIndex)?.data.count ?? 1
+        return sectionList[sectionIndex].layout(environment, dataCount)
     }
     
     // MARK: PerformUpdates

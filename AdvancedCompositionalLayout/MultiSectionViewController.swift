@@ -13,20 +13,14 @@ class MultiSectionViewController: UIViewController {
     lazy var collectionView = MultiSection()
     
     let sectionData = [
-        Section(data: [Int](1...10), cellType: GridCell.self, layout: { _ in
+        Section(data: [Int](1...10), cellType: GridCell.self, layout: { _, _ in
                 .gridSection(columnCount: 2)
         }),
         
-        Section(data: [Int](11...20), cellType: WaterfallCell.self, layout: { environment in
-            let itemHeightProvider: ItemHeightProvider = { return CGFloat.random(in: 250...500) }
-            let config = WaterfallConfiguration(dataCount: 10, columnCount: 2, itemSpacing: 10, sectionHorizontalSpacing: 16, itemHeightProvider: itemHeightProvider, environment: environment)
+        Section(data: [Int](11...20), cellType: WaterfallCell.self, layout: { environment, dataCount in
+            let config = WaterfallConfiguration(dataCount: dataCount, columnCount: 2, itemSpacing: 10, sectionHorizontalSpacing: 16, itemHeightProvider: { CGFloat.random(in: 250...500) }, environment: environment)
             let layout: NSCollectionLayoutSection = .verticalWaterfallSection(config: config)
-            
-            let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(30))
-            let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
-            header.zIndex = 20
-            header.pinToVisibleBounds = true
-            layout.boundarySupplementaryItems = [header]
+            layout.addHeader()
             return layout
         })
     ]

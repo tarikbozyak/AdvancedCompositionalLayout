@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-typealias SectionLayout = (NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection
+typealias SectionLayout = (NSCollectionLayoutEnvironment, Int) -> NSCollectionLayoutSection
 
 class Section: Hashable {
     
