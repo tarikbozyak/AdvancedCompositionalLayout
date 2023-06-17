@@ -20,7 +20,14 @@ class MultiSectionViewController: UIViewController {
         Section(data: [Int](11...20), cellType: WaterfallCell.self, layout: { environment in
             let itemHeightProvider: ItemHeightProvider = { return CGFloat.random(in: 250...500) }
             let config = WaterfallConfiguration(dataCount: 10, columnCount: 2, itemSpacing: 10, sectionHorizontalSpacing: 16, itemHeightProvider: itemHeightProvider, environment: environment)
-            return .verticalWaterfallSection(config: config)
+            let layout: NSCollectionLayoutSection = .verticalWaterfallSection(config: config)
+            
+            let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(30))
+            let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
+            header.zIndex = 20
+            header.pinToVisibleBounds = true
+            layout.boundarySupplementaryItems = [header]
+            return layout
         })
     ]
     

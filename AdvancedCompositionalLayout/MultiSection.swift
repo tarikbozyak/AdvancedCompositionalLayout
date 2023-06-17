@@ -10,12 +10,17 @@ import UIKit
 
 typealias MultiSectionSnapshot = NSDiffableDataSourceSnapshot<Section, AnyHashable>
 typealias MultiSectionDataSource = UICollectionViewDiffableDataSource<Section, AnyHashable>
+typealias SupplementaryHeader = UICollectionView.SupplementaryRegistration<HeaderView>
 
 class MultiSection: UICollectionView {
     
     weak var rootVC: UIViewController!
     
     var datasource: MultiSectionDataSource!
+    
+    var headerRegistration: SupplementaryHeader!
+    
+    var footerRegistration: SupplementaryListCell!
     
     var sectionList: [Section] {
         let delegate = rootVC as? CollectionViewDataDelegte
@@ -35,6 +40,7 @@ class MultiSection: UICollectionView {
     func commonInit(){
         setCollectionViewLayout(UICollectionViewCompositionalLayout(sectionProvider: layout), animated: false)
         configureDataSource()
+        configureSupplementaryViews()
     }
     
     func configureDataSource(){
@@ -62,6 +68,34 @@ class MultiSection: UICollectionView {
             }
             
             
+        }
+    }
+    
+    private func configureSupplementaryViews(){
+        
+        headerRegistration = .init(elementKind: UICollectionView.elementKindSectionHeader) {
+            (header, elementKind, indexPath) in
+            header.configure(with: "Title")
+        }
+        
+        footerRegistration = .init(elementKind: UICollectionView.elementKindSectionFooter) {
+            (footer, elementKind, indexPath) in
+            var configuration = footer.defaultContentConfiguration()
+            configuration.text = "Item count: " + "Test"
+            footer.contentConfiguration = configuration
+        }
+        
+        datasource.supplementaryViewProvider = supplementaryView
+        
+    }
+    
+    
+    private func supplementaryView(in collection: UICollectionView, elementKind: String, at indexPath: IndexPath) -> UICollectionReusableView? {
+        if elementKind == UICollectionView.elementKindSectionHeader {
+            return self.dequeueConfiguredReusableSupplementary(using: headerRegistration, for: indexPath)
+        }
+        else {
+            return self.dequeueConfiguredReusableSupplementary(using: footerRegistration, for: indexPath)
         }
     }
     

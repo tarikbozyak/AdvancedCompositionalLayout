@@ -10,6 +10,7 @@ import UIKit
 
 typealias CountrySnapshot = NSDiffableDataSourceSnapshot<CountrySection, Country>
 typealias CountryDataSource = UICollectionViewDiffableDataSource<CountrySection, Country>
+typealias SupplementaryListCell = UICollectionView.SupplementaryRegistration<UICollectionViewListCell>
 
 class Supplementary: UICollectionView {
     
@@ -18,8 +19,8 @@ class Supplementary: UICollectionView {
     var datasource: CountryDataSource!
     var style: UICollectionLayoutListConfiguration.Appearance = .grouped
     
-    var headerRegistration: UICollectionView.SupplementaryRegistration<UICollectionViewListCell>!
-    var footerRegistration: UICollectionView.SupplementaryRegistration<UICollectionViewListCell>!
+    var headerRegistration: SupplementaryListCell!
+    var footerRegistration: SupplementaryListCell!
     
     var data: [CountrySection] {
         let delegate = rootVC as? CollectionViewDataDelegte
