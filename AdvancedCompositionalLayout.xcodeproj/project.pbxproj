@@ -24,6 +24,7 @@
 		8A20D0862A2C6D0200D9D698 /* WaterfallModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A20D0852A2C6D0200D9D698 /* WaterfallModel.swift */; };
 		8A47565929FCE2A000F4E44D /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A47565829FCE2A000F4E44D /* UIView.swift */; };
 		8A522EF72A3DA5F800633432 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A522EF62A3DA5F800633432 /* HeaderView.swift */; };
+		8A522EF92A3E47BE00633432 /* PersonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A522EF82A3E47BE00633432 /* PersonCell.swift */; };
 		8A5C71A62A2E41C0001C1C56 /* NestedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5C71A52A2E41C0001C1C56 /* NestedViewController.swift */; };
 		8A5C71A82A2E422C001C1C56 /* NestedGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5C71A72A2E422C001C1C56 /* NestedGroup.swift */; };
 		8A8716E42A36038700B97B68 /* NestedGroupType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8716E32A36038700B97B68 /* NestedGroupType.swift */; };
@@ -64,6 +65,7 @@
 		8A20D0852A2C6D0200D9D698 /* WaterfallModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterfallModel.swift; sourceTree = "<group>"; };
 		8A47565829FCE2A000F4E44D /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		8A522EF62A3DA5F800633432 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		8A522EF82A3E47BE00633432 /* PersonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonCell.swift; sourceTree = "<group>"; };
 		8A5C71A52A2E41C0001C1C56 /* NestedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestedViewController.swift; sourceTree = "<group>"; };
 		8A5C71A72A2E422C001C1C56 /* NestedGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestedGroup.swift; sourceTree = "<group>"; };
 		8A8716E32A36038700B97B68 /* NestedGroupType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestedGroupType.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				8AB76B512A3D002B00C2E9D1 /* Section.swift */,
 				8AB76B532A3D03CA00C2E9D1 /* MultiSectionViewController.swift */,
 				8A522EF62A3DA5F800633432 /* HeaderView.swift */,
+				8A522EF82A3E47BE00633432 /* PersonCell.swift */,
 			);
 			path = AdvancedCompositionalLayout;
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 				8A5C71A62A2E41C0001C1C56 /* NestedViewController.swift in Sources */,
 				8A13F16929F81ABB00CAB09F /* ListModel.swift in Sources */,
 				8A5C71A82A2E422C001C1C56 /* NestedGroup.swift in Sources */,
+				8A522EF92A3E47BE00633432 /* PersonCell.swift in Sources */,
 				8A05EE382A002C1C00134E22 /* GridCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

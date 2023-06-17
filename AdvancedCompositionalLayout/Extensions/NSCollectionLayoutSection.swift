@@ -10,6 +10,19 @@ import UIKit
 
 extension NSCollectionLayoutSection {
     
+    static func personSection() -> NSCollectionLayoutSection {
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(80))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        
+        let groupSize = NSCollectionLayoutSize(widthDimension: .absolute(80), heightDimension: .estimated(80))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+        group.contentInsets = .init(top: 0, leading: 6, bottom: 0, trailing: 6)
+        let section = NSCollectionLayoutSection(group: group)
+        section.contentInsets = .init(top: 8, leading: 0, bottom: 16, trailing: 0)
+        section.orthogonalScrollingBehavior = .continuous
+        return section
+    }
+    
     static func gridSection(columnCount: Int) -> NSCollectionLayoutSection {
         let columnCount = CGFloat(columnCount)
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1/columnCount), heightDimension: .fractionalHeight(1.0))

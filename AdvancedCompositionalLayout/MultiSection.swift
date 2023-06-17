@@ -45,6 +45,10 @@ class MultiSection: UICollectionView {
     
     func configureDataSource(){
         
+        let personCellRegistration = UICollectionView.CellRegistration<PersonCell, Person> { (cell, indexPath, item) in
+            cell.configure(with: item)
+        }
+        
         let nestedCellRegistration = UICollectionView.CellRegistration<NestedCell, Int> { (cell, indexPath, item) in
             cell.configure(with: item)
             cell.backgroundColor = UIColor(named: "section\(indexPath.section + 1)CellColor")
@@ -56,7 +60,8 @@ class MultiSection: UICollectionView {
         }
         
         let waterfallCellRegistration = UICollectionView.CellRegistration<WaterfallCell, Int> { (cell, indexPath, item) in
-            cell.configure(with: item, bgColor: .systemBlue.withAlphaComponent(0.8), cornerRadius: 10)
+            let cornerRadius = cell.frame.width > cell.frame.height ? cell.frame.height / 2 : cell.frame.width / 2
+            cell.configure(with: item, bgColor: .systemBlue.withAlphaComponent(0.8), cornerRadius: cornerRadius)
             cell.backgroundColor = UIColor(named: "section\(indexPath.section + 1)CellColor")
         }
         
@@ -77,6 +82,10 @@ class MultiSection: UICollectionView {
             case is NestedCell.Type:
                 guard let data = section.data as? [Int] else {return nil}
                 return collectionView.dequeueConfiguredReusableCell(using: nestedCellRegistration, for: indexPath, item: data[indexPath.row])
+                
+            case is PersonCell.Type:
+                guard let data = section.data as? [Person] else {return nil}
+                return collectionView.dequeueConfiguredReusableCell(using: personCellRegistration, for: indexPath, item: data[indexPath.row])
                 
             default : return nil
             }
