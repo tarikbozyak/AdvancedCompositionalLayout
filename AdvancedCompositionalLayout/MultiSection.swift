@@ -45,16 +45,19 @@ class MultiSection: UICollectionView {
     
     func configureDataSource(){
         
-        let nestedCellRegistration = UICollectionView.CellRegistration<NestedCell, Int> { (cell, _, item) in
+        let nestedCellRegistration = UICollectionView.CellRegistration<NestedCell, Int> { (cell, indexPath, item) in
             cell.configure(with: item)
+            cell.backgroundColor = UIColor(named: "section\(indexPath.section + 1)CellColor")
         }
         
-        let gridCellRegistration = UICollectionView.CellRegistration<GridCell, Int> { (cell, _, item) in
+        let gridCellRegistration = UICollectionView.CellRegistration<GridCell, Int> { (cell, indexPath, item) in
             cell.configure(with: item)
+            cell.backgroundColor = UIColor(named: "section\(indexPath.section + 1)CellColor")
         }
         
-        let waterfallCellRegistration = UICollectionView.CellRegistration<WaterfallCell, Int> { (cell, _, item) in
+        let waterfallCellRegistration = UICollectionView.CellRegistration<WaterfallCell, Int> { (cell, indexPath, item) in
             cell.configure(with: item, bgColor: .systemBlue.withAlphaComponent(0.8), cornerRadius: 10)
+            cell.backgroundColor = UIColor(named: "section\(indexPath.section + 1)CellColor")
         }
         
         datasource = UICollectionViewDiffableDataSource<Section, AnyHashable>(collectionView: self) { [unowned self]
