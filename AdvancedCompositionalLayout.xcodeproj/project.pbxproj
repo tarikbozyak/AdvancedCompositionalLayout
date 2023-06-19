@@ -27,6 +27,8 @@
 		8A522EF92A3E47BE00633432 /* PersonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A522EF82A3E47BE00633432 /* PersonCell.swift */; };
 		8A5C71A62A2E41C0001C1C56 /* NestedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5C71A52A2E41C0001C1C56 /* NestedViewController.swift */; };
 		8A5C71A82A2E422C001C1C56 /* NestedGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5C71A72A2E422C001C1C56 /* NestedGroup.swift */; };
+		8A77CE902A40EFE3008A38E5 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A77CE8F2A40EFE3008A38E5 /* TaskCell.swift */; };
+		8A77CE922A40F43F008A38E5 /* FacePile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A77CE912A40F43F008A38E5 /* FacePile.swift */; };
 		8A8716E42A36038700B97B68 /* NestedGroupType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8716E32A36038700B97B68 /* NestedGroupType.swift */; };
 		8A8716E62A3603CC00B97B68 /* WaterfallType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8716E52A3603CC00B97B68 /* WaterfallType.swift */; };
 		8AA67A732A27CE020052D3CA /* HorizontalWaterfallBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA67A722A27CE020052D3CA /* HorizontalWaterfallBuilder.swift */; };
@@ -68,6 +70,8 @@
 		8A522EF82A3E47BE00633432 /* PersonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonCell.swift; sourceTree = "<group>"; };
 		8A5C71A52A2E41C0001C1C56 /* NestedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestedViewController.swift; sourceTree = "<group>"; };
 		8A5C71A72A2E422C001C1C56 /* NestedGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestedGroup.swift; sourceTree = "<group>"; };
+		8A77CE8F2A40EFE3008A38E5 /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
+		8A77CE912A40F43F008A38E5 /* FacePile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacePile.swift; sourceTree = "<group>"; };
 		8A8716E32A36038700B97B68 /* NestedGroupType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestedGroupType.swift; sourceTree = "<group>"; };
 		8A8716E52A3603CC00B97B68 /* WaterfallType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterfallType.swift; sourceTree = "<group>"; };
 		8AA67A722A27CE020052D3CA /* HorizontalWaterfallBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalWaterfallBuilder.swift; sourceTree = "<group>"; };
@@ -156,6 +160,7 @@
 				8AB76B532A3D03CA00C2E9D1 /* MultiSectionViewController.swift */,
 				8A522EF62A3DA5F800633432 /* HeaderView.swift */,
 				8A522EF82A3E47BE00633432 /* PersonCell.swift */,
+				8A77CE8F2A40EFE3008A38E5 /* TaskCell.swift */,
 			);
 			path = AdvancedCompositionalLayout;
 			sourceTree = "<group>";
@@ -187,6 +192,7 @@
 			children = (
 				8A47565829FCE2A000F4E44D /* UIView.swift */,
 				8A05EE392A00BB5A00134E22 /* NSCollectionLayoutSection.swift */,
+				8A77CE912A40F43F008A38E5 /* FacePile.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -287,6 +293,7 @@
 			files = (
 				8A20D0842A2A7A3000D9D698 /* StackWaterfallBuilder.swift in Sources */,
 				E2A102B32A1BD18D002041F6 /* WaterfallCell.swift in Sources */,
+				8A77CE922A40F43F008A38E5 /* FacePile.swift in Sources */,
 				8AD8ACEE29FE1A1100170258 /* BasicListViewController.swift in Sources */,
 				8A10D9822A2226790029BE92 /* SupplementaryViewController.swift in Sources */,
 				E2A102B72A1BDACF002041F6 /* WaterfallConfiguration.swift in Sources */,
@@ -314,6 +321,7 @@
 				8AB76B502A3CFE4700C2E9D1 /* MultiSection.swift in Sources */,
 				8A189A1F2A1DCE2F005E6E88 /* Supplementary.swift in Sources */,
 				8A47565929FCE2A000F4E44D /* UIView.swift in Sources */,
+				8A77CE902A40EFE3008A38E5 /* TaskCell.swift in Sources */,
 				8A5C71A62A2E41C0001C1C56 /* NestedViewController.swift in Sources */,
 				8A13F16929F81ABB00CAB09F /* ListModel.swift in Sources */,
 				8A5C71A82A2E422C001C1C56 /* NestedGroup.swift in Sources */,

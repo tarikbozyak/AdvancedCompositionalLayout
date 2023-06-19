@@ -18,7 +18,7 @@ class GridCell: UICollectionViewCell {
         return label
     }()
     
-    lazy var imageView: UIImageView = {
+    lazy  var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "cardBackgroundImage2")
         return imageView

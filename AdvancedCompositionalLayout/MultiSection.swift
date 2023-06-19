@@ -65,6 +65,11 @@ class MultiSection: UICollectionView {
             cell.backgroundColor = UIColor(named: "section\(indexPath.section + 1)CellColor")
         }
         
+        let taskCellRegistration = UICollectionView.CellRegistration<TaskCell, Task> { (cell, indexPath, item) in
+            cell.configure(with: item)
+            cell.backgroundColor = UIColor(named: "section\(indexPath.section + 1)CellColor")
+        }
+        
         datasource = UICollectionViewDiffableDataSource<Section, AnyHashable>(collectionView: self) { [unowned self]
             (collectionView, indexPath, item) -> UICollectionViewCell? in
             
@@ -86,6 +91,10 @@ class MultiSection: UICollectionView {
             case is PersonCell.Type:
                 guard let data = section.data as? [Person] else {return nil}
                 return collectionView.dequeueConfiguredReusableCell(using: personCellRegistration, for: indexPath, item: data[indexPath.row])
+                
+            case is TaskCell.Type:
+                guard let data = section.data as? [Task] else {return nil}
+                return collectionView.dequeueConfiguredReusableCell(using: taskCellRegistration, for: indexPath, item: data[indexPath.row])
                 
             default : return nil
             }
