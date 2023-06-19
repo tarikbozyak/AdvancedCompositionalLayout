@@ -18,6 +18,12 @@ class GridCell: UICollectionViewCell {
         return label
     }()
     
+    lazy var imageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "cardBackgroundImage2")
+        return imageView
+    }()
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         layerConfigure()
@@ -26,6 +32,8 @@ class GridCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         layerConfigure()
+        addSubview(imageView)
+        imageView.edgesToSuperview()
         addSubview(textLabel)
         textLabel.edgesToSuperview()
         backgroundColor = .systemOrange
