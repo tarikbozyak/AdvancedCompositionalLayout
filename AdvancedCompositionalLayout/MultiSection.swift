@@ -11,6 +11,7 @@ import UIKit
 typealias MultiSectionSnapshot = NSDiffableDataSourceSnapshot<Section, AnyHashable>
 typealias MultiSectionDataSource = UICollectionViewDiffableDataSource<Section, AnyHashable>
 typealias SupplementaryHeader = UICollectionView.SupplementaryRegistration<HeaderView>
+typealias SupplementaryBadge = UICollectionView.SupplementaryRegistration<BadgeView>
 
 class MultiSection: UICollectionView {
     
@@ -21,6 +22,8 @@ class MultiSection: UICollectionView {
     var headerRegistration: SupplementaryHeader!
     
     var footerRegistration: SupplementaryListCell!
+    
+    var badgeRegistration: SupplementaryBadge!
     
     var sectionList: [Section] {
         let delegate = rootVC as? CollectionViewDataDelegte
@@ -51,23 +54,23 @@ class MultiSection: UICollectionView {
         
         let nestedCellRegistration = UICollectionView.CellRegistration<NestedCell, Int> { (cell, indexPath, item) in
             cell.configure(with: item)
-            cell.backgroundColor = UIColor(named: "section\(indexPath.section + 1)CellColor")
+            cell.backgroundColor = UIColor(named: "section\(indexPath.section)CellColor")
         }
         
         let gridCellRegistration = UICollectionView.CellRegistration<GridCell, Int> { (cell, indexPath, item) in
             cell.configure(with: item)
-            cell.backgroundColor = UIColor(named: "section\(indexPath.section + 1)CellColor")
+            cell.backgroundColor = UIColor(named: "section\(indexPath.section)CellColor")
         }
         
         let waterfallCellRegistration = UICollectionView.CellRegistration<WaterfallCell, Int> { (cell, indexPath, item) in
             let cornerRadius = cell.frame.width > cell.frame.height ? cell.frame.height / 2 : cell.frame.width / 2
             cell.configure(with: item, bgColor: .systemBlue.withAlphaComponent(0.8), cornerRadius: cornerRadius)
-            cell.backgroundColor = UIColor(named: "section\(indexPath.section + 1)CellColor")
+            cell.backgroundColor = UIColor(named: "section\(indexPath.section)CellColor")
         }
         
         let taskCellRegistration = UICollectionView.CellRegistration<TaskCell, Task> { (cell, indexPath, item) in
             cell.configure(with: item)
-            cell.backgroundColor = UIColor(named: "section\(indexPath.section + 1)CellColor")
+            cell.backgroundColor = UIColor(named: "section\(indexPath.section)CellColor")
         }
         
         datasource = UICollectionViewDiffableDataSource<Section, AnyHashable>(collectionView: self) { [unowned self]
@@ -116,6 +119,13 @@ class MultiSection: UICollectionView {
             footer.contentConfiguration = configuration
         }
         
+        badgeRegistration = .init(elementKind: "badgeElementKind", handler: { [unowned self] supplementaryView, elementKind, indexPath in
+            let personData = datasource.sectionIdentifier(for: indexPath.section)?.data as? [Person] ?? []
+            supplementaryView.configure(status: personData[indexPath.row].status)
+        })
+        
+        
+        
         datasource.supplementaryViewProvider = supplementaryView
         
     }
@@ -125,8 +135,13 @@ class MultiSection: UICollectionView {
         if elementKind == UICollectionView.elementKindSectionHeader {
             return self.dequeueConfiguredReusableSupplementary(using: headerRegistration, for: indexPath)
         }
-        else {
+        
+        else if elementKind == UICollectionView.elementKindSectionFooter{
             return self.dequeueConfiguredReusableSupplementary(using: footerRegistration, for: indexPath)
+        }
+        
+        else {
+            return self.dequeueConfiguredReusableSupplementary(using: badgeRegistration, for: indexPath)
         }
     }
     

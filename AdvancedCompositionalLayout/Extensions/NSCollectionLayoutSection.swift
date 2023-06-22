@@ -23,8 +23,12 @@ extension NSCollectionLayoutSection {
     }
     
     static func personSection() -> NSCollectionLayoutSection {
+        let badgeAnchor = NSCollectionLayoutAnchor(edges: [.top, .trailing], fractionalOffset: CGPoint(x: 0.2, y: -0.2))
+        let badgeSize = NSCollectionLayoutSize(widthDimension: .absolute(20), heightDimension: .absolute(20))
+        let badge = NSCollectionLayoutSupplementaryItem(layoutSize: badgeSize, elementKind: "badgeElementKind", containerAnchor: badgeAnchor)
+        
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(80))
-        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        let item = NSCollectionLayoutItem(layoutSize: itemSize, supplementaryItems: [badge])
         
         let groupSize = NSCollectionLayoutSize(widthDimension: .absolute(80), heightDimension: .estimated(80))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
