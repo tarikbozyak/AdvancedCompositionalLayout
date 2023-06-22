@@ -35,6 +35,7 @@
 		8AB76B502A3CFE4700C2E9D1 /* MultiSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB76B4F2A3CFE4700C2E9D1 /* MultiSection.swift */; };
 		8AB76B522A3D002B00C2E9D1 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB76B512A3D002B00C2E9D1 /* Section.swift */; };
 		8AB76B542A3D03CA00C2E9D1 /* MultiSectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB76B532A3D03CA00C2E9D1 /* MultiSectionViewController.swift */; };
+		8AD131A52A44B88900333160 /* GradientLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD131A42A44B88900333160 /* GradientLineView.swift */; };
 		8AD8ACEE29FE1A1100170258 /* BasicListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD8ACED29FE1A1100170258 /* BasicListViewController.swift */; };
 		8AD8ACF029FE1E6300170258 /* BasicList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD8ACEF29FE1E6300170258 /* BasicList.swift */; };
 		8AD8ACF229FE567F00170258 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD8ACF129FE567F00170258 /* Person.swift */; };
@@ -79,6 +80,7 @@
 		8AB76B512A3D002B00C2E9D1 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		8AB76B532A3D03CA00C2E9D1 /* MultiSectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSectionViewController.swift; sourceTree = "<group>"; };
 		8ABC74532A376F4D002C2CC2 /* TodoList.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TodoList.md; sourceTree = "<group>"; };
+		8AD131A42A44B88900333160 /* GradientLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientLineView.swift; sourceTree = "<group>"; };
 		8AD8ACED29FE1A1100170258 /* BasicListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicListViewController.swift; sourceTree = "<group>"; };
 		8AD8ACEF29FE1E6300170258 /* BasicList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicList.swift; sourceTree = "<group>"; };
 		8AD8ACF129FE567F00170258 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 				8A522EF62A3DA5F800633432 /* HeaderView.swift */,
 				8A522EF82A3E47BE00633432 /* PersonCell.swift */,
 				8A77CE8F2A40EFE3008A38E5 /* TaskCell.swift */,
+				8AD131A42A44B88900333160 /* GradientLineView.swift */,
 			);
 			path = AdvancedCompositionalLayout;
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 				8A20D0862A2C6D0200D9D698 /* WaterfallModel.swift in Sources */,
 				8AEAAB0129FA83F200ED6B14 /* MultiSectionExpandableList.swift in Sources */,
 				8A05EE362A002B7900134E22 /* Grid.swift in Sources */,
+				8AD131A52A44B88900333160 /* GradientLineView.swift in Sources */,
 				8A091CB929F56BDA001EAE4F /* AppDelegate.swift in Sources */,
 				8A8716E62A3603CC00B97B68 /* WaterfallType.swift in Sources */,
 				8A091CBB29F56BDA001EAE4F /* SceneDelegate.swift in Sources */,

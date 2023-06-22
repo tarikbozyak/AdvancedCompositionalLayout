@@ -24,19 +24,39 @@ class HeaderView: UICollectionReusableView {
         return stackView
     }()
     
+    private lazy var backgroundView: UIVisualEffectView = {
+        let blurVisualEffectView = UIVisualEffectView(effect: blurEffect)
+        return blurVisualEffectView
+    }()
+    
+    private let blurEffect = UIBlurEffect(style: .systemThinMaterial)
+    
+    lazy var gradientLineView: GradientLineView = {
+        let gradientView = GradientLineView()
+        gradientView.translatesAutoresizingMaskIntoConstraints = false
+        return gradientView
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = .systemGray4
+//        self.backgroundColor = .systemGray4.withAlphaComponent(0.7)
         setUp()
     }
     
     func setUp(){
+        addSubview(backgroundView)
         addSubview(stackView)
+        addSubview(gradientLineView)
+        backgroundView.edgesToSuperview()
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalTo: topAnchor, constant: 10),
             stackView.leftAnchor.constraint(equalTo: leftAnchor, constant: 10),
             stackView.rightAnchor.constraint(equalTo: rightAnchor, constant: -10),
-            stackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10)
+            stackView.bottomAnchor.constraint(equalTo: gradientLineView.topAnchor, constant: -10),
+            gradientLineView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            gradientLineView.leftAnchor.constraint(equalTo: leftAnchor),
+            gradientLineView.rightAnchor.constraint(equalTo: rightAnchor),
+            gradientLineView.heightAnchor.constraint(equalToConstant: 3)
         ])
     }
     
@@ -46,7 +66,7 @@ class HeaderView: UICollectionReusableView {
     
     func configure(with item: String) {
         titleLabel.text = item
-        titleLabel.textColor = .white.withAlphaComponent(0.9)
+        titleLabel.textColor = .link.withAlphaComponent(0.8)
     }
         
 }
