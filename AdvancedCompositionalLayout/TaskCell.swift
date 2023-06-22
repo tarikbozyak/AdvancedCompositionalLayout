@@ -47,6 +47,15 @@ class TaskCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         layerConfigure()
+        setupView()
+        backgroundColor = .systemPurple
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("GridCell coder has not been implemented")
+    }
+    
+    func setupView(){
         addSubview(imageView)
         imageView.edgesToSuperview()
         addSubview(titleLabel)
@@ -57,11 +66,6 @@ class TaskCell: UICollectionViewCell {
             estimatedTime.leftAnchor.constraint(equalTo: leftAnchor, constant: 16),
             estimatedTime.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8)
         ])
-        backgroundColor = .systemPurple
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("GridCell coder has not been implemented")
     }
     
     func configure(with item: Task) {
