@@ -16,7 +16,7 @@ extension NSCollectionLayoutSection {
         
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(300))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-        group.contentInsets = .init(top: 8, leading: 8, bottom: 16, trailing: 8)
+        group.contentInsets = .init(top: 12, leading: 8, bottom: 24, trailing: 8)
         let section = NSCollectionLayoutSection(group: group)
         section.orthogonalScrollingBehavior = .groupPagingCentered
         return section
@@ -28,7 +28,7 @@ extension NSCollectionLayoutSection {
         
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.75), heightDimension: .absolute(120))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-        group.contentInsets = .init(top: 8, leading: 8, bottom: 16, trailing: 8)
+        group.contentInsets = .init(top: 12, leading: 8, bottom: 25, trailing: 8)
         let section = NSCollectionLayoutSection(group: group)
         section.orthogonalScrollingBehavior = .continuous
         return section
@@ -46,7 +46,7 @@ extension NSCollectionLayoutSection {
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
         group.contentInsets = .init(top: 0, leading: 6, bottom: 0, trailing: 6)
         let section = NSCollectionLayoutSection(group: group)
-        section.contentInsets = .init(top: 8, leading: 0, bottom: 16, trailing: 0)
+        section.contentInsets = .init(top: 12, leading: 0, bottom: 24, trailing: 0)
         section.orthogonalScrollingBehavior = .continuous
         return section
     }
@@ -121,7 +121,7 @@ extension NSCollectionLayoutSection {
         }
         
         let section = NSCollectionLayoutSection(group: group)
-        section.contentInsets = .init(top: 8, leading: 0, bottom: 0, trailing: 0)
+        section.contentInsets = .init(top: 12, leading: 0, bottom: 16, trailing: 0)
         section.orthogonalScrollingBehavior = .continuous
         
         return section
@@ -199,7 +199,7 @@ extension NSCollectionLayoutSection {
         
         //Section
         let section = NSCollectionLayoutSection(group: finalGroup)
-        section.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 0, bottom: 10, trailing: 0)
+        section.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 0, bottom: 24, trailing: 0)
         section.orthogonalScrollingBehavior = .continuous
         return section
     }
@@ -260,7 +260,7 @@ extension NSCollectionLayoutSection {
         
         //Section
         let section = NSCollectionLayoutSection(group: finalGroup)
-        section.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 0, bottom: 10, trailing: 0)
+        section.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 0, bottom: 24, trailing: 0)
         section.orthogonalScrollingBehavior = .continuous
         return section
     }
@@ -331,7 +331,7 @@ extension NSCollectionLayoutSection {
         
         //Section
         let section = NSCollectionLayoutSection(group: finalGroup)
-        section.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 0, bottom: 10, trailing: 0)
+        section.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 0, bottom: 24, trailing: 0)
         section.orthogonalScrollingBehavior = .groupPagingCentered
         return section
         
@@ -412,7 +412,7 @@ extension NSCollectionLayoutSection {
         
         //Section
         let section = NSCollectionLayoutSection(group: finalGroup)
-        section.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 0, bottom: 10, trailing: 0)
+        section.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 0, bottom: 24, trailing: 0)
         return section
     }
 }

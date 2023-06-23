@@ -42,6 +42,7 @@ class MultiSection: UICollectionView {
     
     func commonInit(){
         setCollectionViewLayout(UICollectionViewCompositionalLayout(sectionProvider: layout), animated: false)
+        backgroundColor = .systemGray6
         configureDataSource()
         configureSupplementaryViews()
     }
@@ -63,8 +64,7 @@ class MultiSection: UICollectionView {
         }
         
         let waterfallCellRegistration = UICollectionView.CellRegistration<WaterfallCell, Int> { (cell, indexPath, item) in
-            let cornerRadius = cell.frame.width > cell.frame.height ? cell.frame.height / 2 : cell.frame.width / 2
-            cell.configure(with: item, bgColor: .systemBlue.withAlphaComponent(0.8), cornerRadius: cornerRadius)
+            cell.configure(with: item, bgColor: .systemBlue.withAlphaComponent(0.8))
             cell.backgroundColor = UIColor(named: "section\(indexPath.section)CellColor")
         }
         

@@ -50,16 +50,8 @@ class MultiSectionViewController: UIViewController {
             return layout
         }),
         
-        Section(title: "Horizontal Waterfall Layout", data: [Int](201...270), cellType: WaterfallCell.self, layout: { environment, dataCount in
-            let itemWidthProvider: ItemWidthProvider = { return CGFloat.random(in: 150...300) }
-            let config = WaterfallConfiguration(dataCount: dataCount, rowCount: 4, itemSpacing: 3, sectionVerticalSpacing: 12, itemWidthProvider: { CGFloat.random(in: 100...200)}, sectionHeight: .fractionalHeight(0.25), environment: environment)
-            let layout: NSCollectionLayoutSection = .horizontalWaterfallSection(config: config)
-            layout.addHeader()
-            return layout
-        }),
-        
-        Section(title: "Vertical Waterfall Layout", data: [Int](271...300), cellType: WaterfallCell.self, layout: { environment, dataCount in
-            let config = WaterfallConfiguration(dataCount: dataCount, columnCount: 4, itemSpacing: 10, sectionHorizontalSpacing: 3, itemHeightProvider: { CGFloat.random(in: 250...500) }, environment: environment)
+        Section(title: "Vertical Waterfall Layout", data: [Int](201...240), cellType: WaterfallCell.self, layout: { environment, dataCount in
+            let config = WaterfallConfiguration(dataCount: dataCount, columnCount: 2, itemSpacing: 10, sectionHorizontalSpacing: 3, itemHeightProvider: { CGFloat.random(in: 250...500) }, environment: environment)
             let layout: NSCollectionLayoutSection = .verticalWaterfallSection(config: config)
             layout.addHeader()
             return layout
