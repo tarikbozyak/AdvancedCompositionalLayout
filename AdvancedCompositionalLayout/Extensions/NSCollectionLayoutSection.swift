@@ -424,7 +424,16 @@ extension NSCollectionLayoutSection {
         let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
         header.zIndex = 20
         header.pinToVisibleBounds = pinToVisibleBounds
-        boundarySupplementaryItems = [header]
+        boundarySupplementaryItems += [header]
+    }
+    
+    func addFooter(_ pinToVisibleBounds: Bool = false) {
+        contentInsets.bottom = 8
+        let footerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(30))
+        let footer = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: footerSize, elementKind: UICollectionView.elementKindSectionFooter, alignment: .bottom)
+        footer.zIndex = 20
+        footer.pinToVisibleBounds = pinToVisibleBounds
+        boundarySupplementaryItems += [footer]
     }
 }
 

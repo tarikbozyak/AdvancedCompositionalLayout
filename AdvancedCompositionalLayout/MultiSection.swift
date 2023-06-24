@@ -124,7 +124,9 @@ class MultiSection: UICollectionView {
         footerRegistration = .init(elementKind: UICollectionView.elementKindSectionFooter) {
             (footer, elementKind, indexPath) in
             var configuration = footer.defaultContentConfiguration()
-            configuration.text = "Item count: " + "Test"
+            configuration.directionalLayoutMargins.bottom = 24
+            let dataCount = self.datasource.sectionIdentifier(for: indexPath.section)?.data.count ?? 0
+            configuration.text = "Item count: " + "\(dataCount)"
             footer.contentConfiguration = configuration
         }
         

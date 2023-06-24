@@ -35,6 +35,7 @@ class MultiSectionViewController: UIViewController {
         Section(title: "Horizontal Nested Group Layout 1", data: [Int](1...70), cellType: NestedCell.self, layout: { _, _ in
             let layout: NSCollectionLayoutSection = .horizontalNestedGroupLayout1()
             layout.addHeader()
+            layout.addFooter()
             return layout
         }),
         
