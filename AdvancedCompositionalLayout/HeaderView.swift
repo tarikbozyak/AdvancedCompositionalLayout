@@ -25,38 +25,36 @@ class HeaderView: UICollectionReusableView {
     }()
     
     private lazy var backgroundView: UIVisualEffectView = {
+        let blurEffect = UIBlurEffect(style: .systemThinMaterial)
         let blurVisualEffectView = UIVisualEffectView(effect: blurEffect)
         return blurVisualEffectView
     }()
     
-    private let blurEffect = UIBlurEffect(style: .systemThinMaterial)
-    
-    lazy var gradientLineView: GradientLineView = {
-        let gradientView = GradientLineView()
-        gradientView.translatesAutoresizingMaskIntoConstraints = false
-        return gradientView
+    lazy var gradientLine: CAGradientLayer = {
+        let gradient = CAGradientLayer()
+        gradient.type = .axial
+        gradient.colors = [UIColor.red.cgColor, UIColor.systemYellow.cgColor, UIColor.blue.cgColor]
+        gradient.startPoint = CGPoint(x: 0, y: 0.5)
+        gradient.endPoint = CGPoint(x: 1, y: 0.5)
+        gradient.locations = [0, 0.5, 1]
+
+        return gradient
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-//        self.backgroundColor = .systemGray4.withAlphaComponent(0.7)
         setUp()
     }
     
     func setUp(){
         addSubview(backgroundView)
         addSubview(stackView)
-        addSubview(gradientLineView)
         backgroundView.edgesToSuperview()
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalTo: topAnchor, constant: 10),
             stackView.leftAnchor.constraint(equalTo: leftAnchor, constant: 10),
             stackView.rightAnchor.constraint(equalTo: rightAnchor, constant: -10),
-            stackView.bottomAnchor.constraint(equalTo: gradientLineView.topAnchor, constant: -10),
-            gradientLineView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            gradientLineView.leftAnchor.constraint(equalTo: leftAnchor),
-            gradientLineView.rightAnchor.constraint(equalTo: rightAnchor),
-            gradientLineView.heightAnchor.constraint(equalToConstant: 3)
+            stackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
         ])
     }
     
@@ -67,6 +65,12 @@ class HeaderView: UICollectionReusableView {
     func configure(with item: String) {
         titleLabel.text = item
         titleLabel.textColor = .link.withAlphaComponent(0.8)
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        layer.addSublayer(gradientLine)
+        gradientLine.frame = CGRect(x: 0, y: frame.size.height - 3, width: frame.width, height: 3)
     }
         
 }

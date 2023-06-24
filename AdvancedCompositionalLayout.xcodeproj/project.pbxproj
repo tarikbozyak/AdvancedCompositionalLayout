@@ -29,13 +29,13 @@
 		8A5C71A82A2E422C001C1C56 /* NestedGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5C71A72A2E422C001C1C56 /* NestedGroup.swift */; };
 		8A77CE902A40EFE3008A38E5 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A77CE8F2A40EFE3008A38E5 /* TaskCell.swift */; };
 		8A77CE922A40F43F008A38E5 /* FacePile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A77CE912A40F43F008A38E5 /* FacePile.swift */; };
+		8A7A12A32A46F9DB000E9791 /* CAGradientLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7A12A22A46F9DB000E9791 /* CAGradientLayer.swift */; };
 		8A8716E42A36038700B97B68 /* NestedGroupType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8716E32A36038700B97B68 /* NestedGroupType.swift */; };
 		8A8716E62A3603CC00B97B68 /* WaterfallType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8716E52A3603CC00B97B68 /* WaterfallType.swift */; };
 		8AA67A732A27CE020052D3CA /* HorizontalWaterfallBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA67A722A27CE020052D3CA /* HorizontalWaterfallBuilder.swift */; };
 		8AB76B502A3CFE4700C2E9D1 /* MultiSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB76B4F2A3CFE4700C2E9D1 /* MultiSection.swift */; };
 		8AB76B522A3D002B00C2E9D1 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB76B512A3D002B00C2E9D1 /* Section.swift */; };
 		8AB76B542A3D03CA00C2E9D1 /* MultiSectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB76B532A3D03CA00C2E9D1 /* MultiSectionViewController.swift */; };
-		8AD131A52A44B88900333160 /* GradientLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD131A42A44B88900333160 /* GradientLineView.swift */; };
 		8AD131A72A44DC8000333160 /* BadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD131A62A44DC8000333160 /* BadgeView.swift */; };
 		8AD131A92A44E82300333160 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD131A82A44E82300333160 /* Task.swift */; };
 		8AD131AB2A44E85500333160 /* TaskStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD131AA2A44E85500333160 /* TaskStatistics.swift */; };
@@ -78,6 +78,7 @@
 		8A5C71A72A2E422C001C1C56 /* NestedGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestedGroup.swift; sourceTree = "<group>"; };
 		8A77CE8F2A40EFE3008A38E5 /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
 		8A77CE912A40F43F008A38E5 /* FacePile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacePile.swift; sourceTree = "<group>"; };
+		8A7A12A22A46F9DB000E9791 /* CAGradientLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAGradientLayer.swift; sourceTree = "<group>"; };
 		8A8716E32A36038700B97B68 /* NestedGroupType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestedGroupType.swift; sourceTree = "<group>"; };
 		8A8716E52A3603CC00B97B68 /* WaterfallType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterfallType.swift; sourceTree = "<group>"; };
 		8AA67A722A27CE020052D3CA /* HorizontalWaterfallBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalWaterfallBuilder.swift; sourceTree = "<group>"; };
@@ -85,7 +86,6 @@
 		8AB76B512A3D002B00C2E9D1 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		8AB76B532A3D03CA00C2E9D1 /* MultiSectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSectionViewController.swift; sourceTree = "<group>"; };
 		8ABC74532A376F4D002C2CC2 /* TodoList.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TodoList.md; sourceTree = "<group>"; };
-		8AD131A42A44B88900333160 /* GradientLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientLineView.swift; sourceTree = "<group>"; };
 		8AD131A62A44DC8000333160 /* BadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeView.swift; sourceTree = "<group>"; };
 		8AD131A82A44E82300333160 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		8AD131AA2A44E85500333160 /* TaskStatistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskStatistics.swift; sourceTree = "<group>"; };
@@ -173,7 +173,6 @@
 				8A522EF62A3DA5F800633432 /* HeaderView.swift */,
 				8A522EF82A3E47BE00633432 /* PersonCell.swift */,
 				8A77CE8F2A40EFE3008A38E5 /* TaskCell.swift */,
-				8AD131A42A44B88900333160 /* GradientLineView.swift */,
 				8AD131A62A44DC8000333160 /* BadgeView.swift */,
 				8AD131AC2A44E91100333160 /* TaskStatisticsCell.swift */,
 				8AD131AE2A44E97D00333160 /* CircularProgressView.swift */,
@@ -211,6 +210,7 @@
 				8A47565829FCE2A000F4E44D /* UIView.swift */,
 				8A05EE392A00BB5A00134E22 /* NSCollectionLayoutSection.swift */,
 				8A77CE912A40F43F008A38E5 /* FacePile.swift */,
+				8A7A12A22A46F9DB000E9791 /* CAGradientLayer.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -330,7 +330,6 @@
 				8A20D0862A2C6D0200D9D698 /* WaterfallModel.swift in Sources */,
 				8AEAAB0129FA83F200ED6B14 /* MultiSectionExpandableList.swift in Sources */,
 				8A05EE362A002B7900134E22 /* Grid.swift in Sources */,
-				8AD131A52A44B88900333160 /* GradientLineView.swift in Sources */,
 				8A091CB929F56BDA001EAE4F /* AppDelegate.swift in Sources */,
 				8A8716E62A3603CC00B97B68 /* WaterfallType.swift in Sources */,
 				8A091CBB29F56BDA001EAE4F /* SceneDelegate.swift in Sources */,
@@ -341,6 +340,7 @@
 				8AA67A732A27CE020052D3CA /* HorizontalWaterfallBuilder.swift in Sources */,
 				E26359E82A3484520049E877 /* NestedCell.swift in Sources */,
 				8A05EE3A2A00BB5A00134E22 /* NSCollectionLayoutSection.swift in Sources */,
+				8A7A12A32A46F9DB000E9791 /* CAGradientLayer.swift in Sources */,
 				8AB76B502A3CFE4700C2E9D1 /* MultiSection.swift in Sources */,
 				8A189A1F2A1DCE2F005E6E88 /* Supplementary.swift in Sources */,
 				8A47565929FCE2A000F4E44D /* UIView.swift in Sources */,
