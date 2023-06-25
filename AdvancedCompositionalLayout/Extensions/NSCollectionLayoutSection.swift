@@ -16,8 +16,11 @@ extension NSCollectionLayoutSection {
         
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(300))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-        group.contentInsets = .init(top: 12, leading: 8, bottom: 24, trailing: 8)
+        group.contentInsets.leading = 8
+        group.contentInsets.trailing = 8
         let section = NSCollectionLayoutSection(group: group)
+        section.contentInsets.top = 12
+        section.contentInsets.bottom = 24
         section.orthogonalScrollingBehavior = .groupPagingCentered
         return section
     }
@@ -434,6 +437,25 @@ extension NSCollectionLayoutSection {
         footer.zIndex = 20
         footer.pinToVisibleBounds = pinToVisibleBounds
         boundarySupplementaryItems += [footer]
+    }
+    
+    func addPagerFooter(_ pinToVisibleBounds: Bool = false) {
+        contentInsets.bottom = 8
+        let footerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(30))
+        let footer = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: footerSize, elementKind: UICollectionView.elementKindSectionFooter, alignment: .bottom)
+        footer.zIndex = 20
+        footer.pinToVisibleBounds = pinToVisibleBounds
+        boundarySupplementaryItems += [footer]
+    }
+}
+
+//VisibleItemsHandler
+extension NSCollectionLayoutSection {
+    func addVisibleItemsHandler(with listener: PageListener?, sectionIndex: Int){
+        visibleItemsInvalidationHandler = { (items, offset, env) -> Void in
+            let page = round(offset.x / env.container.contentSize.width)
+            listener?.send(Page(pageIndex: Int(page), sectionIndex: sectionIndex))
+        }
     }
 }
 

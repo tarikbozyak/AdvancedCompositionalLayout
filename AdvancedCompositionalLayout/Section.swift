@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-typealias SectionLayout = (NSCollectionLayoutEnvironment, Int) -> NSCollectionLayoutSection
+typealias SectionLayout = (Int, NSCollectionLayoutEnvironment, Int, PageListener?) -> NSCollectionLayoutSection
 
 class Section: Hashable {
     
@@ -16,12 +16,25 @@ class Section: Hashable {
     let title: String
     let data: [AnyHashable]
     let cellType: UICollectionViewCell.Type
+    let headerType: UICollectionReusableView.Type?
+    let footerType: UICollectionReusableView.Type?
     let layout: SectionLayout
     
-    init(title: String ,data: [AnyHashable], cellType: UICollectionViewCell.Type, layout: @escaping SectionLayout) {
+    lazy var pageListener = PageListener()
+    
+    init(
+        title: String ,
+        data: [AnyHashable],
+        cellType: UICollectionViewCell.Type,
+        headerType: UICollectionReusableView.Type? = nil,
+        footerType: UICollectionReusableView.Type? = nil,
+        layout: @escaping SectionLayout
+    ) {
         self.title = title
         self.data = data
         self.cellType = cellType
+        self.headerType = headerType
+        self.footerType = footerType
         self.layout = layout
     }
     

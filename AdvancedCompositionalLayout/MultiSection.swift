@@ -7,11 +7,16 @@
 
 import Foundation
 import UIKit
+import Combine
 
 typealias MultiSectionSnapshot = NSDiffableDataSourceSnapshot<Section, AnyHashable>
 typealias MultiSectionDataSource = UICollectionViewDiffableDataSource<Section, AnyHashable>
 typealias SupplementaryHeader = UICollectionView.SupplementaryRegistration<HeaderView>
 typealias SupplementaryBadge = UICollectionView.SupplementaryRegistration<BadgeView>
+
+protocol PagerDelegate: AnyObject {
+    func didValueChanged(indexPath: IndexPath, scrollPosition: UICollectionView.ScrollPosition)
+}
 
 class MultiSection: UICollectionView {
     
@@ -19,11 +24,13 @@ class MultiSection: UICollectionView {
     
     var datasource: MultiSectionDataSource!
     
-    var headerRegistration: SupplementaryHeader!
+    var headerRegistration: UICollectionView.SupplementaryRegistration<HeaderView>!
     
-    var footerRegistration: SupplementaryListCell!
+    var footerRegistration: UICollectionView.SupplementaryRegistration<UICollectionViewListCell>!
     
-    var badgeRegistration: SupplementaryBadge!
+    var pagingFooterRegistration: UICollectionView.SupplementaryRegistration<PagerFooterView>!
+    
+    var badgeRegistration: UICollectionView.SupplementaryRegistration<BadgeView>!
     
     var sectionList: [Section] {
         let delegate = rootVC as? CollectionViewDataDelegte
@@ -130,11 +137,18 @@ class MultiSection: UICollectionView {
             footer.contentConfiguration = configuration
         }
         
+        pagingFooterRegistration = .init(elementKind: UICollectionView.elementKindSectionFooter) { [weak self]
+            (footer, elementKind, indexPath) in
+            if let pageListener = self?.datasource.sectionIdentifier(for: indexPath.section)?.pageListener {
+                footer.subscribeTo(subject: pageListener, for: indexPath.section)
+            }
+            footer.configure(numberOfPages: self?.sectionList[indexPath.section].data.count ?? 0, indexPath: indexPath, delegate: self)
+        }
+        
         badgeRegistration = .init(elementKind: "badgeElementKind", handler: { [unowned self] supplementaryView, elementKind, indexPath in
             let personData = datasource.sectionIdentifier(for: indexPath.section)?.data as? [Person] ?? []
             supplementaryView.configure(status: personData[indexPath.row].status)
         })
-        
         
         
         datasource.supplementaryViewProvider = supplementaryView
@@ -148,7 +162,12 @@ class MultiSection: UICollectionView {
         }
         
         else if elementKind == UICollectionView.elementKindSectionFooter{
-            return self.dequeueConfiguredReusableSupplementary(using: footerRegistration, for: indexPath)
+            switch sectionList[indexPath.section].footerType {
+            case is PagerFooterView.Type:
+                return self.dequeueConfiguredReusableSupplementary(using: pagingFooterRegistration, for: indexPath)
+            default:
+                return self.dequeueConfiguredReusableSupplementary(using: footerRegistration, for: indexPath)
+            }
         }
         
         else {
@@ -158,8 +177,8 @@ class MultiSection: UICollectionView {
     
     // MARK: Layout
     private func layout(for sectionIndex: Int, environment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? {
-        let dataCount = datasource.sectionIdentifier(for: sectionIndex)?.data.count ?? 1
-        return sectionList[sectionIndex].layout(environment, dataCount)
+        let section = datasource.sectionIdentifier(for: sectionIndex)
+        return section?.layout(sectionIndex ,environment, section?.data.count ?? 1, section?.pageListener)
     }
     
     // MARK: PerformUpdates
@@ -174,3 +193,8 @@ class MultiSection: UICollectionView {
     
 }
 
+extension MultiSection: PagerDelegate {
+    func didValueChanged(indexPath: IndexPath, scrollPosition: UICollectionView.ScrollPosition) {
+        self.scrollToItem(at: indexPath, at: scrollPosition, animated: true)
+    }
+}
