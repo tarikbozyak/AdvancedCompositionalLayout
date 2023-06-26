@@ -45,7 +45,7 @@
 		8AD131A92A44E82300333160 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD131A82A44E82300333160 /* Task.swift */; };
 		8AD131AB2A44E85500333160 /* TaskStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD131AA2A44E85500333160 /* TaskStatistics.swift */; };
 		8AD131AD2A44E91100333160 /* TaskStatisticsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD131AC2A44E91100333160 /* TaskStatisticsCell.swift */; };
-		8AD131AF2A44E97D00333160 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD131AE2A44E97D00333160 /* CircularProgressView.swift */; };
+		8AD131AF2A44E97D00333160 /* CustomProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD131AE2A44E97D00333160 /* CustomProgressView.swift */; };
 		8AD8ACEE29FE1A1100170258 /* BasicListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD8ACED29FE1A1100170258 /* BasicListViewController.swift */; };
 		8AD8ACF029FE1E6300170258 /* BasicList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD8ACEF29FE1E6300170258 /* BasicList.swift */; };
 		8AD8ACF229FE567F00170258 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD8ACF129FE567F00170258 /* Person.swift */; };
@@ -100,7 +100,7 @@
 		8AD131A82A44E82300333160 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		8AD131AA2A44E85500333160 /* TaskStatistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskStatistics.swift; sourceTree = "<group>"; };
 		8AD131AC2A44E91100333160 /* TaskStatisticsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskStatisticsCell.swift; sourceTree = "<group>"; };
-		8AD131AE2A44E97D00333160 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
+		8AD131AE2A44E97D00333160 /* CustomProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgressView.swift; sourceTree = "<group>"; };
 		8AD8ACED29FE1A1100170258 /* BasicListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicListViewController.swift; sourceTree = "<group>"; };
 		8AD8ACEF29FE1E6300170258 /* BasicList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicList.swift; sourceTree = "<group>"; };
 		8AD8ACF129FE567F00170258 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
@@ -185,7 +185,7 @@
 				8A77CE8F2A40EFE3008A38E5 /* TaskCell.swift */,
 				8AD131A62A44DC8000333160 /* BadgeView.swift */,
 				8AD131AC2A44E91100333160 /* TaskStatisticsCell.swift */,
-				8AD131AE2A44E97D00333160 /* CircularProgressView.swift */,
+				8AD131AE2A44E97D00333160 /* CustomProgressView.swift */,
 				8A7A12AE2A4834D4000E9791 /* PagerFooterView.swift */,
 				8A97E02C2A4858C100CAA422 /* TabHeaderView.swift */,
 				8A97E0302A485A2600CAA422 /* TabMenu.swift */,
@@ -336,7 +336,7 @@
 				8A10D9822A2226790029BE92 /* SupplementaryViewController.swift in Sources */,
 				E2A102B72A1BDACF002041F6 /* WaterfallConfiguration.swift in Sources */,
 				E2A102AB2A1BCEF2002041F6 /* WaterfallViewController.swift in Sources */,
-				8AD131AF2A44E97D00333160 /* CircularProgressView.swift in Sources */,
+				8AD131AF2A44E97D00333160 /* CustomProgressView.swift in Sources */,
 				8AD8ACF029FE1E6300170258 /* BasicList.swift in Sources */,
 				8A97E0312A485A2600CAA422 /* TabMenu.swift in Sources */,
 				8A97E02F2A4858DF00CAA422 /* Page.swift in Sources */,

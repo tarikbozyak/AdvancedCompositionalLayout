@@ -51,8 +51,8 @@ class TaskStatisticsCell: UICollectionViewCell {
         return imageView
     }()
     
-    lazy var circularProgressView: CircularProgressView = {
-        let progressView = CircularProgressView()
+    lazy var progressView: CustomProgressView = {
+        let progressView = CustomProgressView(type: .circular)
         progressView.progressColor = .white
         progressView.trackColor = .systemGray5.withAlphaComponent(0.5)
         progressView.translatesAutoresizingMaskIntoConstraints = false
@@ -79,16 +79,16 @@ class TaskStatisticsCell: UICollectionViewCell {
         addSubview(imageView)
         imageView.edgesToSuperview()
         addSubview(stackView)
-        addSubview(circularProgressView)
+        addSubview(progressView)
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalTo: topAnchor, constant: 16),
             stackView.leftAnchor.constraint(equalTo: leftAnchor, constant: 16),
             stackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16),
-            circularProgressView.topAnchor.constraint(equalTo: topAnchor, constant: 16),
-            circularProgressView.rightAnchor.constraint(equalTo: rightAnchor, constant: -16),
-            circularProgressView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16),
-            circularProgressView.widthAnchor.constraint(equalTo: circularProgressView.heightAnchor, multiplier: 1.0),
-            stackView.rightAnchor.constraint(equalTo: circularProgressView.leftAnchor, constant: -10)
+            progressView.topAnchor.constraint(equalTo: topAnchor, constant: 16),
+            progressView.rightAnchor.constraint(equalTo: rightAnchor, constant: -16),
+            progressView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16),
+            progressView.widthAnchor.constraint(equalTo: progressView.heightAnchor, multiplier: 1.0),
+            stackView.rightAnchor.constraint(equalTo: progressView.leftAnchor, constant: -10)
             
         ])
     }
@@ -96,7 +96,7 @@ class TaskStatisticsCell: UICollectionViewCell {
     func configure(with item: TaskStatistics) {
         titleLabel.text = item.title
         subtitleLabel.text = item.subtitle
-        circularProgressView.progress = item.percentageOfReadyTasks
+        progressView.progress = item.percentageOfReadyTasks
     }
     
     func layerConfigure(){

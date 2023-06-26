@@ -1,5 +1,5 @@
 //
-//  CircularProgressView.swift
+//  CustomProgressView.swift
 //  AdvancedCompositionalLayout
 //
 //  Created by Ahmed Tarık Bozyak on 22.06.2023.
@@ -7,9 +7,15 @@
 
 import UIKit
 
-class CircularProgressView: UIView {
+enum ProgressViewType {
+    case line
+    case circular
+}
+
+class CustomProgressView: UIView {
     private let progressLayer = CAShapeLayer()
     private let trackLayer = CAShapeLayer()
+    let type: ProgressViewType
 
     var progress: CGFloat = 0 {
         didSet{
@@ -38,7 +44,7 @@ class CircularProgressView: UIView {
     
     lazy var progressLabel: UILabel = {
         let label = UILabel()
-        label.font = .preferredFont(forTextStyle: .callout)
+        label.font = .preferredFont(forTextStyle: .caption1)
         label.textColor = .systemBlue.withAlphaComponent(0.8)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -46,14 +52,14 @@ class CircularProgressView: UIView {
     
     var timeToFill = 3.43
 
-    override init(frame: CGRect) {
+    init(frame: CGRect = .zero, type: ProgressViewType) {
+        self.type = type
         super.init(frame: frame)
         setupLayers()
     }
 
     required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        setupLayers()
+        fatalError("CustomProgressView Not implemented..")
     }
 
     private func setupLayers() {
@@ -72,22 +78,45 @@ class CircularProgressView: UIView {
         progressLayer.strokeEnd = CGFloat(progress)
         layer.addSublayer(progressLayer)
         
-        self.addSubview(progressLabel)
-        progressLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        progressLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        // Progress Label
+        addProgressLabel()
     }
 
     override func layoutSubviews() {
         super.layoutSubviews()
-
-        // Update the path of the layers based on the view's bounds
-        let center = CGPoint(x: bounds.width / 2, y: bounds.height / 2)
-        let radius = frame.width / 2
-
-        let circularPath = UIBezierPath(arcCenter: center, radius: radius, startAngle: CGFloat(-0.5 * .pi), endAngle: CGFloat(1.5 * .pi), clockwise: true)
-
-        trackLayer.path = circularPath.cgPath
-        progressLayer.path = circularPath.cgPath
+        setupShapeLayer(shapeLayer: trackLayer)
+        setupShapeLayer(shapeLayer: progressLayer)
+    }
+    
+    func setupShapeLayer(shapeLayer: CAShapeLayer) {
+        
+        switch type {
+        case .line:
+            shapeLayer.frame = self.bounds
+            let linePath = UIBezierPath()
+            linePath.move(to: CGPoint(x: 0, y: bounds.midY))
+            linePath.addLine(to: CGPoint(x: bounds.width, y: bounds.midY))
+            shapeLayer.path = linePath.cgPath
+        case .circular:
+            let center = CGPoint(x: bounds.width / 2, y: bounds.height / 2)
+            let radius = frame.width / 2
+            let circularPath = UIBezierPath(arcCenter: center, radius: radius, startAngle: CGFloat(-0.5 * .pi), endAngle: CGFloat(1.5 * .pi), clockwise: true)
+            shapeLayer.path = circularPath.cgPath
+        }
+    }
+    
+    func addProgressLabel(){
+        switch type {
+        case .line:
+            self.addSubview(progressLabel)
+            progressLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+            progressLabel.rightAnchor.constraint(equalTo: leftAnchor, constant: -8).isActive = true
+            
+        case .circular:
+            self.addSubview(progressLabel)
+            progressLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+            progressLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        }
     }
 
     func updateProgress(duration: TimeInterval = 3, to newProgress: CGFloat) -> Void{
