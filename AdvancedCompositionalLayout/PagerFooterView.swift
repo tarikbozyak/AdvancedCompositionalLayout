@@ -9,13 +9,6 @@ import Foundation
 import UIKit
 import Combine
 
-typealias PageListener = PassthroughSubject<Page, Never>
-
-struct Page: Equatable, Hashable {
-    let pageIndex: Int
-    let sectionIndex: Int
-}
-
 class PagerFooterView: UICollectionReusableView {
     
     var cancellable: AnyCancellable?
@@ -34,7 +27,6 @@ class PagerFooterView: UICollectionReusableView {
     
     @objc func valueChanged(sender: UIPageControl) {
         let currentValue = sender.currentPage
-        print("???asd ", currentValue)
         delegate?.didValueChanged(indexPath: IndexPath(item: currentValue, section: indexPath.section), scrollPosition: .centeredHorizontally)
     }
 
@@ -56,6 +48,7 @@ class PagerFooterView: UICollectionReusableView {
 
     func subscribeTo(subject: PageListener, for section: Int) {
         cancellable = subject
+            .removeDuplicates()
             .filter { $0.sectionIndex == section }
             .receive(on: DispatchQueue.main)
             .sink { [weak self] pageInfo in

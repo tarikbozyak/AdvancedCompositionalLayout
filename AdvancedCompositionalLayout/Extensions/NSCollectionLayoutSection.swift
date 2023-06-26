@@ -10,6 +10,16 @@ import UIKit
 
 extension NSCollectionLayoutSection {
     
+    static func menuSection() -> NSCollectionLayoutSection {
+        let size = NSCollectionLayoutSize(widthDimension: .estimated(60), heightDimension: .estimated(40))
+        let item = NSCollectionLayoutItem(layoutSize: size)
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: size, subitems: [item])
+        let section = NSCollectionLayoutSection(group: group)
+        section.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8 )
+        section.orthogonalScrollingBehavior = .continuous
+        return section
+    }
+    
     static func taskCaptionSection() -> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)

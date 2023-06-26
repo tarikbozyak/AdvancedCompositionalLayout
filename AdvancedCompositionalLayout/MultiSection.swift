@@ -11,11 +11,13 @@ import Combine
 
 typealias MultiSectionSnapshot = NSDiffableDataSourceSnapshot<Section, AnyHashable>
 typealias MultiSectionDataSource = UICollectionViewDiffableDataSource<Section, AnyHashable>
-typealias SupplementaryHeader = UICollectionView.SupplementaryRegistration<HeaderView>
-typealias SupplementaryBadge = UICollectionView.SupplementaryRegistration<BadgeView>
 
 protocol PagerDelegate: AnyObject {
     func didValueChanged(indexPath: IndexPath, scrollPosition: UICollectionView.ScrollPosition)
+}
+
+protocol CollectionViewUpdate: AnyObject {
+    func updateLayout()
 }
 
 class MultiSection: UICollectionView {
@@ -26,11 +28,22 @@ class MultiSection: UICollectionView {
     
     var headerRegistration: UICollectionView.SupplementaryRegistration<HeaderView>!
     
+    var tabHeaderRegistration: UICollectionView.SupplementaryRegistration<TabHeaderView>!
+    
     var footerRegistration: UICollectionView.SupplementaryRegistration<UICollectionViewListCell>!
     
     var pagingFooterRegistration: UICollectionView.SupplementaryRegistration<PagerFooterView>!
     
     var badgeRegistration: UICollectionView.SupplementaryRegistration<BadgeView>!
+    
+    //For testing
+    let data = [
+        Menu(title: "Todo"),
+        Menu(title: "In Progress"),
+        Menu(title: "Waiting Info"),
+        Menu(title: "Waiting Test"),
+        Menu(title: "Done"),
+    ]
     
     var sectionList: [Section] {
         let delegate = rootVC as? CollectionViewDataDelegte
@@ -128,6 +141,14 @@ class MultiSection: UICollectionView {
             header.configure(with: sectionTitle)
         }
         
+        tabHeaderRegistration = .init(elementKind: UICollectionView.elementKindSectionHeader, handler: { [unowned self] header, elementKind, indexPath in
+            if let pageListener = self.datasource.sectionIdentifier(for: indexPath.section)?.pageListener {
+                header.subscribeTo(subject: pageListener, for: indexPath.section)
+            }
+            header.configure(menuData: self.data, indexPath: indexPath, delegate: self)
+            
+        })
+        
         footerRegistration = .init(elementKind: UICollectionView.elementKindSectionFooter) {
             (footer, elementKind, indexPath) in
             var configuration = footer.defaultContentConfiguration()
@@ -158,7 +179,13 @@ class MultiSection: UICollectionView {
     
     private func supplementaryView(in collection: UICollectionView, elementKind: String, at indexPath: IndexPath) -> UICollectionReusableView? {
         if elementKind == UICollectionView.elementKindSectionHeader {
-            return self.dequeueConfiguredReusableSupplementary(using: headerRegistration, for: indexPath)
+            switch sectionList[indexPath.section].headerType {
+            case is TabHeaderView.Type:
+                return self.dequeueConfiguredReusableSupplementary(using: tabHeaderRegistration, for: indexPath)
+            default:
+                return self.dequeueConfiguredReusableSupplementary(using: headerRegistration, for: indexPath)
+            }
+            
         }
         
         else if elementKind == UICollectionView.elementKindSectionFooter{
@@ -196,5 +223,11 @@ class MultiSection: UICollectionView {
 extension MultiSection: PagerDelegate {
     func didValueChanged(indexPath: IndexPath, scrollPosition: UICollectionView.ScrollPosition) {
         self.scrollToItem(at: indexPath, at: scrollPosition, animated: true)
+    }
+}
+
+extension MultiSection: CollectionViewUpdate {
+    func updateLayout() {
+        collectionViewLayout.invalidateLayout()
     }
 }

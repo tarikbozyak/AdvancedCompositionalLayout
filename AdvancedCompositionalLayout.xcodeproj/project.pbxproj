@@ -33,6 +33,10 @@
 		8A7A12AF2A4834D4000E9791 /* PagerFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7A12AE2A4834D4000E9791 /* PagerFooterView.swift */; };
 		8A8716E42A36038700B97B68 /* NestedGroupType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8716E32A36038700B97B68 /* NestedGroupType.swift */; };
 		8A8716E62A3603CC00B97B68 /* WaterfallType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8716E52A3603CC00B97B68 /* WaterfallType.swift */; };
+		8A97E02D2A4858C100CAA422 /* TabHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A97E02C2A4858C100CAA422 /* TabHeaderView.swift */; };
+		8A97E02F2A4858DF00CAA422 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A97E02E2A4858DF00CAA422 /* Page.swift */; };
+		8A97E0312A485A2600CAA422 /* TabMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A97E0302A485A2600CAA422 /* TabMenu.swift */; };
+		8A97E0332A48612000CAA422 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A97E0322A48612000CAA422 /* MenuCell.swift */; };
 		8AA67A732A27CE020052D3CA /* HorizontalWaterfallBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA67A722A27CE020052D3CA /* HorizontalWaterfallBuilder.swift */; };
 		8AB76B502A3CFE4700C2E9D1 /* MultiSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB76B4F2A3CFE4700C2E9D1 /* MultiSection.swift */; };
 		8AB76B522A3D002B00C2E9D1 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB76B512A3D002B00C2E9D1 /* Section.swift */; };
@@ -83,6 +87,10 @@
 		8A7A12AE2A4834D4000E9791 /* PagerFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagerFooterView.swift; sourceTree = "<group>"; };
 		8A8716E32A36038700B97B68 /* NestedGroupType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestedGroupType.swift; sourceTree = "<group>"; };
 		8A8716E52A3603CC00B97B68 /* WaterfallType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterfallType.swift; sourceTree = "<group>"; };
+		8A97E02C2A4858C100CAA422 /* TabHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabHeaderView.swift; sourceTree = "<group>"; };
+		8A97E02E2A4858DF00CAA422 /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
+		8A97E0302A485A2600CAA422 /* TabMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabMenu.swift; sourceTree = "<group>"; };
+		8A97E0322A48612000CAA422 /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		8AA67A722A27CE020052D3CA /* HorizontalWaterfallBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalWaterfallBuilder.swift; sourceTree = "<group>"; };
 		8AB76B4F2A3CFE4700C2E9D1 /* MultiSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSection.swift; sourceTree = "<group>"; };
 		8AB76B512A3D002B00C2E9D1 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
@@ -179,6 +187,9 @@
 				8AD131AC2A44E91100333160 /* TaskStatisticsCell.swift */,
 				8AD131AE2A44E97D00333160 /* CircularProgressView.swift */,
 				8A7A12AE2A4834D4000E9791 /* PagerFooterView.swift */,
+				8A97E02C2A4858C100CAA422 /* TabHeaderView.swift */,
+				8A97E0302A485A2600CAA422 /* TabMenu.swift */,
+				8A97E0322A48612000CAA422 /* MenuCell.swift */,
 			);
 			path = AdvancedCompositionalLayout;
 			sourceTree = "<group>";
@@ -203,6 +214,7 @@
 				8A8716E52A3603CC00B97B68 /* WaterfallType.swift */,
 				8AD131A82A44E82300333160 /* Task.swift */,
 				8AD131AA2A44E85500333160 /* TaskStatistics.swift */,
+				8A97E02E2A4858DF00CAA422 /* Page.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -313,6 +325,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8AD131A72A44DC8000333160 /* BadgeView.swift in Sources */,
+				8A97E02D2A4858C100CAA422 /* TabHeaderView.swift in Sources */,
 				8A20D0842A2A7A3000D9D698 /* StackWaterfallBuilder.swift in Sources */,
 				E2A102B32A1BD18D002041F6 /* WaterfallCell.swift in Sources */,
 				8A7A12AF2A4834D4000E9791 /* PagerFooterView.swift in Sources */,
@@ -325,12 +338,15 @@
 				E2A102AB2A1BCEF2002041F6 /* WaterfallViewController.swift in Sources */,
 				8AD131AF2A44E97D00333160 /* CircularProgressView.swift in Sources */,
 				8AD8ACF029FE1E6300170258 /* BasicList.swift in Sources */,
+				8A97E0312A485A2600CAA422 /* TabMenu.swift in Sources */,
+				8A97E02F2A4858DF00CAA422 /* Page.swift in Sources */,
 				8A522EF72A3DA5F800633432 /* HeaderView.swift in Sources */,
 				E2A102AF2A1BCF56002041F6 /* Waterfall.swift in Sources */,
 				E2A102B92A1BDAF5002041F6 /* VerticalWaterfallBuilder.swift in Sources */,
 				8AB76B522A3D002B00C2E9D1 /* Section.swift in Sources */,
 				8A091CCD29F57076001EAE4F /* MenuViewController.swift in Sources */,
 				8A8716E42A36038700B97B68 /* NestedGroupType.swift in Sources */,
+				8A97E0332A48612000CAA422 /* MenuCell.swift in Sources */,
 				8A20D0862A2C6D0200D9D698 /* WaterfallModel.swift in Sources */,
 				8AEAAB0129FA83F200ED6B14 /* MultiSectionExpandableList.swift in Sources */,
 				8A05EE362A002B7900134E22 /* Grid.swift in Sources */,

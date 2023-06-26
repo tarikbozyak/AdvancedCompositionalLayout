@@ -20,7 +20,7 @@ class MultiSectionViewController: UIViewController {
             return layout
         }),
         
-        Section(title: "Task Caption", data: Task.defaultData, cellType: TaskCell.self, footerType: PagerFooterView.self, layout: { sectionIndex, _,_,pageListener   in
+        Section(title: "Task Caption", data: Task.defaultData, cellType: TaskCell.self, headerType: TabHeaderView.self, footerType: PagerFooterView.self, layout: { sectionIndex, _,_,pageListener   in
             let layout: NSCollectionLayoutSection = .taskCaptionSection()
             layout.addHeader()
             layout.addPagerFooter()
