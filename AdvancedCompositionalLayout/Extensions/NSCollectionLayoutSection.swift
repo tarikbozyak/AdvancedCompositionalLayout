@@ -47,6 +47,25 @@ extension NSCollectionLayoutSection {
         return section
     }
     
+    static func taskActivitySection() -> NSCollectionLayoutSection {
+        let size = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(150))
+        
+        //item
+        let item = NSCollectionLayoutItem(layoutSize: size)
+        item.contentInsets.bottom = 12
+        
+        //group
+        let group = NSCollectionLayoutGroup.vertical(layoutSize: size, subitem: item, count: 1)
+        group.contentInsets.leading = 8
+        group.contentInsets.trailing = 8
+        
+        //section
+        let section = NSCollectionLayoutSection(group: group)
+        section.contentInsets = NSDirectionalEdgeInsets(top: 12, leading: 0, bottom: 24, trailing: 0)
+        
+        return section
+    }
+    
     static func personSection() -> NSCollectionLayoutSection {
         let badgeAnchor = NSCollectionLayoutAnchor(edges: [.top, .trailing], fractionalOffset: CGPoint(x: 0.2, y: -0.2))
         let badgeSize = NSCollectionLayoutSize(widthDimension: .absolute(20), heightDimension: .absolute(20))

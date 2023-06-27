@@ -107,15 +107,14 @@ class CustomProgressView: UIView {
     
     func addProgressLabel(){
         switch type {
-        case .line:
-            self.addSubview(progressLabel)
-            progressLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-            progressLabel.rightAnchor.constraint(equalTo: leftAnchor, constant: -8).isActive = true
             
         case .circular:
             self.addSubview(progressLabel)
             progressLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
             progressLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+            
+        default: break
+            
         }
     }
 

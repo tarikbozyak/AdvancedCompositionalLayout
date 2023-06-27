@@ -11,15 +11,15 @@ struct TaskStatistics: Hashable {
     let id = UUID()
     let title: String
     let subtitle: String
-    let percentageOfReadyTasks: Double
+    let progress: Double
 }
 
 extension TaskStatistics {
     static var defaultData: [Self] {
         return [
-            TaskStatistics(title: "Daily Tasks", subtitle: "Daily task subtitle here..", percentageOfReadyTasks: 0.75),
-            TaskStatistics(title: "Weekly Tasks", subtitle: "Weekly task subtitle here..", percentageOfReadyTasks: 0.5),
-            TaskStatistics(title: "Monthly Tasks", subtitle: "Monthly task subtitle here..", percentageOfReadyTasks: 0.75),
+            TaskStatistics(title: "Daily Tasks", subtitle: "Daily task subtitle here..", progress: 0.75),
+            TaskStatistics(title: "Weekly Tasks", subtitle: "Weekly task subtitle here..", progress: 0.5),
+            TaskStatistics(title: "Monthly Tasks", subtitle: "Monthly task subtitle here..", progress: 0.75),
             
         ]
     }

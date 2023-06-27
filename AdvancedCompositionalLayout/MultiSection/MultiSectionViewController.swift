@@ -34,6 +34,12 @@ class MultiSectionViewController: UIViewController {
             return layout
         }),
         
+        Section(title: "Task Activities", data: Task.defaultData2, cellType: TaskActivityCell.self, layout: { _,_,_,_   in
+            let layout: NSCollectionLayoutSection = .taskActivitySection()
+            layout.addHeader()
+            return layout
+        }),
+        
         Section(title: "Horizontal Nested Group Layout 1", data: [Int](1...70), cellType: NestedCell.self, layout: { _,_,_,_   in
             let layout: NSCollectionLayoutSection = .horizontalNestedGroupLayout1()
             layout.addHeader()

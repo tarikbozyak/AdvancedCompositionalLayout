@@ -96,7 +96,7 @@ class TaskStatisticsCell: UICollectionViewCell {
     func configure(with item: TaskStatistics) {
         titleLabel.text = item.title
         subtitleLabel.text = item.subtitle
-        progressView.progress = item.percentageOfReadyTasks
+        progressView.progress = item.progress
     }
     
     func layerConfigure(){

@@ -41,6 +41,7 @@
 		8AB76B502A3CFE4700C2E9D1 /* MultiSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB76B4F2A3CFE4700C2E9D1 /* MultiSection.swift */; };
 		8AB76B522A3D002B00C2E9D1 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB76B512A3D002B00C2E9D1 /* Section.swift */; };
 		8AB76B542A3D03CA00C2E9D1 /* MultiSectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB76B532A3D03CA00C2E9D1 /* MultiSectionViewController.swift */; };
+		8AC8DB3D2A4AEAAC00047586 /* TaskActivityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC8DB3C2A4AEAAC00047586 /* TaskActivityCell.swift */; };
 		8AD131A72A44DC8000333160 /* BadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD131A62A44DC8000333160 /* BadgeView.swift */; };
 		8AD131A92A44E82300333160 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD131A82A44E82300333160 /* Task.swift */; };
 		8AD131AB2A44E85500333160 /* TaskStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD131AA2A44E85500333160 /* TaskStatistics.swift */; };
@@ -96,6 +97,7 @@
 		8AB76B512A3D002B00C2E9D1 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		8AB76B532A3D03CA00C2E9D1 /* MultiSectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSectionViewController.swift; sourceTree = "<group>"; };
 		8ABC74532A376F4D002C2CC2 /* TodoList.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TodoList.md; sourceTree = "<group>"; };
+		8AC8DB3C2A4AEAAC00047586 /* TaskActivityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskActivityCell.swift; sourceTree = "<group>"; };
 		8AD131A62A44DC8000333160 /* BadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeView.swift; sourceTree = "<group>"; };
 		8AD131A82A44E82300333160 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		8AD131AA2A44E85500333160 /* TaskStatistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskStatistics.swift; sourceTree = "<group>"; };
@@ -164,32 +166,21 @@
 		8A091CB729F56BDA001EAE4F /* AdvancedCompositionalLayout */ = {
 			isa = PBXGroup;
 			children = (
+				8A091CB829F56BDA001EAE4F /* AppDelegate.swift */,
+				8A091CBA29F56BDA001EAE4F /* SceneDelegate.swift */,
+				8A091CCC29F57076001EAE4F /* MenuViewController.swift */,
+				8AC8DB382A4AE7EE00047586 /* MultiSection */,
 				8A05EE342A002B5900134E22 /* Grid */,
 				8A5C71A92A2E4271001C1C56 /* NestedGroup */,
 				E2A102A92A1BCED8002041F6 /* Waterfall */,
 				8A05EE332A002B3900134E22 /* List */,
-				8A47565729FCE29300F4E44D /* Extensions */,
 				8A13F16729F81A8400CAB09F /* Model */,
-				8A091CB829F56BDA001EAE4F /* AppDelegate.swift */,
-				8A091CBA29F56BDA001EAE4F /* SceneDelegate.swift */,
-				8A091CCC29F57076001EAE4F /* MenuViewController.swift */,
+				8A47565729FCE29300F4E44D /* Extensions */,
+				8AC8DB3B2A4AE8CC00047586 /* Utility */,
 				8A091CC129F56BDB001EAE4F /* Assets.xcassets */,
 				8A091CC329F56BDB001EAE4F /* LaunchScreen.storyboard */,
 				8A091CC629F56BDB001EAE4F /* Info.plist */,
 				8ABC74532A376F4D002C2CC2 /* TodoList.md */,
-				8AB76B4F2A3CFE4700C2E9D1 /* MultiSection.swift */,
-				8AB76B512A3D002B00C2E9D1 /* Section.swift */,
-				8AB76B532A3D03CA00C2E9D1 /* MultiSectionViewController.swift */,
-				8A522EF62A3DA5F800633432 /* HeaderView.swift */,
-				8A522EF82A3E47BE00633432 /* PersonCell.swift */,
-				8A77CE8F2A40EFE3008A38E5 /* TaskCell.swift */,
-				8AD131A62A44DC8000333160 /* BadgeView.swift */,
-				8AD131AC2A44E91100333160 /* TaskStatisticsCell.swift */,
-				8AD131AE2A44E97D00333160 /* CustomProgressView.swift */,
-				8A7A12AE2A4834D4000E9791 /* PagerFooterView.swift */,
-				8A97E02C2A4858C100CAA422 /* TabHeaderView.swift */,
-				8A97E0302A485A2600CAA422 /* TabMenu.swift */,
-				8A97E0322A48612000CAA422 /* MenuCell.swift */,
 			);
 			path = AdvancedCompositionalLayout;
 			sourceTree = "<group>";
@@ -224,7 +215,6 @@
 			children = (
 				8A47565829FCE2A000F4E44D /* UIView.swift */,
 				8A05EE392A00BB5A00134E22 /* NSCollectionLayoutSection.swift */,
-				8A77CE912A40F43F008A38E5 /* FacePile.swift */,
 				8A7A12A22A46F9DB000E9791 /* CAGradientLayer.swift */,
 			);
 			path = Extensions;
@@ -238,6 +228,59 @@
 				E26359E72A3484520049E877 /* NestedCell.swift */,
 			);
 			path = NestedGroup;
+			sourceTree = "<group>";
+		};
+		8AC8DB372A4AE7A100047586 /* SupplementaryViews */ = {
+			isa = PBXGroup;
+			children = (
+				8A522EF62A3DA5F800633432 /* HeaderView.swift */,
+				8AD131A62A44DC8000333160 /* BadgeView.swift */,
+				8A7A12AE2A4834D4000E9791 /* PagerFooterView.swift */,
+				8A97E02C2A4858C100CAA422 /* TabHeaderView.swift */,
+			);
+			path = SupplementaryViews;
+			sourceTree = "<group>";
+		};
+		8AC8DB382A4AE7EE00047586 /* MultiSection */ = {
+			isa = PBXGroup;
+			children = (
+				8AB76B512A3D002B00C2E9D1 /* Section.swift */,
+				8AB76B4F2A3CFE4700C2E9D1 /* MultiSection.swift */,
+				8AB76B532A3D03CA00C2E9D1 /* MultiSectionViewController.swift */,
+				8AC8DB3A2A4AE87C00047586 /* TabMenu */,
+				8AC8DB392A4AE83300047586 /* Cell */,
+				8AC8DB372A4AE7A100047586 /* SupplementaryViews */,
+			);
+			path = MultiSection;
+			sourceTree = "<group>";
+		};
+		8AC8DB392A4AE83300047586 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				8A522EF82A3E47BE00633432 /* PersonCell.swift */,
+				8A77CE8F2A40EFE3008A38E5 /* TaskCell.swift */,
+				8AD131AC2A44E91100333160 /* TaskStatisticsCell.swift */,
+				8AC8DB3C2A4AEAAC00047586 /* TaskActivityCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		8AC8DB3A2A4AE87C00047586 /* TabMenu */ = {
+			isa = PBXGroup;
+			children = (
+				8A97E0302A485A2600CAA422 /* TabMenu.swift */,
+				8A97E0322A48612000CAA422 /* MenuCell.swift */,
+			);
+			path = TabMenu;
+			sourceTree = "<group>";
+		};
+		8AC8DB3B2A4AE8CC00047586 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				8AD131AE2A44E97D00333160 /* CustomProgressView.swift */,
+				8A77CE912A40F43F008A38E5 /* FacePile.swift */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 		E2A102A92A1BCED8002041F6 /* Waterfall */ = {
@@ -341,6 +384,7 @@
 				8A97E0312A485A2600CAA422 /* TabMenu.swift in Sources */,
 				8A97E02F2A4858DF00CAA422 /* Page.swift in Sources */,
 				8A522EF72A3DA5F800633432 /* HeaderView.swift in Sources */,
+				8AC8DB3D2A4AEAAC00047586 /* TaskActivityCell.swift in Sources */,
 				E2A102AF2A1BCF56002041F6 /* Waterfall.swift in Sources */,
 				E2A102B92A1BDAF5002041F6 /* VerticalWaterfallBuilder.swift in Sources */,
 				8AB76B522A3D002B00C2E9D1 /* Section.swift in Sources */,
