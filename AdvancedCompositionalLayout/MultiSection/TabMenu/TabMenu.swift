@@ -40,6 +40,7 @@ class TabMenu: UICollectionView, UICollectionViewDelegate {
         setCollectionViewLayout(UICollectionViewCompositionalLayout(sectionProvider: layout), animated: false)
         delegate = self
         configureDataSource()
+        backgroundColor = .clear
     }
     
     func configureDataSource(){

@@ -27,6 +27,12 @@ class TabHeaderView: UICollectionReusableView {
         }
     }
     
+    private lazy var backgroundView: UIVisualEffectView = {
+        let blurEffect = UIBlurEffect(style: .systemThinMaterial)
+        let blurVisualEffectView = UIVisualEffectView(effect: blurEffect)
+        return blurVisualEffectView
+    }()
+    
     lazy var heightConstraint: NSLayoutConstraint = {
         let constaint = tabMenu.heightAnchor.constraint(equalToConstant: 40)
         constaint.isActive = true
@@ -68,8 +74,9 @@ class TabHeaderView: UICollectionReusableView {
     }
 
     private func setupView() {
-        backgroundColor = .clear
+        addSubview(backgroundView)
         addSubview(tabMenu)
+        backgroundView.edgesToSuperview()
         tabMenu.edgesToSuperview()
     }
     

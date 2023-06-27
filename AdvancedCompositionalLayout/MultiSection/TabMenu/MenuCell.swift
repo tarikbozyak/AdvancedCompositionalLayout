@@ -12,16 +12,16 @@ class MenuCell: UICollectionViewCell {
     
     override var isSelected: Bool {
         didSet {
-            titleLabel.textColor = isSelected ? .systemGray5 : .systemGray
+            titleLabel.textColor = isSelected ? .systemGray6 : .systemPurple
             backgroundColor = isSelected ? .systemPurple : .clear
-            layer.borderWidth = isSelected ? 0 : 1
+            layer.borderWidth = isSelected ? 0 : 2
         }
     }
     
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 18, weight: .bold)
-        label.textColor = isSelected ? .systemGray5 : .systemGray
+        label.textColor = isSelected ? .systemGray6 : .systemPurple
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "<title>"
         return label
@@ -67,7 +67,7 @@ class MenuCell: UICollectionViewCell {
         layer.shadowOpacity = 0.10
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOffset = CGSize(width: 0, height: 5)
-        layer.borderWidth = 1
-        layer.borderColor = UIColor.systemGray5.cgColor
+        layer.borderWidth = 2.0
+        layer.borderColor = UIColor.systemGreen.cgColor
     }
 }
