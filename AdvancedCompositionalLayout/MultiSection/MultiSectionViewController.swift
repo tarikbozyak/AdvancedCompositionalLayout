@@ -12,7 +12,34 @@ class MultiSectionViewController: UIViewController {
     
     lazy var collectionView = MultiSection()
     
-    let sectionData = [
+    let grandData = [
+        Section(title: "Todo", data: Task.defaultData2, cellType: TaskActivityCell.self, layout: { _,_,_,_   in
+            let layout: NSCollectionLayoutSection = .taskActivitySection()
+            return layout
+        }),
+        
+        Section(title: "In Progress", data: Task.defaultData3, cellType: TaskActivityCell.self, layout: { _,_,_,_   in
+            let layout: NSCollectionLayoutSection = .taskActivitySection()
+            return layout
+        }),
+        
+        Section(title: "Waiting Info", data: Task.defaultData4, cellType: TaskActivityCell.self, layout: { _,_,_,_   in
+            let layout: NSCollectionLayoutSection = .taskActivitySection()
+            return layout
+        }),
+        
+        Section(title: "Waiting Test", data: Task.defaultData4, cellType: TaskActivityCell.self, layout: { _,_,_,_   in
+            let layout: NSCollectionLayoutSection = .taskActivitySection()
+            return layout
+        }),
+        
+        Section(title: "Done", data: Task.defaultData5, cellType: TaskActivityCell.self, layout: { _,_,_,_   in
+            let layout: NSCollectionLayoutSection = .taskActivitySection()
+            return layout
+        }),
+    ]
+    
+    lazy var sectionData = [
         
         Section(title: "Person List", data: Person.defaultData, cellType: PersonCell.self, layout: { _, _,_,_   in
             let layout: NSCollectionLayoutSection = .personSection()
@@ -20,7 +47,7 @@ class MultiSectionViewController: UIViewController {
             return layout
         }),
         
-        Section(title: "Task Caption", data: Task.defaultData, cellType: TaskCell.self, headerType: TabHeaderView.self, footerType: PagerFooterView.self, layout: { sectionIndex, _,_,pageListener   in
+        Section(title: "Task Caption", data: Task.defaultData, cellType: TaskCell.self, footerType: PagerFooterView.self, layout: { sectionIndex, _,_,pageListener   in
             let layout: NSCollectionLayoutSection = .taskCaptionSection()
             layout.addHeader()
             layout.addPagerFooter()
@@ -34,11 +61,13 @@ class MultiSectionViewController: UIViewController {
             return layout
         }),
         
-        Section(title: "Task Activities", data: Task.defaultData2, cellType: TaskActivityCell.self, layout: { _,_,_,_   in
-            let layout: NSCollectionLayoutSection = .taskActivitySection()
+        Section(title: "Grand", data: grandData, cellType: GrandTaskCell.self, headerType: TabHeaderView.self, footerType: PagerFooterView.self, layout: { sectionIndex, _,_,pageListener   in
+            let layout: NSCollectionLayoutSection = .grandTaskSection()
             layout.addHeader()
+            layout.addVisibleItemsHandler(with: pageListener, sectionIndex: sectionIndex)
             return layout
         }),
+        
         
         Section(title: "Horizontal Nested Group Layout 1", data: [Int](1...70), cellType: NestedCell.self, layout: { _,_,_,_   in
             let layout: NSCollectionLayoutSection = .horizontalNestedGroupLayout1()
@@ -76,7 +105,7 @@ class MultiSectionViewController: UIViewController {
     private func configureCollectionView(){
         view.addSubview(collectionView)
         collectionView.edgesToSuperview()
-        collectionView.rootVC = self
+        collectionView.multiSectionDelegate = self
         collectionView.performUpdates()
     }
     

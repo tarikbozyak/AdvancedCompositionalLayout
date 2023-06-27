@@ -22,7 +22,7 @@ protocol CollectionViewUpdate: AnyObject {
 
 class MultiSection: UICollectionView {
     
-    weak var rootVC: UIViewController!
+    weak var multiSectionDelegate: CollectionViewDataDelegte!
     
     var datasource: MultiSectionDataSource!
     
@@ -46,8 +46,7 @@ class MultiSection: UICollectionView {
     ]
     
     var sectionList: [Section] {
-        let delegate = rootVC as? CollectionViewDataDelegte
-        return delegate?.data() as? [Section] ?? []
+        return multiSectionDelegate?.data() as? [Section] ?? []
     }
     
     override init(frame: CGRect = .zero, collectionViewLayout layout: UICollectionViewLayout) {
@@ -83,6 +82,10 @@ class MultiSection: UICollectionView {
             cell.backgroundColor = UIColor(named: "section\(indexPath.section)CellColor")
         }
         
+        let grandCellRegistration = UICollectionView.CellRegistration<GrandTaskCell, Section> { (cell, indexPath, item) in
+            cell.configure(with: item)
+        }
+        
         let waterfallCellRegistration = UICollectionView.CellRegistration<WaterfallCell, Int> { (cell, indexPath, item) in
             cell.configure(with: item, bgColor: .systemBlue.withAlphaComponent(0.8))
             cell.backgroundColor = UIColor(named: "section\(indexPath.section)CellColor")
@@ -100,7 +103,7 @@ class MultiSection: UICollectionView {
         
         let taskActivityCellRegistration = UICollectionView.CellRegistration<TaskActivityCell, Task> { (cell, indexPath, item) in
             cell.configure(with: item)
-            cell.backgroundColor = UIColor(named: "section\(indexPath.section)CellColor")
+            cell.backgroundColor = UIColor.systemGreen
         }
         
         datasource = UICollectionViewDiffableDataSource<Section, AnyHashable>(collectionView: self) { [unowned self]
@@ -112,6 +115,10 @@ class MultiSection: UICollectionView {
             case is GridCell.Type:
                 guard let data = section.data as? [Int] else {return nil}
                 return collectionView.dequeueConfiguredReusableCell(using: gridCellRegistration, for: indexPath, item: data[indexPath.row])
+            
+            case is GrandTaskCell.Type:
+                guard let data = section.data as? [Section] else {return nil}
+                return collectionView.dequeueConfiguredReusableCell(using: grandCellRegistration, for: indexPath, item: data[indexPath.row])
                 
             case is WaterfallCell.Type:
                 guard let data = section.data as? [Int] else {return nil}
