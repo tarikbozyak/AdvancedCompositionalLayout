@@ -16,13 +16,14 @@ protocol PagerDelegate: AnyObject {
     func didValueChanged(indexPath: IndexPath, scrollPosition: UICollectionView.ScrollPosition)
 }
 
-protocol CollectionViewUpdate: AnyObject {
+protocol MenuTabProtocol: AnyObject {
     func updateLayout()
+    func scrollGrandCell(for indexPath: IndexPath)
 }
 
 class MultiSection: UICollectionView {
     
-    weak var multiSectionDelegate: CollectionViewDataDelegte!
+    weak var sectionDelegate: CollectionViewDataDelegte!
     
     var datasource: MultiSectionDataSource!
     
@@ -36,17 +37,8 @@ class MultiSection: UICollectionView {
     
     var badgeRegistration: UICollectionView.SupplementaryRegistration<BadgeView>!
     
-    //For testing
-    let data = [
-        Menu(title: "Todo"),
-        Menu(title: "In Progress"),
-        Menu(title: "Waiting Info"),
-        Menu(title: "Waiting Test"),
-        Menu(title: "Done"),
-    ]
-    
     var sectionList: [Section] {
-        return multiSectionDelegate?.data() as? [Section] ?? []
+        return sectionDelegate?.data() as? [Section] ?? []
     }
     
     override init(frame: CGRect = .zero, collectionViewLayout layout: UICollectionViewLayout) {
@@ -158,11 +150,9 @@ class MultiSection: UICollectionView {
         }
         
         tabHeaderRegistration = .init(elementKind: UICollectionView.elementKindSectionHeader, handler: { [unowned self] header, elementKind, indexPath in
-            if let pageListener = self.datasource.sectionIdentifier(for: indexPath.section)?.pageListener {
-                header.subscribeTo(subject: pageListener, for: indexPath.section)
-            }
-            header.configure(menuData: self.data, indexPath: indexPath, delegate: self)
-            
+            guard let section = self.datasource.sectionIdentifier(for: indexPath.section), let data = section.data as? [Section] else {return}
+            header.subscribeTo(subject: section.pageListener , for: indexPath.section)
+            header.configure(menuData: data.map{Menu(title: $0.title)}, indexPath: indexPath, delegate: self)
         })
         
         footerRegistration = .init(elementKind: UICollectionView.elementKindSectionFooter) {
@@ -242,8 +232,15 @@ extension MultiSection: PagerDelegate {
     }
 }
 
-extension MultiSection: CollectionViewUpdate {
+extension MultiSection: MenuTabProtocol {
+    
     func updateLayout() {
         collectionViewLayout.invalidateLayout()
     }
+    
+    func scrollGrandCell(for indexPath: IndexPath) {
+        scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+    }
+    
+    
 }

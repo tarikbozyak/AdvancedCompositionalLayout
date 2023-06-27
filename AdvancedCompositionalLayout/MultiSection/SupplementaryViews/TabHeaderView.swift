@@ -9,10 +9,14 @@ import Foundation
 import UIKit
 import Combine
 
+protocol GrandTaskDelegate: AnyObject {
+    func scrollToSelectedMenu(indexPath: IndexPath)
+}
+
 class TabHeaderView: UICollectionReusableView {
     
     var cancellable: AnyCancellable?
-    weak var delegate: CollectionViewUpdate?
+    weak var delegate: MenuTabProtocol?
     var indexPath: IndexPath!
     
     var data: [Menu] = [] {
@@ -31,6 +35,7 @@ class TabHeaderView: UICollectionReusableView {
     
     lazy var tabMenu: TabMenu = {
         let tabMenu = TabMenu()
+        tabMenu.grandTaskDelegate = self
         tabMenu.isScrollEnabled = false
         tabMenu.translatesAutoresizingMaskIntoConstraints = false
         return tabMenu
@@ -46,7 +51,7 @@ class TabHeaderView: UICollectionReusableView {
         setupView()
     }
 
-    func configure(menuData: [Menu] ,indexPath: IndexPath, delegate: CollectionViewUpdate?) {
+    func configure(menuData: [Menu] ,indexPath: IndexPath, delegate: MenuTabProtocol?) {
         self.indexPath = indexPath
         self.delegate = delegate
         self.data = menuData
@@ -82,6 +87,12 @@ class TabHeaderView: UICollectionReusableView {
         super.prepareForReuse()
         cancellable?.cancel()
         cancellable = nil
+    }
+}
+
+extension TabHeaderView: GrandTaskDelegate {
+    func scrollToSelectedMenu(indexPath: IndexPath) {
+        delegate?.scrollGrandCell(for: IndexPath(row: indexPath.row, section: self.indexPath.section))
     }
 }
 

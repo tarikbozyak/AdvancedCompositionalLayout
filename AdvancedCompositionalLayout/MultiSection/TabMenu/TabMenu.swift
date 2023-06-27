@@ -16,9 +16,11 @@ struct Menu: Hashable {
 typealias MenuSnapshot = NSDiffableDataSourceSnapshot<Int, Menu>
 typealias MenuDataSource = UICollectionViewDiffableDataSource<Int, Menu>
 
-class TabMenu: UICollectionView {
+class TabMenu: UICollectionView, UICollectionViewDelegate {
     
     weak var rootVC: UIViewController!
+    
+    weak var grandTaskDelegate: GrandTaskDelegate?
     
     var datasource: MenuDataSource!
     
@@ -36,6 +38,7 @@ class TabMenu: UICollectionView {
     
     func commonInit(){
         setCollectionViewLayout(UICollectionViewCompositionalLayout(sectionProvider: layout), animated: false)
+        delegate = self
         configureDataSource()
     }
     
@@ -48,8 +51,11 @@ class TabMenu: UICollectionView {
         datasource = UICollectionViewDiffableDataSource<Int, Menu>(collectionView: self) {
             (collectionView, indexPath, item) -> UICollectionViewCell? in
             return collectionView.dequeueConfiguredReusableCell(using: menuCellRegistration, for: indexPath, item: self.data[indexPath.row])
-            
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        grandTaskDelegate?.scrollToSelectedMenu(indexPath: indexPath)
     }
     
     // MARK: Layout

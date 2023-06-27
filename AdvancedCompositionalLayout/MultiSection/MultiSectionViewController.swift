@@ -105,7 +105,7 @@ class MultiSectionViewController: UIViewController {
     private func configureCollectionView(){
         view.addSubview(collectionView)
         collectionView.edgesToSuperview()
-        collectionView.multiSectionDelegate = self
+        collectionView.sectionDelegate = self
         collectionView.performUpdates()
     }
     

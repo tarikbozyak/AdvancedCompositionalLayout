@@ -20,7 +20,7 @@ class MenuCell: UICollectionViewCell {
     
     lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 26, weight: .bold)
+        label.font = .systemFont(ofSize: 18, weight: .bold)
         label.textColor = isSelected ? .systemGray5 : .systemGray
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "<title>"

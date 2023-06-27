@@ -33,7 +33,7 @@ class GrandTaskCell: UICollectionViewCell {
         addSubview(collectionView)
         collectionView.isScrollEnabled = false
         collectionView.edgesToSuperviewBoundsWithAutoResizingMask()
-        collectionView.multiSectionDelegate = self
+        collectionView.sectionDelegate = self
     }
     
     func configure(with item: Section) {
