@@ -12,20 +12,23 @@ class MenuCell: UICollectionViewCell {
     
     override var isSelected: Bool {
         didSet {
-            titleLabel.textColor = isSelected ? .systemGray6 : .systemPurple
-            backgroundColor = isSelected ? .systemPurple : .clear
-            layer.borderWidth = isSelected ? 0 : 2
+            titleLabel.textColor = titleTextColor
+            layer.borderWidth = isSelected ? 2 : 0
         }
     }
     
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 18, weight: .bold)
-        label.textColor = isSelected ? .systemGray6 : .systemPurple
+        label.textColor = titleTextColor
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "<title>"
         return label
     }()
+    
+    var titleTextColor: UIColor? {
+        return isSelected ? .systemPurple : .systemPurple.withAlphaComponent(0.7)
+    }
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -40,7 +43,7 @@ class MenuCell: UICollectionViewCell {
     }
     
     required init?(coder: NSCoder) {
-        fatalError("GridCell coder has not been implemented")
+        fatalError("MenuCell coder has not been implemented")
     }
     
     func setupView(){
@@ -67,7 +70,7 @@ class MenuCell: UICollectionViewCell {
         layer.shadowOpacity = 0.10
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOffset = CGSize(width: 0, height: 5)
-        layer.borderWidth = 2.0
-        layer.borderColor = UIColor.systemGreen.cgColor
+        layer.borderWidth = isSelected ? 2.0 : 0
+        layer.borderColor = UIColor.systemPurple.cgColor
     }
 }
