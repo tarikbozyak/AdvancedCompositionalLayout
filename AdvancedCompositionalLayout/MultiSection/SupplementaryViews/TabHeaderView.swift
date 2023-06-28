@@ -68,6 +68,7 @@ class TabHeaderView: UICollectionReusableView {
             .removeDuplicates()
             .filter { $0.sectionIndex == section }
             .receive(on: DispatchQueue.main)
+            .debounce(for: .milliseconds(100), scheduler: DispatchQueue.main)
             .sink { [weak self] pageInfo in
                 self?.tabMenu.selectItem(at: IndexPath(row: pageInfo.pageIndex, section: 0), animated: true, scrollPosition: .centeredHorizontally)
             }
