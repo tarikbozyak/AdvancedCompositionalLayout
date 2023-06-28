@@ -46,6 +46,17 @@ class TabHeaderView: UICollectionReusableView {
         tabMenu.translatesAutoresizingMaskIntoConstraints = false
         return tabMenu
     }()
+    
+    lazy var gradientLine: CAGradientLayer = {
+        let gradient = CAGradientLayer()
+        gradient.type = .axial
+        gradient.colors = [UIColor.red.cgColor, UIColor.systemYellow.cgColor, UIColor.blue.cgColor]
+        gradient.startPoint = CGPoint(x: 0, y: 0.5)
+        gradient.endPoint = CGPoint(x: 1, y: 0.5)
+        gradient.locations = [0, 0.5, 1]
+
+        return gradient
+    }()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -89,6 +100,12 @@ class TabHeaderView: UICollectionReusableView {
                 self.delegate?.updateLayout()
             }
         }
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        layer.addSublayer(gradientLine)
+        gradientLine.frame = CGRect(x: 0, y: frame.size.height - 3, width: frame.width, height: 3)
     }
 
     override func prepareForReuse() {

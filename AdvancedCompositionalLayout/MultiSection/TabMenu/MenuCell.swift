@@ -27,7 +27,7 @@ class MenuCell: UICollectionViewCell {
     }()
     
     var titleTextColor: UIColor? {
-        return isSelected ? .systemPurple : .systemPurple.withAlphaComponent(0.7)
+        return isSelected ? .link : .link.withAlphaComponent(0.7)
     }
     
     override func layoutSubviews() {
@@ -71,6 +71,6 @@ class MenuCell: UICollectionViewCell {
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOffset = CGSize(width: 0, height: 5)
         layer.borderWidth = isSelected ? 2.0 : 0
-        layer.borderColor = UIColor.systemPurple.cgColor
+        layer.borderColor = UIColor.link.cgColor
     }
 }
