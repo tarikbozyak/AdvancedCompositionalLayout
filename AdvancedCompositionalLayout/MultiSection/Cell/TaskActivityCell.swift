@@ -11,12 +11,22 @@ import UIKit
 class TaskActivityCell: UICollectionViewCell {
     
     lazy var mainStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [titleLabel, descriptionStackView, progressStackView])
+        let stackView = UIStackView(arrangedSubviews: [titleStackView, descriptionStackView, progressStackView])
         stackView.axis = .vertical
         stackView.spacing = 8
         stackView.distribution = .fill
         stackView.alignment = .fill
         stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
+    }()
+    
+    
+    // Title Stack
+    lazy var titleStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [titleLabel, moreButton])
+        stackView.axis = .horizontal
+        stackView.distribution = .equalCentering
+        stackView.alignment = .top
         return stackView
     }()
     
@@ -29,12 +39,23 @@ class TaskActivityCell: UICollectionViewCell {
         return label
     }()
     
+    lazy var moreButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(systemName: "ellipsis"), for: .normal)
+        button.addTarget(self, action: #selector(moreButtonTapped), for: .touchUpInside)
+        button.tintColor = .white
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.heightAnchor.constraint(equalToConstant: 24).isActive = true
+        button.widthAnchor.constraint(equalToConstant: 24).isActive = true
+        return button
+    }()
+    
     // Description Stack
     lazy var descriptionStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [facePileView, dateStackView])
         stackView.axis = .horizontal
         stackView.distribution = .equalCentering
-        stackView.alignment = .fill
+        stackView.alignment = .top
         return stackView
     }()
     
@@ -151,5 +172,9 @@ class TaskActivityCell: UICollectionViewCell {
         layer.shadowOffset = CGSize(width: 0, height: 5)
         layer.borderWidth = 1
         layer.borderColor = UIColor.systemGray5.cgColor
+    }
+    
+    @objc func moreButtonTapped(){
+        print("More button tapped..")
     }
 }
