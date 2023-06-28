@@ -21,7 +21,7 @@ class TabHeaderView: UICollectionReusableView {
     
     var data: [Menu] = [] {
         didSet {
-            guard data != oldValue else {return}
+            guard oldValue.isEmpty else {return}
             tabMenu.data = data
             updateMenu()
         }
