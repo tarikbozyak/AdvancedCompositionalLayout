@@ -20,7 +20,6 @@ class TaskActivityCell: UICollectionViewCell {
         return stackView
     }()
     
-    
     // Title Stack
     lazy var titleStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [titleLabel, moreButton])
@@ -68,7 +67,7 @@ class TaskActivityCell: UICollectionViewCell {
         return facePileView
     }()
     
-    //Date
+    //Date stack
     lazy var dateStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [dateImageView, dateLabel])
         stackView.axis = .horizontal
@@ -98,6 +97,7 @@ class TaskActivityCell: UICollectionViewCell {
         return imageView
     }()
     
+    //Progress stack
     lazy var progressStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [progressLabel, progressView])
         stackView.axis = .horizontal
