@@ -36,8 +36,8 @@ public class PersonDatasource {
         static let fetchCountRange: ClosedRange<Int> = 5...20 // lower bound must be > 0
         static let lowWaitTimeRange: ClosedRange<Double> = 0.0...0.3 // lower bound must be >= 0.0
         static let highWaitTimeRange: ClosedRange<Double> = 1.0...2.0 // lower bound must be >= 0.0
-        static let errorProbability = 0.05 // must be > 0.0
-        static let backendBugTriggerProbability = 0.05 // must be > 0.0
+        static let errorProbability = 0.25 // must be > 0.0
+        static let backendBugTriggerProbability = 0.25 // must be > 0.0
         static let emptyFirstResultsProbability = 0.1 // must be > 0.0
     }
 
@@ -92,7 +92,7 @@ public class PersonDatasource {
                 
                 var fetchedPeople: [Person] = Array(people[beginIndex..<endIndex])
                 if beginIndex > 0 && RandomUtils.roll(forProbabilityGTZero: Constants.backendBugTriggerProbability) {
-                    fetchedPeople.insert(people[beginIndex - 1], at: 0)
+                    error = FetchError(description: "Backend Error!")
                 }
                 else if beginIndex == 0 && RandomUtils.roll(forProbabilityGTZero: Constants.emptyFirstResultsProbability) {
                     fetchedPeople = []

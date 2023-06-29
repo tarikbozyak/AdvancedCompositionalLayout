@@ -35,6 +35,7 @@
 		8A77CE922A40F43F008A38E5 /* FacePile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A77CE912A40F43F008A38E5 /* FacePile.swift */; };
 		8A7A12A32A46F9DB000E9791 /* CAGradientLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7A12A22A46F9DB000E9791 /* CAGradientLayer.swift */; };
 		8A7A12AF2A4834D4000E9791 /* PagerFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7A12AE2A4834D4000E9791 /* PagerFooterView.swift */; };
+		8A8337FC2A4E109A00988A11 /* LoadingFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8337FB2A4E109A00988A11 /* LoadingFooter.swift */; };
 		8A8716E42A36038700B97B68 /* NestedGroupType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8716E32A36038700B97B68 /* NestedGroupType.swift */; };
 		8A8716E62A3603CC00B97B68 /* WaterfallType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8716E52A3603CC00B97B68 /* WaterfallType.swift */; };
 		8A97E02D2A4858C100CAA422 /* TabHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A97E02C2A4858C100CAA422 /* TabHeaderView.swift */; };
@@ -95,6 +96,7 @@
 		8A77CE912A40F43F008A38E5 /* FacePile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacePile.swift; sourceTree = "<group>"; };
 		8A7A12A22A46F9DB000E9791 /* CAGradientLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAGradientLayer.swift; sourceTree = "<group>"; };
 		8A7A12AE2A4834D4000E9791 /* PagerFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagerFooterView.swift; sourceTree = "<group>"; };
+		8A8337FB2A4E109A00988A11 /* LoadingFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingFooter.swift; sourceTree = "<group>"; };
 		8A8716E32A36038700B97B68 /* NestedGroupType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestedGroupType.swift; sourceTree = "<group>"; };
 		8A8716E52A3603CC00B97B68 /* WaterfallType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterfallType.swift; sourceTree = "<group>"; };
 		8A97E02C2A4858C100CAA422 /* TabHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabHeaderView.swift; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 				8AD8ACEF29FE1E6300170258 /* BasicList.swift */,
 				8AEAAB0029FA83F200ED6B14 /* MultiSectionExpandableList.swift */,
 				8A10D9832A2229200029BE92 /* Supplementary */,
+				8A8337FB2A4E109A00988A11 /* LoadingFooter.swift */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -424,6 +427,7 @@
 				E26359E82A3484520049E877 /* NestedCell.swift in Sources */,
 				8A05EE3A2A00BB5A00134E22 /* NSCollectionLayoutSection.swift in Sources */,
 				8A7A12A32A46F9DB000E9791 /* CAGradientLayer.swift in Sources */,
+				8A8337FC2A4E109A00988A11 /* LoadingFooter.swift in Sources */,
 				8AB76B502A3CFE4700C2E9D1 /* MultiSection.swift in Sources */,
 				8A189A1F2A1DCE2F005E6E88 /* Supplementary.swift in Sources */,
 				8A47565929FCE2A000F4E44D /* UIView.swift in Sources */,

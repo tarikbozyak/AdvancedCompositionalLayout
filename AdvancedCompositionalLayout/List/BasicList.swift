@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Combine
 
 typealias BasicListSnapshot = NSDiffableDataSourceSnapshot<Int, Person>
 typealias BasicListDataSource = UICollectionViewDiffableDataSource<Int, Person>
@@ -16,6 +17,8 @@ class BasicList: UICollectionView {
     weak var listDelegate: BasicListDelegate!
     
     var datasource: BasicListDataSource!
+
+    var footerRegistration: UICollectionView.SupplementaryRegistration<LoadingFooter>!
     
     var data: [Person] {
         let data = listDelegate?.data() ?? []
@@ -42,6 +45,7 @@ class BasicList: UICollectionView {
         contentInset.top = 20
         delegate = self
         configureDataSource()
+        configureSupplementaryViews()
         addRefreshController()
     }
     
@@ -76,21 +80,37 @@ class BasicList: UICollectionView {
         }
     }
     
+    private func configureSupplementaryViews(){
+        
+        footerRegistration = .init(elementKind: UICollectionView.elementKindSectionFooter) { [unowned self] (footer, elementKind, indexPath) in
+            footer.configure(isLoading: true, error: nil)
+            footer.subscribeTo( isLoading: listDelegate.isLoading(), isSuccessfullyLoaded: listDelegate.isSuccessfullyLoaded())
+        }
+        
+        datasource.supplementaryViewProvider = supplementaryView
+    }
+    
+    private func supplementaryView(in collection: UICollectionView, elementKind: String, at indexPath: IndexPath) -> UICollectionReusableView? {
+        if elementKind == UICollectionView.elementKindSectionFooter {
+            return self.dequeueConfiguredReusableSupplementary(using: footerRegistration, for: indexPath)
+        }
+        else {
+            return nil
+        }
+    }
+    
     private func layout() -> UICollectionViewCompositionalLayout {
-        let configuration = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
+        var configuration = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
+        configuration.footerMode = .supplementary
         return UICollectionViewCompositionalLayout.list(using: configuration)
     }
     
     func performUpdates(isLoading: Bool = false){
         var snapshot = BasicListSnapshot()
         
-        if isLoading, !isRefreshing {
-            //
-        }
-        else {
-            snapshot.appendSections([0])
-            snapshot.appendItems(data)
-        }
+        snapshot.appendSections([0])
+        snapshot.appendItems(data)
+        
         datasource.apply(snapshot,animatingDifferences: true) { [weak self] in
             guard let self = self else {return}
             if self.contentSize.height < self.frame.size.height {

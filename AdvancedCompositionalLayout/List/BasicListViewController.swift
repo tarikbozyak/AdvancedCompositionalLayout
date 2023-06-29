@@ -13,6 +13,8 @@ protocol BasicListDelegate: AnyObject {
     func data() -> [AnyHashable]
     func pagination()
     func refresh()
+    func isLoading() -> Published<Bool>.Publisher
+    func isSuccessfullyLoaded() -> PassthroughSubject<Bool,Never>
 }
 
 class BasicListViewController: UIViewController {
@@ -21,13 +23,6 @@ class BasicListViewController: UIViewController {
     
     private lazy var viewModel = BasicListViewModel()
     private var cancellables = Set<AnyCancellable>()
-    
-    lazy var loadingView: UIActivityIndicatorView = {
-        let indicator = UIActivityIndicatorView()
-        indicator.startAnimating()
-        indicator.frame = CGRect(x: (view.frame.size.width / 2) - 10 , y: view.frame.height - 80, width: 20, height: 20)
-        return indicator
-    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,16 +55,13 @@ class BasicListViewController: UIViewController {
                         self.collectionView.setLoading()
                     }
                     else {
-                        self.collectionView.contentInset.bottom = 50
-                        self.view.addSubview(self.loadingView)
+                        //
                     }
                 }
                 
                 else {
                     self.collectionView.refreshControl?.endRefreshing()
                     self.collectionView.clear()
-                    self.collectionView.contentInset.bottom = 0
-                    self.loadingView.removeFromSuperview()
                 }
             }
             .store(in: &cancellables)
@@ -96,6 +88,14 @@ class BasicListViewController: UIViewController {
 }
 
 extension BasicListViewController: BasicListDelegate {
+    func isLoading() -> Published<Bool>.Publisher {
+        return viewModel.$isLoading
+    }
+    
+    func isSuccessfullyLoaded() -> PassthroughSubject<Bool, Never> {
+        return viewModel.isSuccessfullyLoaded
+    }
+    
     func data() -> [AnyHashable] {
         return viewModel.personList
     }
