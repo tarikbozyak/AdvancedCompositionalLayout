@@ -78,7 +78,6 @@ class BasicListViewController: UIViewController {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] isSuccess in
                 guard let self = self else {return}
-                self.viewModel.isLoading = false
                 
                 if self.viewModel.personList.isEmpty && !isSuccess {
                     let recognizer = UITapGestureRecognizer(target: self, action: #selector(self.tryReload))

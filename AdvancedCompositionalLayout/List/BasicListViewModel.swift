@@ -34,6 +34,7 @@ class BasicListViewModel {
     }
     
     func handleResponse(_ response: FetchResponse?) {
+        isLoading = false
         isSuccessfullyLoaded.send(true)
         nextData = response?.next
         
@@ -47,6 +48,7 @@ class BasicListViewModel {
     }
     
     func handleError(with error: FetchError?) {
+        self.isLoading = false
         isSuccessfullyLoaded.send(false)
         NotificationCenter.default.post(name: Notification.Name("didFailToReceiveDataWithError"), object: nil)
     }
