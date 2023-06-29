@@ -71,7 +71,7 @@ class TaskCell: UICollectionViewCell {
     func configure(with item: Task) {
         titleLabel.text = item.title
         estimatedTime.text = "Estimated time is " + item.dueDate
-        facePileView.profileImages = item.personList.map{UIImage(named: $0.imageName)}
+        facePileView.profileImages = item.personList.map{UIImage(named: $0.imageName.rawValue)}
         facePileView.setupView()
         addSubview(facePileView)
         NSLayoutConstraint.activate([

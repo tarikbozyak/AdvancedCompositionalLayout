@@ -45,8 +45,8 @@ class PersonCell: UICollectionViewCell {
     }
     
     func configure(with item: Person) {
-        imageView.image = UIImage(named: item.imageName)
-        nameLabel.text = item.name
+        imageView.image = UIImage(named: item.imageName.rawValue)
+        nameLabel.text = item.fullName
     }
     
 }

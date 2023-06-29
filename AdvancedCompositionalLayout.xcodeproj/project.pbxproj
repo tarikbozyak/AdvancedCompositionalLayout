@@ -27,6 +27,10 @@
 		8A522EF92A3E47BE00633432 /* PersonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A522EF82A3E47BE00633432 /* PersonCell.swift */; };
 		8A5C71A62A2E41C0001C1C56 /* NestedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5C71A52A2E41C0001C1C56 /* NestedViewController.swift */; };
 		8A5C71A82A2E422C001C1C56 /* NestedGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5C71A72A2E422C001C1C56 /* NestedGroup.swift */; };
+		8A716E212A4C71F6000C405A /* PersonDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A716E202A4C71F6000C405A /* PersonDatasource.swift */; };
+		8A716E232A4C739E000C405A /* BasicListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A716E222A4C739E000C405A /* BasicListViewModel.swift */; };
+		8A716E252A4CC4FE000C405A /* UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A716E242A4CC4FE000C405A /* UICollectionView.swift */; };
+		8A716E272A4CCE47000C405A /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A716E262A4CCE47000C405A /* UIStackView.swift */; };
 		8A77CE902A40EFE3008A38E5 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A77CE8F2A40EFE3008A38E5 /* TaskCell.swift */; };
 		8A77CE922A40F43F008A38E5 /* FacePile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A77CE912A40F43F008A38E5 /* FacePile.swift */; };
 		8A7A12A32A46F9DB000E9791 /* CAGradientLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7A12A22A46F9DB000E9791 /* CAGradientLayer.swift */; };
@@ -83,6 +87,10 @@
 		8A522EF82A3E47BE00633432 /* PersonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonCell.swift; sourceTree = "<group>"; };
 		8A5C71A52A2E41C0001C1C56 /* NestedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestedViewController.swift; sourceTree = "<group>"; };
 		8A5C71A72A2E422C001C1C56 /* NestedGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestedGroup.swift; sourceTree = "<group>"; };
+		8A716E202A4C71F6000C405A /* PersonDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDatasource.swift; sourceTree = "<group>"; };
+		8A716E222A4C739E000C405A /* BasicListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicListViewModel.swift; sourceTree = "<group>"; };
+		8A716E242A4CC4FE000C405A /* UICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionView.swift; sourceTree = "<group>"; };
+		8A716E262A4CCE47000C405A /* UIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
 		8A77CE8F2A40EFE3008A38E5 /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
 		8A77CE912A40F43F008A38E5 /* FacePile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacePile.swift; sourceTree = "<group>"; };
 		8A7A12A22A46F9DB000E9791 /* CAGradientLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAGradientLayer.swift; sourceTree = "<group>"; };
@@ -132,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				8AD8ACED29FE1A1100170258 /* BasicListViewController.swift */,
+				8A716E222A4C739E000C405A /* BasicListViewModel.swift */,
 				8AD8ACEF29FE1E6300170258 /* BasicList.swift */,
 				8AEAAB0029FA83F200ED6B14 /* MultiSectionExpandableList.swift */,
 				8A10D9832A2229200029BE92 /* Supplementary */,
@@ -208,6 +217,7 @@
 				8AD131A82A44E82300333160 /* Task.swift */,
 				8AD131AA2A44E85500333160 /* TaskStatistics.swift */,
 				8A97E02E2A4858DF00CAA422 /* Page.swift */,
+				8A716E202A4C71F6000C405A /* PersonDatasource.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -218,6 +228,8 @@
 				8A47565829FCE2A000F4E44D /* UIView.swift */,
 				8A05EE392A00BB5A00134E22 /* NSCollectionLayoutSection.swift */,
 				8A7A12A22A46F9DB000E9791 /* CAGradientLayer.swift */,
+				8A716E242A4CC4FE000C405A /* UICollectionView.swift */,
+				8A716E262A4CCE47000C405A /* UIStackView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -372,9 +384,11 @@
 			files = (
 				8AD131A72A44DC8000333160 /* BadgeView.swift in Sources */,
 				8A97E02D2A4858C100CAA422 /* TabHeaderView.swift in Sources */,
+				8A716E232A4C739E000C405A /* BasicListViewModel.swift in Sources */,
 				8A20D0842A2A7A3000D9D698 /* StackWaterfallBuilder.swift in Sources */,
 				E2A102B32A1BD18D002041F6 /* WaterfallCell.swift in Sources */,
 				8A7A12AF2A4834D4000E9791 /* PagerFooterView.swift in Sources */,
+				8A716E252A4CC4FE000C405A /* UICollectionView.swift in Sources */,
 				8A77CE922A40F43F008A38E5 /* FacePile.swift in Sources */,
 				8AD131AD2A44E91100333160 /* TaskStatisticsCell.swift in Sources */,
 				8AD8ACEE29FE1A1100170258 /* BasicListViewController.swift in Sources */,
@@ -387,6 +401,7 @@
 				8AC8DB3F2A4B165200047586 /* GrandTaskCell.swift in Sources */,
 				8A97E0312A485A2600CAA422 /* TabMenu.swift in Sources */,
 				8A97E02F2A4858DF00CAA422 /* Page.swift in Sources */,
+				8A716E212A4C71F6000C405A /* PersonDatasource.swift in Sources */,
 				8A522EF72A3DA5F800633432 /* HeaderView.swift in Sources */,
 				8AC8DB3D2A4AEAAC00047586 /* TaskActivityCell.swift in Sources */,
 				E2A102AF2A1BCF56002041F6 /* Waterfall.swift in Sources */,
@@ -419,6 +434,7 @@
 				8A5C71A82A2E422C001C1C56 /* NestedGroup.swift in Sources */,
 				8A522EF92A3E47BE00633432 /* PersonCell.swift in Sources */,
 				8A05EE382A002C1C00134E22 /* GridCell.swift in Sources */,
+				8A716E272A4CCE47000C405A /* UIStackView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

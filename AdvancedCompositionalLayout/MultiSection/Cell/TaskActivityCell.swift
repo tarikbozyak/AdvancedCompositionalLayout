@@ -155,7 +155,7 @@ class TaskActivityCell: UICollectionViewCell {
         dateLabel.text = item.dueDate
         progressLabel.text = String(Int(item.progress * 100)) + "%"
         progressView.progress = item.progress
-        facePileView.profileImages = item.personList.map{UIImage(named: $0.imageName)}
+        facePileView.profileImages = item.personList.map{UIImage(named: $0.imageName.rawValue)}
         facePileView.setupView()
     }
     
