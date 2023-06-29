@@ -22,6 +22,13 @@ class BasicListViewController: UIViewController {
     private lazy var viewModel = BasicListViewModel()
     private var cancellables = Set<AnyCancellable>()
     
+    lazy var loadingView: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView()
+        indicator.startAnimating()
+        indicator.frame = CGRect(x: (view.frame.size.width / 2) - 10 , y: view.frame.height - 80, width: 20, height: 20)
+        return indicator
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Basic List"
@@ -45,7 +52,6 @@ class BasicListViewController: UIViewController {
             .store(in: &cancellables)
         
         viewModel.$isLoading
-            .filter({$0})
             .receive(on: DispatchQueue.main)
             .sink { [weak self] isLoading in
                 guard let self = self else { return }
@@ -54,8 +60,16 @@ class BasicListViewController: UIViewController {
                         self.collectionView.setLoading()
                     }
                     else {
-                        //todo
+                        self.collectionView.contentInset.bottom = 50
+                        self.view.addSubview(self.loadingView)
                     }
+                }
+                
+                else {
+                    self.collectionView.refreshControl?.endRefreshing()
+                    self.collectionView.clear()
+                    self.collectionView.contentInset.bottom = 0
+                    self.loadingView.removeFromSuperview()
                 }
             }
             .store(in: &cancellables)
@@ -64,8 +78,8 @@ class BasicListViewController: UIViewController {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] isSuccess in
                 guard let self = self else {return}
-                self.collectionView.refreshControl?.endRefreshing()
-                self.collectionView.clear()
+                self.viewModel.isLoading = false
+                
                 if self.viewModel.personList.isEmpty && !isSuccess {
                     let recognizer = UITapGestureRecognizer(target: self, action: #selector(self.tryReload))
                     self.collectionView.setErrorMessage(nil, recognizer: recognizer)
