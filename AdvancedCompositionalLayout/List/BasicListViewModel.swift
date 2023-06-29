@@ -24,9 +24,9 @@ class BasicListViewModel {
     func loadData() {
         guard !isLoading else {return}
         isLoading = true
-        defer {isLoading = false}
         PersonDatasource.fetch(next: nextData) { [weak self] response, error in
             guard error == nil else {
+                self?.isLoading = false
                 self?.handleError(with: error)
                 return
             }
@@ -36,6 +36,7 @@ class BasicListViewModel {
     }
     
     func handleResponse(_ response: FetchResponse?) {
+        isLoading = false
         isSuccessfullyLoaded.send(true)
         nextData = response?.next
         
