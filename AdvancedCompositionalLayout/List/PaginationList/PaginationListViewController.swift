@@ -23,7 +23,7 @@ class PaginationListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Basic List"
+        title = "Pagination List"
         configureCollectionView()
         configureBindings()
     }

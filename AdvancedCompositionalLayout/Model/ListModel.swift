@@ -28,18 +28,20 @@ struct ListItem: Hashable {
 }
 
 enum ListType {
-    case basicList
+    case paginationList
     case supplementary
-    case multiSectionList
+    case multiSection1
+    case multiSection2
     case gridLayout
     case nestedGroup(type: NestedGroupType)
     case waterfall(type: WaterfallType)
     
     var viewController: UIViewController? {
         switch self {
-        case .basicList: return PaginationListViewController()
+        case .paginationList: return PaginationListViewController()
         case .supplementary: return SupplementaryViewController()
-        case .multiSectionList: return MultiSectionViewController()
+        case .multiSection1: return MultiSectionViewController()
+        case .multiSection2: return MultiSectionViewController()
         case .gridLayout: return GridViewController()
         case .nestedGroup(let type): return NestedViewController(type: type)
         case .waterfall(let type): return WaterfallViewController(type: type)
@@ -48,9 +50,10 @@ enum ListType {
     
     var title: String {
         switch self {
-        case .basicList: return "Basic List Layout"
+        case .paginationList: return "Pagination List"
         case .supplementary: return "Supplementary View List"
-        case .multiSectionList: return "Multi Section List"
+        case .multiSection1: return "Multi Section 1"
+        case .multiSection2: return "Multi Section 2"
         case .gridLayout: return "Basic Grid"
         case .waterfall(let type): return "\(type.rawValue) Waterfall"
         case .nestedGroup(let type):
@@ -105,10 +108,14 @@ extension ListItem {
                 ])
             ]),
             
-            ListItem(title: "Collection View List", subItems: [
-                ListItem(type: .basicList),
-                ListItem(type: .supplementary),
-                ListItem(type: .multiSectionList)
+            ListItem(title: "List", subItems: [
+                ListItem(type: .paginationList),
+                ListItem(type: .supplementary)
+            ]),
+            
+            ListItem(title: "Multi Section", subItems: [
+                ListItem(type: .multiSection1),
+                ListItem(type: .multiSection2)
             ])
         ]
     }
