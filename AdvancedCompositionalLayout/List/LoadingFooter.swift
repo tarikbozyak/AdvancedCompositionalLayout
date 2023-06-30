@@ -72,24 +72,25 @@ class LoadingFooter: UICollectionReusableView {
     }
     
     func configure(isLoading: Bool, error: FetchError?) {
+        
+        stackView.removeAllArrangedSubviews()
+        
         if error == nil {
             if isLoading {
-                statusLabel.text = "Loading"
                 loadingIndicator.startAnimating()
                 stackView.insertArrangedSubview(loadingIndicator, at: 0)
-                stackView.insertArrangedSubview(statusLabel, at: 1)
+                stackView.insertArrangedSubview(getStatusLabel("Loading"), at: 1)
             }
             else {
                 loadingIndicator.stopAnimating()
-                statusLabel.text = "Loaded"
             }
         }
         else {
-            statusLabel.text = "Retry"
             stackView.insertArrangedSubview(retryButton, at: 0)
-            stackView.insertArrangedSubview(statusLabel, at: 1)
+            stackView.insertArrangedSubview(getStatusLabel("Retry"), at: 1)
         }
     }
+    
     
     func subscribeTo(isLoading: Published<Bool>.Publisher ,isSuccessfullyLoaded: PassthroughSubject<Bool,Never>) {
         
@@ -98,7 +99,6 @@ class LoadingFooter: UICollectionReusableView {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] isLoading in
                 guard let self = self else { return }
-                self.stackView.removeAllArrangedSubviews()
                 self.configure(isLoading: isLoading, error: nil)
             }
             .store(in: &cancellables)
@@ -109,7 +109,6 @@ class LoadingFooter: UICollectionReusableView {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] isSuccess in
                 guard let self = self else { return }
-                self.stackView.removeAllArrangedSubviews()
                 if isSuccess {
                     self.configure(isLoading: false, error: nil)
                 }
@@ -119,6 +118,17 @@ class LoadingFooter: UICollectionReusableView {
             }
             .store(in: &cancellables)
             
+    }
+    
+    func getStatusLabel(_ text: String) -> UILabel {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 18, weight: .medium)
+        label.textColor = .black.withAlphaComponent(0.85)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        label.text = text
+        label.textAlignment = .center
+        return label
     }
     
     @objc func retryButtonTapped() {
