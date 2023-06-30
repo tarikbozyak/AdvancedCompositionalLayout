@@ -141,11 +141,9 @@
 		8A05EE332A002B3900134E22 /* List */ = {
 			isa = PBXGroup;
 			children = (
-				8AD8ACED29FE1A1100170258 /* BasicListViewController.swift */,
-				8A716E222A4C739E000C405A /* BasicListViewModel.swift */,
-				8AD8ACEF29FE1E6300170258 /* BasicList.swift */,
+				8ABF342C2A4ED4E90011B8DF /* BasicList */,
+				8A10D9832A2229200029BE92 /* SupplementaryList */,
 				8AEAAB0029FA83F200ED6B14 /* MultiSectionExpandableList.swift */,
-				8A10D9832A2229200029BE92 /* Supplementary */,
 				8A8337FB2A4E109A00988A11 /* LoadingFooter.swift */,
 			);
 			path = List;
@@ -199,13 +197,13 @@
 			path = AdvancedCompositionalLayout;
 			sourceTree = "<group>";
 		};
-		8A10D9832A2229200029BE92 /* Supplementary */ = {
+		8A10D9832A2229200029BE92 /* SupplementaryList */ = {
 			isa = PBXGroup;
 			children = (
 				8A10D9812A2226790029BE92 /* SupplementaryViewController.swift */,
 				8A189A1E2A1DCE2F005E6E88 /* SupplementaryList.swift */,
 			);
-			path = Supplementary;
+			path = SupplementaryList;
 			sourceTree = "<group>";
 		};
 		8A13F16729F81A8400CAB09F /* Model */ = {
@@ -245,6 +243,16 @@
 				E26359E72A3484520049E877 /* NestedCell.swift */,
 			);
 			path = NestedGroup;
+			sourceTree = "<group>";
+		};
+		8ABF342C2A4ED4E90011B8DF /* BasicList */ = {
+			isa = PBXGroup;
+			children = (
+				8AD8ACED29FE1A1100170258 /* BasicListViewController.swift */,
+				8A716E222A4C739E000C405A /* BasicListViewModel.swift */,
+				8AD8ACEF29FE1E6300170258 /* BasicList.swift */,
+			);
+			path = BasicList;
 			sourceTree = "<group>";
 		};
 		8AC8DB372A4AE7A100047586 /* SupplementaryViews */ = {

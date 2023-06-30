@@ -83,7 +83,6 @@ class BasicList: UICollectionView {
     private func configureSupplementaryViews(){
         
         footerRegistration = .init(elementKind: UICollectionView.elementKindSectionFooter) { [unowned self] (footer, elementKind, indexPath) in
-            footer.configure(isLoading: true, error: nil)
             footer.subscribeTo( isLoading: listDelegate.isLoading(), isSuccessfullyLoaded: listDelegate.isSuccessfullyLoaded())
         }
         
