@@ -101,7 +101,10 @@ extension BasicListViewController: BasicListDelegate {
     }
     
     func pagination() {
-        guard viewModel.nextData != nil else {return}
+        guard viewModel.nextData != nil else {
+            viewModel.isLoading = false
+            return
+        }
         viewModel.loadData()
     }
     

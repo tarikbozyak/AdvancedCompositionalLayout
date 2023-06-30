@@ -35,17 +35,6 @@ class LoadingFooter: UICollectionReusableView {
         return indicatorView
     }()
     
-    lazy var statusLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 18, weight: .medium)
-        label.textColor = .black.withAlphaComponent(0.85)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        label.text = "Loading"
-        label.textAlignment = .center
-        return label
-    }()
-    
     func setupView(){
         addSubview(stackView)
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -78,19 +67,18 @@ class LoadingFooter: UICollectionReusableView {
         if error == nil {
             if isLoading {
                 loadingIndicator.startAnimating()
-                stackView.insertArrangedSubview(loadingIndicator, at: 0)
-                stackView.insertArrangedSubview(getStatusLabel("Loading"), at: 1)
+                stackView.addArrangedSubview(loadingIndicator)
+                stackView.addArrangedSubview(getStatusLabel("Loading"))
             }
             else {
                 loadingIndicator.stopAnimating()
             }
         }
         else {
-            stackView.insertArrangedSubview(retryButton, at: 0)
-            stackView.insertArrangedSubview(getStatusLabel("Retry"), at: 1)
+            stackView.addArrangedSubview(retryButton)
+            stackView.addArrangedSubview(getStatusLabel("Retry"))
         }
     }
-    
     
     func subscribeTo(isLoading: Published<Bool>.Publisher ,isSuccessfullyLoaded: PassthroughSubject<Bool,Never>) {
         
@@ -118,6 +106,11 @@ class LoadingFooter: UICollectionReusableView {
             }
             .store(in: &cancellables)
             
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        stackView.removeAllArrangedSubviews()
     }
     
     func getStatusLabel(_ text: String) -> UILabel {
