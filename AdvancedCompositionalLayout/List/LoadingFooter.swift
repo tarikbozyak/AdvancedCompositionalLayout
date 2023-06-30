@@ -9,9 +9,15 @@ import Foundation
 import UIKit
 import Combine
 
+protocol LoadingDelegate: AnyObject {
+    func retry()
+}
+
 class LoadingFooter: UICollectionReusableView {
     
     private var cancellables = Set<AnyCancellable>()
+    
+    weak var delegate: LoadingDelegate?
     
     lazy var stackView: UIStackView = {
         let stackView = UIStackView()
@@ -125,7 +131,7 @@ class LoadingFooter: UICollectionReusableView {
     }
     
     @objc func retryButtonTapped() {
-//        delegate?.retry()
+        delegate?.retry()
     }
     
 }

@@ -83,6 +83,7 @@ class PaginationList: UICollectionView {
     private func configureSupplementaryViews(){
         
         footerRegistration = .init(elementKind: UICollectionView.elementKindSectionFooter) { [unowned self] (footer, elementKind, indexPath) in
+            footer.delegate = self
             footer.configure(isLoading: true, error: nil)
             footer.subscribeTo( isLoading: listDelegate.isLoading(), isSuccessfullyLoaded: listDelegate.isSuccessfullyLoaded())
         }
@@ -131,5 +132,11 @@ extension PaginationList: UICollectionViewDelegate {
         if (position > (collectionViewContentSizeHeight - 150 - scrollViewHeight)) && collectionViewContentSizeHeight != scrollViewHeight && collectionViewContentSizeHeight > 0 {
             listDelegate?.pagination()
         }
+    }
+}
+
+extension PaginationList: LoadingDelegate {
+    func retry() {
+        listDelegate.pagination()
     }
 }
