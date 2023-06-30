@@ -13,11 +13,19 @@ protocol LoadingDelegate: AnyObject {
     func retry()
 }
 
+enum LoadingStatus {
+    case loading
+    case retry
+    case allDone
+}
+
 class LoadingFooter: UICollectionReusableView {
     
     private var cancellables = Set<AnyCancellable>()
     
     weak var delegate: LoadingDelegate?
+    
+    var nextPagination: String?
     
     lazy var stackView: UIStackView = {
         let stackView = UIStackView()
@@ -66,24 +74,23 @@ class LoadingFooter: UICollectionReusableView {
         fatalError("LoadingCell coder has not been implemented")
     }
     
-    func configure(isLoading: Bool, error: FetchError?) {
+    func configure(status: LoadingStatus) {
         
         stackView.removeAllArrangedSubviews()
         
-        if error == nil {
-            if isLoading {
-                loadingIndicator.startAnimating()
-                stackView.addArrangedSubview(loadingIndicator)
-                stackView.addArrangedSubview(getStatusLabel("Loading"))
-            }
-            else {
-                loadingIndicator.stopAnimating()
-            }
-        }
-        else {
+        switch status {
+        case .loading:
+            loadingIndicator.startAnimating()
+            stackView.addArrangedSubview(loadingIndicator)
+            stackView.addArrangedSubview(getStatusLabel("Loading"))
+        case .retry:
             stackView.addArrangedSubview(retryButton)
             stackView.addArrangedSubview(getStatusLabel("Retry"))
+        case .allDone:
+            loadingIndicator.stopAnimating()
+            stackView.addArrangedSubview(getStatusLabel("All Done"))
         }
+        
     }
     
     func subscribeTo(isLoading: Published<Bool>.Publisher ,isSuccessfullyLoaded: PassthroughSubject<Bool,Never>) {
@@ -91,9 +98,10 @@ class LoadingFooter: UICollectionReusableView {
         isLoading
             .dropFirst()
             .receive(on: DispatchQueue.main)
+            .filter{$0}
             .sink { [weak self] isLoading in
                 guard let self = self else { return }
-                self.configure(isLoading: isLoading, error: nil)
+                self.configure(status: .loading)
             }
             .store(in: &cancellables)
         
@@ -103,11 +111,11 @@ class LoadingFooter: UICollectionReusableView {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] isSuccess in
                 guard let self = self else { return }
-                if isSuccess {
-                    self.configure(isLoading: false, error: nil)
+                if !isSuccess {
+                    self.configure(status: .retry)
                 }
-                else {
-                    self.configure(isLoading: false, error: FetchError(description: "Loading error"))
+                else if isSuccess && self.nextPagination == nil {
+                    self.configure(status: .allDone)
                 }
             }
             .store(in: &cancellables)

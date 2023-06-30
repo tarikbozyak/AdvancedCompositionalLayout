@@ -10,11 +10,8 @@ import UIKit
 import Combine
 
 protocol PaginationListDelegate: AnyObject {
-    func data() -> [AnyHashable]
+    func getViewModel() -> PaginationListViewModel
     func pagination()
-    func refresh()
-    func isLoading() -> Published<Bool>.Publisher
-    func isSuccessfullyLoaded() -> PassthroughSubject<Bool,Never>
 }
 
 class PaginationListViewController: UIViewController {
@@ -88,27 +85,13 @@ class PaginationListViewController: UIViewController {
 }
 
 extension PaginationListViewController: PaginationListDelegate {
-    func isLoading() -> Published<Bool>.Publisher {
-        return viewModel.$isLoading
+    func getViewModel() -> PaginationListViewModel {
+        return viewModel
     }
-    
-    func isSuccessfullyLoaded() -> PassthroughSubject<Bool, Never> {
-        return viewModel.isSuccessfullyLoaded
-    }
-    
-    func data() -> [AnyHashable] {
-        return viewModel.personList
-    }
-    
+
     func pagination() {
-        guard viewModel.nextData != nil else {
-            viewModel.isLoading = false
-            return
-        }
+        guard viewModel.nextData != nil else { return }
         viewModel.loadData()
     }
-    
-    func refresh() {
-        viewModel.loadData()
-    }
+
 }

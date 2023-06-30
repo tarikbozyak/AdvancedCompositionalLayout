@@ -21,7 +21,7 @@ class PaginationList: UICollectionView {
     var footerRegistration: UICollectionView.SupplementaryRegistration<LoadingFooter>!
     
     var data: [Person] {
-        let data = listDelegate?.data() ?? []
+        let data = listDelegate?.getViewModel().personList ?? []
         let orderedData = NSOrderedSet(array: data).map({ $0 as! Person })
         return orderedData
     }
@@ -55,7 +55,7 @@ class PaginationList: UICollectionView {
     }
     
     @objc func refresh(send: UIRefreshControl) {
-        listDelegate?.refresh()
+        listDelegate?.getViewModel().loadData()
     }
     
     func configureDataSource(){
@@ -83,9 +83,11 @@ class PaginationList: UICollectionView {
     private func configureSupplementaryViews(){
         
         footerRegistration = .init(elementKind: UICollectionView.elementKindSectionFooter) { [unowned self] (footer, elementKind, indexPath) in
+            let nextPagination = listDelegate.getViewModel().nextData
             footer.delegate = self
-            footer.configure(isLoading: true, error: nil)
-            footer.subscribeTo( isLoading: listDelegate.isLoading(), isSuccessfullyLoaded: listDelegate.isSuccessfullyLoaded())
+            footer.nextPagination = nextPagination
+            footer.configure(status: nextPagination == nil ? .allDone : .loading)
+            footer.subscribeTo( isLoading: listDelegate.getViewModel().$isLoading, isSuccessfullyLoaded: listDelegate.getViewModel().isSuccessfullyLoaded)
         }
         
         datasource.supplementaryViewProvider = supplementaryView
