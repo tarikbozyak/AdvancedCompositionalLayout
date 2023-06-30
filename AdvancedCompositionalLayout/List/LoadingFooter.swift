@@ -88,7 +88,7 @@ class LoadingFooter: UICollectionReusableView {
             stackView.addArrangedSubview(getStatusLabel("Retry"))
         case .allDone:
             loadingIndicator.stopAnimating()
-            stackView.addArrangedSubview(getStatusLabel("All Done"))
+            stackView.addArrangedSubview(getStatusLabel("All Done", textColor: .systemGray3))
         }
         
     }
@@ -127,10 +127,10 @@ class LoadingFooter: UICollectionReusableView {
         stackView.removeAllArrangedSubviews()
     }
     
-    func getStatusLabel(_ text: String) -> UILabel {
+    func getStatusLabel(_ text: String, textColor: UIColor = .black) -> UILabel {
         let label = UILabel()
         label.font = .systemFont(ofSize: 18, weight: .medium)
-        label.textColor = .black.withAlphaComponent(0.85)
+        label.textColor = textColor.withAlphaComponent(0.85)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.heightAnchor.constraint(equalToConstant: 30).isActive = true
         label.text = text
