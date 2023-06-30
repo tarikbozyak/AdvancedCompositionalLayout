@@ -30,21 +30,21 @@ struct ListItem: Hashable {
 enum ListType {
     case paginationList
     case supplementary
-    case multiSection1
-    case multiSection2
     case gridLayout
     case nestedGroup(type: NestedGroupType)
     case waterfall(type: WaterfallType)
+    case multiSection1
+    case multiSection2
     
     var viewController: UIViewController? {
         switch self {
         case .paginationList: return PaginationListViewController()
         case .supplementary: return SupplementaryViewController()
-        case .multiSection1: return MultiSectionViewController()
-        case .multiSection2: return MultiSectionViewController()
         case .gridLayout: return GridViewController()
         case .nestedGroup(let type): return NestedViewController(type: type)
         case .waterfall(let type): return WaterfallViewController(type: type)
+        case .multiSection1: return MultiSectionViewController()
+        case .multiSection2: return MultiSectionViewController()
         }
     }
     
@@ -52,8 +52,6 @@ enum ListType {
         switch self {
         case .paginationList: return "Pagination List"
         case .supplementary: return "Supplementary View List"
-        case .multiSection1: return "Multi Section 1"
-        case .multiSection2: return "Multi Section 2"
         case .gridLayout: return "Basic Grid"
         case .waterfall(let type): return "\(type.rawValue) Waterfall"
         case .nestedGroup(let type):
@@ -61,6 +59,8 @@ enum ListType {
             case .vertical(let layoutId): return "Vertical Nested Group \(layoutId)"
             case .horizontal(let layoutId): return "Horizontal Nested Group \(layoutId)"
             }
+        case .multiSection1: return "Multi Section 1"
+        case .multiSection2: return "Multi Section 2"
         }
     }
     

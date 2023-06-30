@@ -84,7 +84,7 @@ class MultiSection: UICollectionView {
         }
         
         let taskCellRegistration = UICollectionView.CellRegistration<TaskCell, Task> { (cell, indexPath, item) in
-            cell.configure(with: item)
+            cell.configure(with: item, indexPathRow: indexPath.row)
             cell.backgroundColor = UIColor(named: "section\(indexPath.section)CellColor")
         }
         

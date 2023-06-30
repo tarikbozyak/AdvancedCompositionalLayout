@@ -16,6 +16,10 @@ class CustomProgressView: UIView {
     private let progressLayer = CAShapeLayer()
     private let trackLayer = CAShapeLayer()
     let type: ProgressViewType
+    
+    var lineWidth: CGFloat {
+        return type == .circular ? 6 : 8
+    }
 
     var progress: CGFloat = 0 {
         didSet{
@@ -66,14 +70,14 @@ class CustomProgressView: UIView {
         // Create the track layer
         trackLayer.strokeColor = trackColor.cgColor
         trackLayer.fillColor = UIColor.clear.cgColor
-        trackLayer.lineWidth = 8.0
+        trackLayer.lineWidth = lineWidth
         trackLayer.lineCap = .round
         layer.addSublayer(trackLayer)
 
         // Create the progress layer
         progressLayer.strokeColor = progressColor.cgColor
         progressLayer.fillColor = UIColor.clear.cgColor
-        progressLayer.lineWidth = 8.0
+        progressLayer.lineWidth = lineWidth
         progressLayer.lineCap = .round
         progressLayer.strokeEnd = CGFloat(progress)
         layer.addSublayer(progressLayer)

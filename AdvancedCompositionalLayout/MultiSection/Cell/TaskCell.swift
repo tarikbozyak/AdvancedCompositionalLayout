@@ -25,9 +25,8 @@ class TaskCell: UICollectionViewCell {
         return label
     }()
     
-    lazy  var imageView: UIImageView = {
+    lazy var imageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "cardBackgroundImage2")
         return imageView
     }()
     
@@ -68,9 +67,10 @@ class TaskCell: UICollectionViewCell {
         ])
     }
     
-    func configure(with item: Task) {
+    func configure(with item: Task, indexPathRow: Int) {
         titleLabel.text = item.title
         estimatedTime.text = "Estimated time is " + item.dueDate
+        imageView.image = UIImage(named: "gradient\(indexPathRow + 1)")
         facePileView.profileImages = item.personList.map{UIImage(named: $0.imageName.rawValue)}
         facePileView.setupView()
         addSubview(facePileView)
@@ -85,6 +85,8 @@ class TaskCell: UICollectionViewCell {
         let cornerRadius = isLandscape ? frame.height / 10 : frame.width / 10
         contentView.layer.cornerRadius = cornerRadius
         contentView.layer.masksToBounds = true
+        imageView.layer.cornerRadius = cornerRadius
+        imageView.layer.masksToBounds = true
         layer.cornerRadius = cornerRadius
         layer.masksToBounds = false
         layer.shadowRadius = 8.0

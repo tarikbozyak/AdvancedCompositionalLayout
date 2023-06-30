@@ -11,7 +11,7 @@ class PersonCell: UICollectionViewCell {
     
     lazy var nameLabel: UILabel = {
         let label = UILabel()
-        label.font = .preferredFont(forTextStyle: .callout)
+        label.font = .preferredFont(forTextStyle: .subheadline)
         label.textColor = .gray.withAlphaComponent(0.8)
         label.textAlignment = .center
         return label
@@ -46,7 +46,7 @@ class PersonCell: UICollectionViewCell {
     
     func configure(with item: Person) {
         imageView.image = UIImage(named: item.imageName.rawValue)
-        nameLabel.text = item.fullName
+        nameLabel.text = item.firstName
     }
     
 }
