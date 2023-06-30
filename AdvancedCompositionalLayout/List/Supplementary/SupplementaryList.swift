@@ -12,7 +12,7 @@ typealias CountrySnapshot = NSDiffableDataSourceSnapshot<CountrySection, Country
 typealias CountryDataSource = UICollectionViewDiffableDataSource<CountrySection, Country>
 typealias SupplementaryListCell = UICollectionView.SupplementaryRegistration<UICollectionViewListCell>
 
-class Supplementary: UICollectionView {
+class SupplementaryList: UICollectionView {
     
     weak var rootVC: UIViewController!
     
@@ -110,7 +110,7 @@ class Supplementary: UICollectionView {
     
 }
 
-extension Supplementary: UICollectionViewDelegate {
+extension SupplementaryList: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         //
     }

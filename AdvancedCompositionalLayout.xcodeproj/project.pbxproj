@@ -19,7 +19,7 @@
 		8A10D9822A2226790029BE92 /* SupplementaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A10D9812A2226790029BE92 /* SupplementaryViewController.swift */; };
 		8A10D9852A2233DE0029BE92 /* CountryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A10D9842A2233DE0029BE92 /* CountryModel.swift */; };
 		8A13F16929F81ABB00CAB09F /* ListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A13F16829F81ABB00CAB09F /* ListModel.swift */; };
-		8A189A1F2A1DCE2F005E6E88 /* Supplementary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A189A1E2A1DCE2F005E6E88 /* Supplementary.swift */; };
+		8A189A1F2A1DCE2F005E6E88 /* SupplementaryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A189A1E2A1DCE2F005E6E88 /* SupplementaryList.swift */; };
 		8A20D0842A2A7A3000D9D698 /* StackWaterfallBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A20D0832A2A7A3000D9D698 /* StackWaterfallBuilder.swift */; };
 		8A20D0862A2C6D0200D9D698 /* WaterfallModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A20D0852A2C6D0200D9D698 /* WaterfallModel.swift */; };
 		8A47565929FCE2A000F4E44D /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A47565829FCE2A000F4E44D /* UIView.swift */; };
@@ -80,7 +80,7 @@
 		8A10D9812A2226790029BE92 /* SupplementaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupplementaryViewController.swift; sourceTree = "<group>"; };
 		8A10D9842A2233DE0029BE92 /* CountryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryModel.swift; sourceTree = "<group>"; };
 		8A13F16829F81ABB00CAB09F /* ListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModel.swift; sourceTree = "<group>"; };
-		8A189A1E2A1DCE2F005E6E88 /* Supplementary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Supplementary.swift; sourceTree = "<group>"; };
+		8A189A1E2A1DCE2F005E6E88 /* SupplementaryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupplementaryList.swift; sourceTree = "<group>"; };
 		8A20D0832A2A7A3000D9D698 /* StackWaterfallBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackWaterfallBuilder.swift; sourceTree = "<group>"; };
 		8A20D0852A2C6D0200D9D698 /* WaterfallModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterfallModel.swift; sourceTree = "<group>"; };
 		8A47565829FCE2A000F4E44D /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
@@ -203,7 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				8A10D9812A2226790029BE92 /* SupplementaryViewController.swift */,
-				8A189A1E2A1DCE2F005E6E88 /* Supplementary.swift */,
+				8A189A1E2A1DCE2F005E6E88 /* SupplementaryList.swift */,
 			);
 			path = Supplementary;
 			sourceTree = "<group>";
@@ -429,7 +429,7 @@
 				8A7A12A32A46F9DB000E9791 /* CAGradientLayer.swift in Sources */,
 				8A8337FC2A4E109A00988A11 /* LoadingFooter.swift in Sources */,
 				8AB76B502A3CFE4700C2E9D1 /* MultiSection.swift in Sources */,
-				8A189A1F2A1DCE2F005E6E88 /* Supplementary.swift in Sources */,
+				8A189A1F2A1DCE2F005E6E88 /* SupplementaryList.swift in Sources */,
 				8A47565929FCE2A000F4E44D /* UIView.swift in Sources */,
 				8A77CE902A40EFE3008A38E5 /* TaskCell.swift in Sources */,
 				8A5C71A62A2E41C0001C1C56 /* NestedViewController.swift in Sources */,

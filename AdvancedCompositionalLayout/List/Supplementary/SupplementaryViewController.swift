@@ -10,7 +10,7 @@ import UIKit
 
 class SupplementaryViewController: UIViewController {
     
-    lazy var collectionView = Supplementary()
+    lazy var collectionView = SupplementaryList()
     
     let sectionData = Country.defaultSectionData
     
