@@ -1,5 +1,5 @@
 //
-//  BasicList.swift
+//  PaginationList.swift
 //  AdvancedCompositionalLayout
 //
 //  Created by Ahmed Tarık Bozyak on 30.04.2023.
@@ -9,14 +9,14 @@ import Foundation
 import UIKit
 import Combine
 
-typealias BasicListSnapshot = NSDiffableDataSourceSnapshot<Int, Person>
-typealias BasicListDataSource = UICollectionViewDiffableDataSource<Int, Person>
+typealias PaginationListSnapshot = NSDiffableDataSourceSnapshot<Int, Person>
+typealias PaginationListDataSource = UICollectionViewDiffableDataSource<Int, Person>
 
-class BasicList: UICollectionView {
+class PaginationList: UICollectionView {
     
-    weak var listDelegate: BasicListDelegate!
+    weak var listDelegate: PaginationListDelegate!
     
-    var datasource: BasicListDataSource!
+    var datasource: PaginationListDataSource!
 
     var footerRegistration: UICollectionView.SupplementaryRegistration<LoadingFooter>!
     
@@ -106,7 +106,7 @@ class BasicList: UICollectionView {
     }
     
     func performUpdates(isLoading: Bool = false){
-        var snapshot = BasicListSnapshot()
+        var snapshot = PaginationListSnapshot()
         
         snapshot.appendSections([0])
         snapshot.appendItems(data)
@@ -121,7 +121,7 @@ class BasicList: UICollectionView {
     
 }
 
-extension BasicList: UICollectionViewDelegate {
+extension PaginationList: UICollectionViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
         let position = scrollView.contentOffset.y

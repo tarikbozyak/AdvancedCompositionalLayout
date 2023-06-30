@@ -1,5 +1,5 @@
 //
-//  BasicListViewController.swift
+//  PaginationListViewController.swift
 //  AdvancedCompositionalLayout
 //
 //  Created by Ahmed Tarık Bozyak on 30.04.2023.
@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import Combine
 
-protocol BasicListDelegate: AnyObject {
+protocol PaginationListDelegate: AnyObject {
     func data() -> [AnyHashable]
     func pagination()
     func refresh()
@@ -17,11 +17,11 @@ protocol BasicListDelegate: AnyObject {
     func isSuccessfullyLoaded() -> PassthroughSubject<Bool,Never>
 }
 
-class BasicListViewController: UIViewController {
+class PaginationListViewController: UIViewController {
     
-    lazy var collectionView = BasicList()
+    lazy var collectionView = PaginationList()
     
-    private lazy var viewModel = BasicListViewModel()
+    private lazy var viewModel = PaginationListViewModel()
     private var cancellables = Set<AnyCancellable>()
     
     override func viewDidLoad() {
@@ -87,7 +87,7 @@ class BasicListViewController: UIViewController {
     }
 }
 
-extension BasicListViewController: BasicListDelegate {
+extension PaginationListViewController: PaginationListDelegate {
     func isLoading() -> Published<Bool>.Publisher {
         return viewModel.$isLoading
     }

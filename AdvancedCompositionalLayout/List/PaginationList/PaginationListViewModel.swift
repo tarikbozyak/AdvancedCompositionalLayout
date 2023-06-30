@@ -1,5 +1,5 @@
 //
-//  BasicListViewModel.swift
+//  PaginationListViewModel.swift
 //  AdvancedCompositionalLayout
 //
 //  Created by Ahmed Tarık Bozyak on 28.06.2023.
@@ -10,7 +10,7 @@ import Combine
 
 typealias LoadStatusListener = PassthroughSubject<Bool, Never>
 
-class BasicListViewModel {
+class PaginationListViewModel {
     
     var nextData: String?
     @Published var isLoading: Bool = false

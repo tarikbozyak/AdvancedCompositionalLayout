@@ -37,7 +37,7 @@ enum ListType {
     
     var viewController: UIViewController? {
         switch self {
-        case .basicList: return BasicListViewController()
+        case .basicList: return PaginationListViewController()
         case .supplementary: return SupplementaryViewController()
         case .multiSectionList: return MultiSectionViewController()
         case .gridLayout: return GridViewController()

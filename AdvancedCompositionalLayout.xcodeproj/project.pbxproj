@@ -28,7 +28,7 @@
 		8A5C71A62A2E41C0001C1C56 /* NestedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5C71A52A2E41C0001C1C56 /* NestedViewController.swift */; };
 		8A5C71A82A2E422C001C1C56 /* NestedGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5C71A72A2E422C001C1C56 /* NestedGroup.swift */; };
 		8A716E212A4C71F6000C405A /* PersonDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A716E202A4C71F6000C405A /* PersonDatasource.swift */; };
-		8A716E232A4C739E000C405A /* BasicListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A716E222A4C739E000C405A /* BasicListViewModel.swift */; };
+		8A716E232A4C739E000C405A /* PaginationListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A716E222A4C739E000C405A /* PaginationListViewModel.swift */; };
 		8A716E252A4CC4FE000C405A /* UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A716E242A4CC4FE000C405A /* UICollectionView.swift */; };
 		8A716E272A4CCE47000C405A /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A716E262A4CCE47000C405A /* UIStackView.swift */; };
 		8A77CE902A40EFE3008A38E5 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A77CE8F2A40EFE3008A38E5 /* TaskCell.swift */; };
@@ -53,8 +53,8 @@
 		8AD131AB2A44E85500333160 /* TaskStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD131AA2A44E85500333160 /* TaskStatistics.swift */; };
 		8AD131AD2A44E91100333160 /* TaskStatisticsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD131AC2A44E91100333160 /* TaskStatisticsCell.swift */; };
 		8AD131AF2A44E97D00333160 /* CustomProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD131AE2A44E97D00333160 /* CustomProgressView.swift */; };
-		8AD8ACEE29FE1A1100170258 /* BasicListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD8ACED29FE1A1100170258 /* BasicListViewController.swift */; };
-		8AD8ACF029FE1E6300170258 /* BasicList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD8ACEF29FE1E6300170258 /* BasicList.swift */; };
+		8AD8ACEE29FE1A1100170258 /* PaginationListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD8ACED29FE1A1100170258 /* PaginationListViewController.swift */; };
+		8AD8ACF029FE1E6300170258 /* PaginationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD8ACEF29FE1E6300170258 /* PaginationList.swift */; };
 		8AD8ACF229FE567F00170258 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD8ACF129FE567F00170258 /* Person.swift */; };
 		8AEAAB0129FA83F200ED6B14 /* MultiSectionExpandableList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEAAB0029FA83F200ED6B14 /* MultiSectionExpandableList.swift */; };
 		E26359E82A3484520049E877 /* NestedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26359E72A3484520049E877 /* NestedCell.swift */; };
@@ -89,7 +89,7 @@
 		8A5C71A52A2E41C0001C1C56 /* NestedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestedViewController.swift; sourceTree = "<group>"; };
 		8A5C71A72A2E422C001C1C56 /* NestedGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestedGroup.swift; sourceTree = "<group>"; };
 		8A716E202A4C71F6000C405A /* PersonDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDatasource.swift; sourceTree = "<group>"; };
-		8A716E222A4C739E000C405A /* BasicListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicListViewModel.swift; sourceTree = "<group>"; };
+		8A716E222A4C739E000C405A /* PaginationListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginationListViewModel.swift; sourceTree = "<group>"; };
 		8A716E242A4CC4FE000C405A /* UICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionView.swift; sourceTree = "<group>"; };
 		8A716E262A4CCE47000C405A /* UIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
 		8A77CE8F2A40EFE3008A38E5 /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
@@ -115,8 +115,8 @@
 		8AD131AA2A44E85500333160 /* TaskStatistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskStatistics.swift; sourceTree = "<group>"; };
 		8AD131AC2A44E91100333160 /* TaskStatisticsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskStatisticsCell.swift; sourceTree = "<group>"; };
 		8AD131AE2A44E97D00333160 /* CustomProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgressView.swift; sourceTree = "<group>"; };
-		8AD8ACED29FE1A1100170258 /* BasicListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicListViewController.swift; sourceTree = "<group>"; };
-		8AD8ACEF29FE1E6300170258 /* BasicList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicList.swift; sourceTree = "<group>"; };
+		8AD8ACED29FE1A1100170258 /* PaginationListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginationListViewController.swift; sourceTree = "<group>"; };
+		8AD8ACEF29FE1E6300170258 /* PaginationList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginationList.swift; sourceTree = "<group>"; };
 		8AD8ACF129FE567F00170258 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		8AEAAB0029FA83F200ED6B14 /* MultiSectionExpandableList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSectionExpandableList.swift; sourceTree = "<group>"; };
 		E26359E72A3484520049E877 /* NestedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestedCell.swift; sourceTree = "<group>"; };
@@ -141,7 +141,7 @@
 		8A05EE332A002B3900134E22 /* List */ = {
 			isa = PBXGroup;
 			children = (
-				8ABF342C2A4ED4E90011B8DF /* BasicList */,
+				8ABF342C2A4ED4E90011B8DF /* PaginationList */,
 				8A10D9832A2229200029BE92 /* SupplementaryList */,
 				8AEAAB0029FA83F200ED6B14 /* MultiSectionExpandableList.swift */,
 				8A8337FB2A4E109A00988A11 /* LoadingFooter.swift */,
@@ -245,14 +245,14 @@
 			path = NestedGroup;
 			sourceTree = "<group>";
 		};
-		8ABF342C2A4ED4E90011B8DF /* BasicList */ = {
+		8ABF342C2A4ED4E90011B8DF /* PaginationList */ = {
 			isa = PBXGroup;
 			children = (
-				8AD8ACED29FE1A1100170258 /* BasicListViewController.swift */,
-				8A716E222A4C739E000C405A /* BasicListViewModel.swift */,
-				8AD8ACEF29FE1E6300170258 /* BasicList.swift */,
+				8AD8ACED29FE1A1100170258 /* PaginationListViewController.swift */,
+				8A716E222A4C739E000C405A /* PaginationListViewModel.swift */,
+				8AD8ACEF29FE1E6300170258 /* PaginationList.swift */,
 			);
-			path = BasicList;
+			path = PaginationList;
 			sourceTree = "<group>";
 		};
 		8AC8DB372A4AE7A100047586 /* SupplementaryViews */ = {
@@ -395,20 +395,20 @@
 			files = (
 				8AD131A72A44DC8000333160 /* BadgeView.swift in Sources */,
 				8A97E02D2A4858C100CAA422 /* TabHeaderView.swift in Sources */,
-				8A716E232A4C739E000C405A /* BasicListViewModel.swift in Sources */,
+				8A716E232A4C739E000C405A /* PaginationListViewModel.swift in Sources */,
 				8A20D0842A2A7A3000D9D698 /* StackWaterfallBuilder.swift in Sources */,
 				E2A102B32A1BD18D002041F6 /* WaterfallCell.swift in Sources */,
 				8A7A12AF2A4834D4000E9791 /* PagerFooterView.swift in Sources */,
 				8A716E252A4CC4FE000C405A /* UICollectionView.swift in Sources */,
 				8A77CE922A40F43F008A38E5 /* FacePile.swift in Sources */,
 				8AD131AD2A44E91100333160 /* TaskStatisticsCell.swift in Sources */,
-				8AD8ACEE29FE1A1100170258 /* BasicListViewController.swift in Sources */,
+				8AD8ACEE29FE1A1100170258 /* PaginationListViewController.swift in Sources */,
 				8AD131AB2A44E85500333160 /* TaskStatistics.swift in Sources */,
 				8A10D9822A2226790029BE92 /* SupplementaryViewController.swift in Sources */,
 				E2A102B72A1BDACF002041F6 /* WaterfallConfiguration.swift in Sources */,
 				E2A102AB2A1BCEF2002041F6 /* WaterfallViewController.swift in Sources */,
 				8AD131AF2A44E97D00333160 /* CustomProgressView.swift in Sources */,
-				8AD8ACF029FE1E6300170258 /* BasicList.swift in Sources */,
+				8AD8ACF029FE1E6300170258 /* PaginationList.swift in Sources */,
 				8AC8DB3F2A4B165200047586 /* GrandTaskCell.swift in Sources */,
 				8A97E0312A485A2600CAA422 /* TabMenu.swift in Sources */,
 				8A97E02F2A4858DF00CAA422 /* Page.swift in Sources */,
