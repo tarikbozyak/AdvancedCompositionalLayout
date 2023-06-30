@@ -137,7 +137,7 @@ class TaskActivityCell: UICollectionViewCell {
     }
     
     required init?(coder: NSCoder) {
-        fatalError("GridCell coder has not been implemented")
+        fatalError("TaskActivity coder has not been implemented")
     }
     
     func setupView(){

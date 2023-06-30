@@ -9,6 +9,8 @@ import UIKit
 
 class TaskCell: UICollectionViewCell {
     
+    var indexPath: IndexPath?
+    
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 26, weight: .bold)
@@ -67,10 +69,10 @@ class TaskCell: UICollectionViewCell {
         ])
     }
     
-    func configure(with item: Task, indexPathRow: Int) {
+    func configure(with item: Task) {
         titleLabel.text = item.title
         estimatedTime.text = "Estimated time is " + item.dueDate
-        imageView.image = UIImage(named: "gradient\(indexPathRow + 1)")
+        imageView.image = UIImage(named: "gradient\((indexPath?.row ?? 0) + 1)")
         facePileView.profileImages = item.personList.map{UIImage(named: $0.imageName.rawValue)}
         facePileView.setupView()
         addSubview(facePileView)
