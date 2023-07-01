@@ -12,7 +12,16 @@ class MultiSectionViewController: UIViewController {
     
     lazy var collectionView = MultiSection()
     
-    lazy var sectionData = Section.defaultData1
+    var sectionData: [Section]
+    
+    init(sectionData: [Section]) {
+        self.sectionData = sectionData
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("MultiSectionViewController init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

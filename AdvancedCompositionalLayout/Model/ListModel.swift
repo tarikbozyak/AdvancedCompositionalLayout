@@ -44,9 +44,9 @@ enum ListType {
         case .gridLayout: return GridViewController()
         case .nestedGroup(let type): return NestedViewController(type: type)
         case .waterfall(let type): return WaterfallViewController(type: type)
-        case .multiSection1: return MultiSectionViewController()
-        case .multiSection2: return MultiSectionViewController()
-        case .decorationView: return MultiSectionViewController()
+        case .multiSection1: return MultiSectionViewController(sectionData: Section.defaultData1)
+        case .multiSection2: return MultiSectionViewController(sectionData: Section.defaultData1)
+        case .decorationView: return MultiSectionViewController(sectionData: Section.defaultData1)
         }
     }
     
