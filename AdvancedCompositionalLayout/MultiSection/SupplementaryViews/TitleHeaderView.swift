@@ -1,17 +1,18 @@
 //
-//  HeaderView.swift
+//  TitleHeaderView.swift
 //  AdvancedCompositionalLayout
 //
-//  Created by Ahmed Tarık Bozyak on 17.06.2023.
+//  Created by Ahmed Tarık Bozyak on 1.07.2023.
 //
 
+import Foundation
 import UIKit
 
-class HeaderView: UICollectionReusableView {
+class TitleHeaderView: UICollectionReusableView {
     
     lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = .preferredFont(forTextStyle: .headline)
+        label.font = .systemFont(ofSize: 20, weight: .bold)
         return label
     }()
     
@@ -24,32 +25,13 @@ class HeaderView: UICollectionReusableView {
         return stackView
     }()
     
-    private lazy var backgroundView: UIVisualEffectView = {
-        let blurEffect = UIBlurEffect(style: .systemThinMaterial)
-        let blurVisualEffectView = UIVisualEffectView(effect: blurEffect)
-        return blurVisualEffectView
-    }()
-    
-    lazy var gradientLine: CAGradientLayer = {
-        let gradient = CAGradientLayer()
-        gradient.type = .axial
-        gradient.colors = [UIColor.red.cgColor, UIColor.systemYellow.cgColor, UIColor.blue.cgColor]
-        gradient.startPoint = CGPoint(x: 0, y: 0.5)
-        gradient.endPoint = CGPoint(x: 1, y: 0.5)
-        gradient.locations = [0, 0.5, 1]
-
-        return gradient
-    }()
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setUp()
     }
     
     func setUp(){
-        addSubview(backgroundView)
         addSubview(stackView)
-        backgroundView.edgesToSuperview()
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalTo: topAnchor, constant: 10),
             stackView.leftAnchor.constraint(equalTo: leftAnchor, constant: 10),
@@ -64,13 +46,7 @@ class HeaderView: UICollectionReusableView {
     
     func configure(with item: String) {
         titleLabel.text = item
-        titleLabel.textColor = .link.withAlphaComponent(0.8)
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        layer.addSublayer(gradientLine)
-        gradientLine.frame = CGRect(x: 0, y: frame.size.height - 3, width: frame.width, height: 3)
+        titleLabel.textColor = .white.withAlphaComponent(0.8)
     }
         
 }

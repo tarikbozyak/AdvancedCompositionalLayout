@@ -29,6 +29,8 @@ class MultiSection: UICollectionView {
     
     var headerRegistration: UICollectionView.SupplementaryRegistration<HeaderView>!
     
+    var titleHeaderRegistration: UICollectionView.SupplementaryRegistration<TitleHeaderView>!
+    
     var tabHeaderRegistration: UICollectionView.SupplementaryRegistration<TabHeaderView>!
     
     var footerRegistration: UICollectionView.SupplementaryRegistration<UICollectionViewListCell>!
@@ -149,6 +151,11 @@ class MultiSection: UICollectionView {
             header.configure(with: sectionTitle)
         }
         
+        titleHeaderRegistration = .init(elementKind: UICollectionView.elementKindSectionHeader, handler: { header, elementKind, indexPath in
+            let sectionTitle = self.datasource.sectionIdentifier(for: indexPath.section)?.title ?? ""
+            header.configure(with: sectionTitle)
+        })
+        
         tabHeaderRegistration = .init(elementKind: UICollectionView.elementKindSectionHeader, handler: { [unowned self] header, elementKind, indexPath in
             guard let section = self.datasource.sectionIdentifier(for: indexPath.section), let data = section.data as? [Section] else {return}
             header.subscribeTo(subject: section.pageListener , for: indexPath.section)
@@ -187,6 +194,8 @@ class MultiSection: UICollectionView {
             switch sectionList[indexPath.section].headerType {
             case is TabHeaderView.Type:
                 return self.dequeueConfiguredReusableSupplementary(using: tabHeaderRegistration, for: indexPath)
+            case is TitleHeaderView.Type:
+                return self.dequeueConfiguredReusableSupplementary(using: titleHeaderRegistration, for: indexPath)
             default:
                 return self.dequeueConfiguredReusableSupplementary(using: headerRegistration, for: indexPath)
             }

@@ -105,6 +105,33 @@ extension Section {
             })
         ]
     }
+    
+    static var defaultData2: [Section] {
+        return [
+            
+            Section(title: "Section 1", data: [Int](1...5), cellType: NestedCell.self, headerType: TitleHeaderView.self, layout: { sectionIndex,_,_,_,collectionViewLayout   in
+                let layout: NSCollectionLayoutSection = .taskActivitySection()
+                layout.addHeader(pinToVisibleBounds: false)
+                layout.addDecorationView(decorationView: DecorationView2.self, elementKind: "decorationView\(sectionIndex)", layout: collectionViewLayout)
+                return layout
+            }),
+            
+            Section(title: "Section 2", data: [Int](6...10), cellType: NestedCell.self, headerType: TitleHeaderView.self, layout: { sectionIndex,_,_,_,collectionViewLayout in
+                let layout: NSCollectionLayoutSection = .taskActivitySection()
+                layout.addHeader(pinToVisibleBounds: false)
+                layout.addDecorationView(decorationView: DecorationView.self, elementKind: "decorationView\(sectionIndex)", layout: collectionViewLayout)
+                return layout
+            }),
+            
+            Section(title: "Section 3", data: [Int](11...20), cellType: NestedCell.self, headerType: TitleHeaderView.self, layout: { sectionIndex,_,_,_,collectionViewLayout in
+                let layout: NSCollectionLayoutSection = .taskActivitySection()
+                layout.addHeader(pinToVisibleBounds: false)
+                layout.addDecorationView(decorationView: DecorationView3.self, elementKind: "decorationView\(sectionIndex)", layout: collectionViewLayout)
+                return layout
+            }),
+            
+        ]
+    }
 }
 
 extension Section {
