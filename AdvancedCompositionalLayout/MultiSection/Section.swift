@@ -87,7 +87,7 @@ extension Section {
             
             Section(title: "Horizontal Nested Group Layout 2", data: [Int](71...130), cellType: NestedCell.self, layout: { sectionIndex,_,_,_,_   in
                 let layout: NSCollectionLayoutSection = .horizontalNestedGroupLayout2()
-                layout.addHeader(pinToVisibleBounds: false)
+                layout.addHeader()
                 return layout
             }),
             

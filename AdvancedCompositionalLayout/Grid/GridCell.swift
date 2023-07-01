@@ -36,7 +36,6 @@ class GridCell: UICollectionViewCell {
         imageView.edgesToSuperview()
         addSubview(textLabel)
         textLabel.edgesToSuperview()
-        backgroundColor = .systemOrange
     }
     
     required init?(coder: NSCoder) {

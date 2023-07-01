@@ -52,12 +52,14 @@ class Waterfall: UICollectionView {
             
             switch type {
             case .horizontal:
-                cell.configure(with: item.id, bgColor: .systemBlue, cornerRadius: cell.frame.height / 2)
+                cell.configure(with: item.id, cornerRadius: cell.frame.height / 2)
             case .vertical:
-                cell.configure(with: item.id, bgColor: .systemOrange, cornerRadius: cell.frame.width / 2)
+                cell.configure(with: item.id, cornerRadius: cell.frame.width / 2)
             case .stack:
-                cell.configure(with: item.id, bgColor: .systemGray4, cornerRadius: cell.frame.height / 2)
+                cell.configure(with: item.id, cornerRadius: cell.frame.height / 2)
             }
+            
+            cell.backgroundColor = UIColor(named: "section\((indexPath.row % 8) + 1 )CellColor")
             
             
         }

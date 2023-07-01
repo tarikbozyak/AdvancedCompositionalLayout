@@ -68,12 +68,12 @@ class MultiSection: UICollectionView {
         
         let nestedCellRegistration = UICollectionView.CellRegistration<NestedCell, Int> { (cell, indexPath, item) in
             cell.configure(with: item)
-            cell.backgroundColor = UIColor(named: "section\(indexPath.section)CellColor")
+            cell.backgroundColor = UIColor(named: "section\((indexPath.row % 8) + 1 )CellColor")
         }
         
         let gridCellRegistration = UICollectionView.CellRegistration<GridCell, Int> { (cell, indexPath, item) in
             cell.configure(with: item)
-            cell.backgroundColor = UIColor(named: "section\(indexPath.section)CellColor")
+            cell.backgroundColor = UIColor(named: "section\((indexPath.row % 8) + 1 )CellColor")
         }
         
         let grandCellRegistration = UICollectionView.CellRegistration<GrandTaskCell, Section> { (cell, indexPath, item) in
@@ -81,8 +81,8 @@ class MultiSection: UICollectionView {
         }
         
         let waterfallCellRegistration = UICollectionView.CellRegistration<WaterfallCell, Int> { (cell, indexPath, item) in
-            cell.configure(with: item, bgColor: .systemBlue.withAlphaComponent(0.8))
-            cell.backgroundColor = UIColor(named: "section\(indexPath.section)CellColor")
+            cell.configure(with: item)
+            cell.backgroundColor = UIColor(named: "section\((indexPath.row % 8) + 1 )CellColor")
         }
         
         let taskCellRegistration = UICollectionView.CellRegistration<TaskCell, Task> { (cell, indexPath, item) in

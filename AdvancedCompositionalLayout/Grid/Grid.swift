@@ -41,8 +41,9 @@ class Grid: UICollectionView {
     
     func configureDataSource(){
         
-        let listCellRegistration = UICollectionView.CellRegistration<GridCell, Int> { (cell, _, item) in
+        let listCellRegistration = UICollectionView.CellRegistration<GridCell, Int> { (cell, indexPath, item) in
             cell.configure(with: item)
+            cell.backgroundColor = UIColor(named: "section\((indexPath.row % 8) + 1 )CellColor")
         }
         
         datasource = UICollectionViewDiffableDataSource<Int, Int>(collectionView: self) {

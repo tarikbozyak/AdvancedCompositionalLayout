@@ -28,7 +28,6 @@ class NestedCell: UICollectionViewCell {
         layerConfigure()
         addSubview(textLabel)
         textLabel.edgesToSuperview()
-        backgroundColor = .systemOrange
     }
     
     required init?(coder: NSCoder) {

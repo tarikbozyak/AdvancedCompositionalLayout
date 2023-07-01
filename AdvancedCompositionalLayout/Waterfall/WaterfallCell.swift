@@ -36,9 +36,8 @@ class WaterfallCell: UICollectionViewCell {
         fatalError("GridCell coder has not been implemented")
     }
     
-    func configure(with item: Int, bgColor: UIColor?, cornerRadius: CGFloat = 0) {
+    func configure(with item: Int, cornerRadius: CGFloat = 0) {
         self.cornerRadius = cornerRadius
-        self.backgroundColor = bgColor?.withAlphaComponent(0.8)
         textLabel.text = String(item)
     }
     
