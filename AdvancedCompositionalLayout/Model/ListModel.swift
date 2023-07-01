@@ -46,7 +46,7 @@ enum ListType {
         case .waterfall(let type): return WaterfallViewController(type: type)
         case .multiSection1: return MultiSectionViewController(sectionData: Section.defaultData1)
         case .multiSection2: return MultiSectionViewController(sectionData: Section.defaultData1)
-        case .decorationView: return MultiSectionViewController(sectionData: Section.defaultData2)
+        case .decorationView: return MultiSectionViewController(sectionData: Section.decorationViewData)
         }
     }
     

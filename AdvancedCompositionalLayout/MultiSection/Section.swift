@@ -106,29 +106,31 @@ extension Section {
         ]
     }
     
-    static var defaultData2: [Section] {
+    static var decorationViewData: [Section] {
         return [
             
-            Section(title: "Section 1", data: [Int](1...5), cellType: NestedCell.self, headerType: TitleHeaderView.self, layout: { sectionIndex,_,_,_,collectionViewLayout   in
-                let layout: NSCollectionLayoutSection = .taskStatisticsSection()
+            Section(title: "Section 1", data: [Int](1...21), cellType: NestedCell.self, headerType: TitleHeaderView.self, layout: { sectionIndex,_,_,_,collectionViewLayout in
+                let layout: NSCollectionLayoutSection = .horizontalNestedGroupLayout2()
                 layout.addHeader(pinToVisibleBounds: false)
-                layout.addDecorationView(decorationView: DecorationView2.self, elementKind: "decorationView\(sectionIndex)", layout: collectionViewLayout)
+                layout.addDecorationView(decorationView: GradientDecorationView1.self, elementKind: "decorationView\(sectionIndex)", layout: collectionViewLayout)
                 return layout
             }),
             
-            Section(title: "Section 2", data: [Int](6...11), cellType: NestedCell.self, headerType: TitleHeaderView.self, layout: { sectionIndex,_,_,_,collectionViewLayout in
+            Section(title: "Section 2", data: [Int](22...29), cellType: NestedCell.self, headerType: TitleHeaderView.self, layout: { sectionIndex,_,_,_,collectionViewLayout in
                 let layout: NSCollectionLayoutSection = .gridSection(columnCount: 3)
                 layout.addHeader(pinToVisibleBounds: false)
-                layout.addDecorationView(decorationView: DecorationView.self, elementKind: "decorationView\(sectionIndex)", layout: collectionViewLayout)
+                layout.addDecorationView(decorationView: GradientDecorationView2.self, elementKind: "decorationView\(sectionIndex)", layout: collectionViewLayout)
                 return layout
             }),
             
-            Section(title: "Section 3", data: [Int](12...21), cellType: NestedCell.self, headerType: TitleHeaderView.self, layout: { sectionIndex,_,_,_,collectionViewLayout in
+            Section(title: "Section 3", data: [Int](30...42), cellType: NestedCell.self, headerType: TitleHeaderView.self, layout: { sectionIndex,_,_,_,collectionViewLayout in
                 let layout: NSCollectionLayoutSection = .gridSection(columnCount: 5)
                 layout.addHeader(pinToVisibleBounds: false)
-                layout.addDecorationView(decorationView: DecorationView3.self, elementKind: "decorationView\(sectionIndex)", layout: collectionViewLayout)
+                layout.addDecorationView(decorationView: GradientDecorationView3.self, elementKind: "decorationView\(sectionIndex)", layout: collectionViewLayout)
                 return layout
             }),
+            
+            
             
         ]
     }
