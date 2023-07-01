@@ -33,7 +33,7 @@ enum ListType {
     case gridLayout
     case nestedGroup(type: NestedGroupType)
     case waterfall(type: WaterfallType)
-    case multiSection1
+    case multiSection
     case decorationView
     
     var viewController: UIViewController? {
@@ -43,7 +43,7 @@ enum ListType {
         case .gridLayout: return GridViewController()
         case .nestedGroup(let type): return NestedViewController(type: type)
         case .waterfall(let type): return WaterfallViewController(type: type)
-        case .multiSection1: return MultiSectionViewController(sectionData: Section.defaultData1)
+        case .multiSection: return MultiSectionViewController(sectionData: Section.defaultData1)
         case .decorationView: return MultiSectionViewController(sectionData: Section.decorationViewData)
         }
     }
@@ -59,7 +59,7 @@ enum ListType {
             case .vertical(let layoutId): return "Vertical Nested Group \(layoutId)"
             case .horizontal(let layoutId): return "Horizontal Nested Group \(layoutId)"
             }
-        case .multiSection1: return "Multi Section 1"
+        case .multiSection: return "Multi Section 1"
         case .decorationView: return "Decoration View"
         }
     }
@@ -114,7 +114,7 @@ extension ListItem {
             ]),
             
             ListItem(title: "Multi Section", subItems: [
-                ListItem(type: .multiSection1),
+                ListItem(type: .multiSection),
                 ListItem(type: .decorationView)
             ])
         ]
