@@ -210,7 +210,7 @@ class MultiSection: UICollectionView {
     // MARK: Layout
     private func layout(for sectionIndex: Int, environment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? {
         let section = datasource.sectionIdentifier(for: sectionIndex)
-        return section?.layout(sectionIndex ,environment, section?.data.count ?? 1, section?.pageListener)
+        return section?.layout(sectionIndex ,environment, section?.data.count ?? 1, section?.pageListener, collectionViewLayout)
     }
     
     // MARK: PerformUpdates
