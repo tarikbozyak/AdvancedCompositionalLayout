@@ -110,21 +110,21 @@ extension Section {
         return [
             
             Section(title: "Section 1", data: [Int](1...5), cellType: NestedCell.self, headerType: TitleHeaderView.self, layout: { sectionIndex,_,_,_,collectionViewLayout   in
-                let layout: NSCollectionLayoutSection = .taskActivitySection()
+                let layout: NSCollectionLayoutSection = .taskStatisticsSection()
                 layout.addHeader(pinToVisibleBounds: false)
                 layout.addDecorationView(decorationView: DecorationView2.self, elementKind: "decorationView\(sectionIndex)", layout: collectionViewLayout)
                 return layout
             }),
             
-            Section(title: "Section 2", data: [Int](6...10), cellType: NestedCell.self, headerType: TitleHeaderView.self, layout: { sectionIndex,_,_,_,collectionViewLayout in
-                let layout: NSCollectionLayoutSection = .taskActivitySection()
+            Section(title: "Section 2", data: [Int](6...11), cellType: NestedCell.self, headerType: TitleHeaderView.self, layout: { sectionIndex,_,_,_,collectionViewLayout in
+                let layout: NSCollectionLayoutSection = .gridSection(columnCount: 3)
                 layout.addHeader(pinToVisibleBounds: false)
                 layout.addDecorationView(decorationView: DecorationView.self, elementKind: "decorationView\(sectionIndex)", layout: collectionViewLayout)
                 return layout
             }),
             
-            Section(title: "Section 3", data: [Int](11...20), cellType: NestedCell.self, headerType: TitleHeaderView.self, layout: { sectionIndex,_,_,_,collectionViewLayout in
-                let layout: NSCollectionLayoutSection = .taskActivitySection()
+            Section(title: "Section 3", data: [Int](12...21), cellType: NestedCell.self, headerType: TitleHeaderView.self, layout: { sectionIndex,_,_,_,collectionViewLayout in
+                let layout: NSCollectionLayoutSection = .gridSection(columnCount: 5)
                 layout.addHeader(pinToVisibleBounds: false)
                 layout.addDecorationView(decorationView: DecorationView3.self, elementKind: "decorationView\(sectionIndex)", layout: collectionViewLayout)
                 return layout
