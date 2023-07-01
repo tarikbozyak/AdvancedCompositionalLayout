@@ -44,13 +44,6 @@ class TaskStatisticsCell: UICollectionViewCell {
         return view
     }()
     
-    lazy  var imageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
-        imageView.image = UIImage(named: "cardBackgroundImage2")
-        return imageView
-    }()
-    
     lazy var progressView: CustomProgressView = {
         let progressView = CustomProgressView(type: .circular)
         progressView.progressColor = .white
@@ -76,8 +69,6 @@ class TaskStatisticsCell: UICollectionViewCell {
     }
     
     func setupView(){
-        addSubview(imageView)
-        imageView.edgesToSuperview()
         addSubview(stackView)
         addSubview(progressView)
         NSLayoutConstraint.activate([

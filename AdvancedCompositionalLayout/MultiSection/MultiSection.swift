@@ -84,7 +84,6 @@ class MultiSection: UICollectionView {
         }
         
         let taskCellRegistration = UICollectionView.CellRegistration<TaskCell, Task> { (cell, indexPath, item) in
-            cell.indexPath = indexPath
             cell.configure(with: item)
             cell.backgroundColor = UIColor(named: "section\(indexPath.section)CellColor")
         }
@@ -96,7 +95,7 @@ class MultiSection: UICollectionView {
         
         let taskActivityCellRegistration = UICollectionView.CellRegistration<TaskActivityCell, Task> { (cell, indexPath, item) in
             cell.configure(with: item)
-            cell.backgroundColor = UIColor.systemGreen
+            cell.backgroundColor = UIColor(named: "section3CellColor")
         }
         
         datasource = UICollectionViewDiffableDataSource<Section, AnyHashable>(collectionView: self) { [unowned self]

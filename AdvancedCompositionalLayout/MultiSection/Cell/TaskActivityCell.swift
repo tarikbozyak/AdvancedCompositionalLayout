@@ -10,6 +10,8 @@ import UIKit
 
 class TaskActivityCell: UICollectionViewCell {
     
+    var indexPath: IndexPath?
+    
     lazy var mainStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [titleStackView, descriptionStackView, progressStackView])
         stackView.axis = .vertical
