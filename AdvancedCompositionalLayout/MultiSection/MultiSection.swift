@@ -177,7 +177,6 @@ class MultiSection: UICollectionView {
             supplementaryView.configure(status: personData[indexPath.row].status)
         })
         
-        
         datasource.supplementaryViewProvider = supplementaryView
         
     }

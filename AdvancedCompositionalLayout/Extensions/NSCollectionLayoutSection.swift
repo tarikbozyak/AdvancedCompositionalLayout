@@ -463,7 +463,7 @@ extension NSCollectionLayoutSection {
 
 // Supplementary Configuration
 extension NSCollectionLayoutSection {
-    func addHeader(_ pinToVisibleBounds: Bool = true) {
+    func addHeader(pinToVisibleBounds: Bool = true) {
         let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(30))
         let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
         header.zIndex = 20
@@ -471,7 +471,7 @@ extension NSCollectionLayoutSection {
         boundarySupplementaryItems += [header]
     }
     
-    func addFooter(_ pinToVisibleBounds: Bool = false) {
+    func addFooter(pinToVisibleBounds: Bool = false) {
         contentInsets.bottom = 8
         let footerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(30))
         let footer = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: footerSize, elementKind: UICollectionView.elementKindSectionFooter, alignment: .bottom)
@@ -480,13 +480,19 @@ extension NSCollectionLayoutSection {
         boundarySupplementaryItems += [footer]
     }
     
-    func addPagerFooter(_ pinToVisibleBounds: Bool = false) {
+    func addPagerFooter(pinToVisibleBounds: Bool = false) {
         contentInsets.bottom = 8
         let footerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(30))
         let footer = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: footerSize, elementKind: UICollectionView.elementKindSectionFooter, alignment: .bottom)
         footer.zIndex = 20
         footer.pinToVisibleBounds = pinToVisibleBounds
         boundarySupplementaryItems += [footer]
+    }
+    
+    func addDecorationView(decorationView: AnyClass, elementKind: String, layout: UICollectionViewLayout?) {
+        layout?.register(decorationView, forDecorationViewOfKind: elementKind)
+        let background = NSCollectionLayoutDecorationItem.background(elementKind: elementKind)
+        decorationItems += [background]
     }
 }
 

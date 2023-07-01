@@ -47,7 +47,7 @@ class MultiSectionViewController: UIViewController {
             return layout
         }),
         
-        Section(title: "Task Caption", data: Task.defaultData, cellType: TaskCell.self, footerType: PagerFooterView.self, layout: { sectionIndex, _,_,pageListener   in
+        Section(title: "Task Caption", data: Task.defaultData, cellType: TaskCell.self, footerType: PagerFooterView.self, layout: { [weak self] sectionIndex, _,_,pageListener   in
             let layout: NSCollectionLayoutSection = .taskCaptionSection()
             layout.addHeader()
             layout.addPagerFooter()
@@ -76,9 +76,9 @@ class MultiSectionViewController: UIViewController {
             return layout
         }),
         
-        Section(title: "Horizontal Nested Group Layout 2", data: [Int](71...130), cellType: NestedCell.self, layout: { _,_,_,_   in
+        Section(title: "Horizontal Nested Group Layout 2", data: [Int](71...130), cellType: NestedCell.self, layout: { [weak self] sectionIndex,_,_,_   in
             let layout: NSCollectionLayoutSection = .horizontalNestedGroupLayout2()
-            layout.addHeader()
+            layout.addHeader(pinToVisibleBounds: false)
             return layout
         }),
         

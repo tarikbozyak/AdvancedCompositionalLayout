@@ -9,6 +9,8 @@ import UIKit
 
 class HeaderView: UICollectionReusableView {
     
+    var isBlurEffectActive: Bool?
+    
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.font = .preferredFont(forTextStyle: .headline)

@@ -46,6 +46,7 @@
 		8AB76B502A3CFE4700C2E9D1 /* MultiSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB76B4F2A3CFE4700C2E9D1 /* MultiSection.swift */; };
 		8AB76B522A3D002B00C2E9D1 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB76B512A3D002B00C2E9D1 /* Section.swift */; };
 		8AB76B542A3D03CA00C2E9D1 /* MultiSectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB76B532A3D03CA00C2E9D1 /* MultiSectionViewController.swift */; };
+		8ABF342E2A504B380011B8DF /* DecorationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABF342D2A504B380011B8DF /* DecorationView.swift */; };
 		8AC8DB3D2A4AEAAC00047586 /* TaskActivityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC8DB3C2A4AEAAC00047586 /* TaskActivityCell.swift */; };
 		8AC8DB3F2A4B165200047586 /* GrandTaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC8DB3E2A4B165200047586 /* GrandTaskCell.swift */; };
 		8AD131A72A44DC8000333160 /* BadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD131A62A44DC8000333160 /* BadgeView.swift */; };
@@ -108,6 +109,7 @@
 		8AB76B512A3D002B00C2E9D1 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		8AB76B532A3D03CA00C2E9D1 /* MultiSectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSectionViewController.swift; sourceTree = "<group>"; };
 		8ABC74532A376F4D002C2CC2 /* TodoList.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TodoList.md; sourceTree = "<group>"; };
+		8ABF342D2A504B380011B8DF /* DecorationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecorationView.swift; sourceTree = "<group>"; };
 		8AC8DB3C2A4AEAAC00047586 /* TaskActivityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskActivityCell.swift; sourceTree = "<group>"; };
 		8AC8DB3E2A4B165200047586 /* GrandTaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrandTaskCell.swift; sourceTree = "<group>"; };
 		8AD131A62A44DC8000333160 /* BadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeView.swift; sourceTree = "<group>"; };
@@ -262,6 +264,7 @@
 				8AD131A62A44DC8000333160 /* BadgeView.swift */,
 				8A7A12AE2A4834D4000E9791 /* PagerFooterView.swift */,
 				8A97E02C2A4858C100CAA422 /* TabHeaderView.swift */,
+				8ABF342D2A504B380011B8DF /* DecorationView.swift */,
 			);
 			path = SupplementaryViews;
 			sourceTree = "<group>";
@@ -407,6 +410,7 @@
 				8A10D9822A2226790029BE92 /* SupplementaryViewController.swift in Sources */,
 				E2A102B72A1BDACF002041F6 /* WaterfallConfiguration.swift in Sources */,
 				E2A102AB2A1BCEF2002041F6 /* WaterfallViewController.swift in Sources */,
+				8ABF342E2A504B380011B8DF /* DecorationView.swift in Sources */,
 				8AD131AF2A44E97D00333160 /* CustomProgressView.swift in Sources */,
 				8AD8ACF029FE1E6300170258 /* PaginationList.swift in Sources */,
 				8AC8DB3F2A4B165200047586 /* GrandTaskCell.swift in Sources */,
