@@ -59,7 +59,7 @@ enum ListType {
             case .vertical(let layoutId): return "Vertical Nested Group \(layoutId)"
             case .horizontal(let layoutId): return "Horizontal Nested Group \(layoutId)"
             }
-        case .multiSection: return "Multi Section 1"
+        case .multiSection: return "Multi Section"
         case .decorationView: return "Decoration View"
         }
     }
