@@ -18,9 +18,10 @@ class PagerFooterView: UICollectionReusableView {
     lazy var pageControl: UIPageControl = {
         let control = UIPageControl()
         control.isUserInteractionEnabled = true
-        control.currentPageIndicatorTintColor = .systemOrange
+        control.currentPageIndicatorTintColor = .systemBlue
         control.pageIndicatorTintColor = .systemGray5
         control.translatesAutoresizingMaskIntoConstraints = false
+        control.backgroundStyle = .prominent
         control.addTarget(self, action: #selector(valueChanged), for: .valueChanged)
         return control
     }()

@@ -19,6 +19,7 @@ class NestedViewController: UIViewController {
     init(type: NestedGroupType) {
         self.type = type
         super.init(nibName: nil, bundle: nil)
+        self.title = "Nested Groups"
     }
     
     required init?(coder: NSCoder) {

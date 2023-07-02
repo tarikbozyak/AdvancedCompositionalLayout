@@ -107,7 +107,6 @@ class LoadingFooter: UICollectionReusableView {
         
         
         isSuccessfullyLoaded
-            .dropFirst()
             .receive(on: DispatchQueue.main)
             .sink { [weak self] isSuccess in
                 guard let self = self else { return }

@@ -23,6 +23,7 @@ class GridViewController: UIViewController {
     }
     
     private func configureNavigationBar(){
+        self.title = "Grid"
         let menuItems = (1...maxColumnCount).map({UIAction(title: "\($0)x\($0)", handler: { [weak self] action in
             let firstCharacter = String(action.title.first!)
             self?.setColumnCount(Int(firstCharacter) ?? 0)

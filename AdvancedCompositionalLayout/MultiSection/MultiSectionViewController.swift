@@ -14,9 +14,10 @@ class MultiSectionViewController: UIViewController {
     
     var sectionData: [Section]
     
-    init(sectionData: [Section]) {
+    init(title: String, sectionData: [Section]) {
         self.sectionData = sectionData
         super.init(nibName: nil, bundle: nil)
+        self.title = title
     }
     
     required init?(coder: NSCoder) {
@@ -37,7 +38,6 @@ class MultiSectionViewController: UIViewController {
     }
     
     private func configureNavigationBar(){
-        title = "Multi Section"
         let appearance = UINavigationBarAppearance()
         appearance.backgroundColor = .systemGray5
         navigationController?.navigationBar.prefersLargeTitles = true

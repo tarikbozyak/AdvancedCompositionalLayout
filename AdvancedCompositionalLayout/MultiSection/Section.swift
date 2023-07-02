@@ -56,7 +56,7 @@ extension Section {
                 return layout
             }),
             
-            Section(title: "Task Caption", data: Task.defaultData, cellType: TaskCell.self, footerType: PagerFooterView.self, layout: { sectionIndex, _,_,pageListener,_   in
+            Section(title: "Task Banner", data: Task.defaultData, cellType: TaskCell.self, footerType: PagerFooterView.self, layout: { sectionIndex, _,_,pageListener,_   in
                 let layout: NSCollectionLayoutSection = .taskCaptionSection()
                 layout.addHeader()
                 layout.addPagerFooter()

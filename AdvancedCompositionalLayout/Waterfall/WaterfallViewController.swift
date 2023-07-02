@@ -47,6 +47,7 @@ class WaterfallViewController: UIViewController {
     }
     
     private func configureNavigationBar(){
+        self.title = "Waterfall"
         var menuItems: [UIAction] = []
         var menuTitle: String = ""
         
