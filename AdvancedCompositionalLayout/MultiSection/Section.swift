@@ -51,13 +51,13 @@ extension Section {
     static var defaultData1: [Section] {
         return [
             Section(title: "Person List", data: Person.defaultData, cellType: PersonCell.self, layout: { _,_,_,_,_   in
-                let layout: NSCollectionLayoutSection = .personSection()
+                let layout: NSCollectionLayoutSection = .personSection(showBadgeViews: true)
                 layout.addHeader()
                 return layout
             }),
             
             Section(title: "Task Banner", data: Task.defaultData, cellType: TaskCell.self, footerType: PagerFooterView.self, layout: { sectionIndex, _,_,pageListener,_   in
-                let layout: NSCollectionLayoutSection = .taskCaptionSection()
+                let layout: NSCollectionLayoutSection = .taskBannerSection()
                 layout.addHeader()
                 layout.addPagerFooter()
                 layout.addVisibleItemsHandler(with: pageListener, sectionIndex: sectionIndex)

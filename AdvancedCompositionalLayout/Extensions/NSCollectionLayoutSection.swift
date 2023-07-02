@@ -32,7 +32,7 @@ extension NSCollectionLayoutSection {
         return section
     }
     
-    static func taskCaptionSection() -> NSCollectionLayoutSection {
+    static func taskBannerSection() -> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         
@@ -78,27 +78,28 @@ extension NSCollectionLayoutSection {
         return section
     }
     
-    static func personSection() -> NSCollectionLayoutSection {
-        let badgeAnchor = NSCollectionLayoutAnchor(edges: [.top, .trailing], fractionalOffset: CGPoint(x: 0.2, y: -0.2))
-        let badgeSize = NSCollectionLayoutSize(widthDimension: .absolute(20), heightDimension: .absolute(20))
-        let badge = NSCollectionLayoutSupplementaryItem(layoutSize: badgeSize, elementKind: "badgeElementKind", containerAnchor: badgeAnchor)
+    static func personSection(showBadgeViews: Bool = false) -> NSCollectionLayoutSection {
+        
+        let badgeView: [NSCollectionLayoutSupplementaryItem] = showBadgeViews ? getBadgeView() : []
         
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(80))
-        let item = NSCollectionLayoutItem(layoutSize: itemSize, supplementaryItems: [badge])
+        let item = NSCollectionLayoutItem(layoutSize: itemSize, supplementaryItems: badgeView)
         
         let groupSize = NSCollectionLayoutSize(widthDimension: .absolute(80), heightDimension: .estimated(80))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
         group.contentInsets = .init(top: 0, leading: 6, bottom: 0, trailing: 6)
+        
         let section = NSCollectionLayoutSection(group: group)
         section.contentInsets = .init(top: 12, leading: 0, bottom: 24, trailing: 0)
         section.orthogonalScrollingBehavior = .continuous
         return section
     }
     
-    static func gridSection(columnCount: Int) -> NSCollectionLayoutSection {
+    static func gridSection(columnCount: Int, showBadgeViews: Bool = false) -> NSCollectionLayoutSection {
         let columnCount = CGFloat(columnCount)
+        let badgeView: [NSCollectionLayoutSupplementaryItem] = showBadgeViews ? getBadgeView() : []
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1/columnCount), heightDimension: .fractionalHeight(1.0))
-        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        let item = NSCollectionLayoutItem(layoutSize: itemSize, supplementaryItems: badgeView)
         
         item.contentInsets = .init(top: 5, leading: 5, bottom: 5, trailing: 5)
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalWidth(1/columnCount))
@@ -505,6 +506,13 @@ extension NSCollectionLayoutSection {
         layout?.register(decorationView, forDecorationViewOfKind: elementKind)
         let background = NSCollectionLayoutDecorationItem.background(elementKind: elementKind)
         decorationItems += [background]
+    }
+    
+    static func getBadgeView() -> [NSCollectionLayoutSupplementaryItem] {
+        let badgeAnchor = NSCollectionLayoutAnchor(edges: [.top, .trailing], fractionalOffset: CGPoint(x: 0.2, y: -0.2))
+        let badgeSize = NSCollectionLayoutSize(widthDimension: .absolute(20), heightDimension: .absolute(20))
+        let badge = NSCollectionLayoutSupplementaryItem(layoutSize: badgeSize, elementKind: "badgeElementKind", containerAnchor: badgeAnchor)
+        return [badge]
     }
 }
 
