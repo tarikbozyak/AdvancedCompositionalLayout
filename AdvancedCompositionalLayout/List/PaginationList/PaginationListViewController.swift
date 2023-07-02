@@ -47,15 +47,9 @@ class PaginationListViewController: UIViewController {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] isLoading in
                 guard let self = self else { return }
-                if isLoading {
-                    if self.viewModel.personList.isEmpty {
-                        self.collectionView.setLoading()
-                    }
-                    else {
-                        //
-                    }
+                if self.viewModel.personList.isEmpty && isLoading {
+                    self.collectionView.setLoading()
                 }
-                
                 else {
                     self.collectionView.refreshControl?.endRefreshing()
                     self.collectionView.clear()

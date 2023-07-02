@@ -32,13 +32,13 @@ public typealias FetchCompletionHandler = (FetchResponse?, FetchError?) -> ()
 public class PersonDatasource {
 
     private struct Constants {
-        static let peopleCountRange: ClosedRange<Int> = 100...200 // lower bound must be > 0
-        static let fetchCountRange: ClosedRange<Int> = 5...20 // lower bound must be > 0
+        static let peopleCountRange: ClosedRange<Int> = 50...80 // lower bound must be > 0
+        static let fetchCountRange: ClosedRange<Int> = 10...20 // lower bound must be > 0
         static let lowWaitTimeRange: ClosedRange<Double> = 0.0...0.3 // lower bound must be >= 0.0
-        static let highWaitTimeRange: ClosedRange<Double> = 1.0...2.0 // lower bound must be >= 0.0
-        static let errorProbability = 0.25 // must be > 0.0
-        static let backendBugTriggerProbability = 0.25 // must be > 0.0
-        static let emptyFirstResultsProbability = 0.1 // must be > 0.0
+        static let highWaitTimeRange: ClosedRange<Double> = 0.5...1.0 // lower bound must be >= 0.0
+        static let errorProbability = 0.05 // must be > 0.0
+        static let backendBugTriggerProbability = 0.35 // must be > 0.0
+        static let emptyFirstResultsProbability = 0.01 // must be > 0.0
     }
 
     private static var people: [Person] = []
