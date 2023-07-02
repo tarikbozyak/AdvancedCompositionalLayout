@@ -14,9 +14,17 @@
 
 <img src="https://github.com/tarikbozyak/AdvancedCompositionalLayout/blob/main/gif/horizontalWaterfall.gif" width="250" height="385"> <img src="https://github.com/tarikbozyak/AdvancedCompositionalLayout/blob/main/screenshots/waterfallH8.png" width="250" height="385"> <img src="https://github.com/tarikbozyak/AdvancedCompositionalLayout/blob/main/screenshots/waterfallH4.png" width="250" height="385">
 
+# Multi Section
+
+<img src="https://github.com/tarikbozyak/AdvancedCompositionalLayout/blob/main/gif/multiSection.gif" width="250" height="500"> <img src="https://github.com/tarikbozyak/AdvancedCompositionalLayout/blob/main/screenshots/multiSection1.png" width="250" height="500"> <img src="https://github.com/tarikbozyak/AdvancedCompositionalLayout/blob/main/screenshots/multiSection2.png" width="250" height="500">
 
 
-<img src="https://github.com/tarikbozyak/AdvancedCompositionalLayout/blob/main/gif/multiSection.gif">
+# Pagination
+
+| Loading | Retry | All Done |
+|--|--|--|
+| <img src="https://github.com/tarikbozyak/AdvancedCompositionalLayout/blob/main/screenshots/pagination_loading.png" width="250" height="500"> | <img src="https://github.com/tarikbozyak/AdvancedCompositionalLayout/blob/main/screenshots/pagination_retry.png" width="250" height="500"> | <img src="https://github.com/tarikbozyak/AdvancedCompositionalLayout/blob/main/screenshots/pagination_allDone.png" width="250" height="500"> | 
+
 
 <img src="https://github.com/tarikbozyak/AdvancedCompositionalLayout/blob/main/gif/tabHeader.gif">
 
