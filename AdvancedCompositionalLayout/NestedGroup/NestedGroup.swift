@@ -56,20 +56,25 @@ class NestedGroup: UICollectionView {
     private func layout(for sectionIndex: Int, environment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? {
         guard let type = type else {return nil}
         switch type {
-        case .vertical:
-            return .verticalNestedGroupLayout()
-        case .horizontal(let layoutID):
-            if layoutID == 1 {
-                return .horizontalNestedGroupLayout1()
-            }
-            else if layoutID == 2 {
-                return .horizontalNestedGroupLayout2()
-            }
-            else if layoutID == 3 {
-                return .horizontalNestedGroupLayout3()
+        case .vertical(let layoutID):
+            if layoutID == 1{
+                return .nestedGroupLayout4()
             }
             else {
-                return .horizontalNestedGroupLayout1()
+                return .nestedGroupLayout2(type: type)
+            }
+        case .horizontal(let layoutID):
+            if layoutID == 1 {
+                return .nestedGroupLayout1()
+            }
+            else if layoutID == 2 {
+                return .nestedGroupLayout2(type: type)
+            }
+            else if layoutID == 3 {
+                return .nestedGroupLayout3()
+            }
+            else {
+                return .nestedGroupLayout1()
             }
         }
     }

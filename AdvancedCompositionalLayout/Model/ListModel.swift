@@ -93,7 +93,8 @@ extension ListItem {
                 ListItem(type: .gridLayout),
                 ListItem(title: "Nested Groups", subItems: [
                     ListItem(title: "Vertical Nested Groups", subItems: [
-                        ListItem(type: .nestedGroup(type: .vertical(layoutId: 1)))
+                        ListItem(type: .nestedGroup(type: .vertical(layoutId: 1))),
+                        ListItem(type: .nestedGroup(type: .vertical(layoutId: 2))),
                     ]),
                     ListItem(title: "Horizontal Nested Groups", subItems: [
                         ListItem(type: .nestedGroup(type: .horizontal(layoutId: 1))),

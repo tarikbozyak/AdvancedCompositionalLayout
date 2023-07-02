@@ -79,20 +79,20 @@ extension Section {
             
             
             Section(title: "Horizontal Nested Group Layout 1", data: [Int](1...70), cellType: NestedCell.self, layout: { _,_,_,_,_   in
-                let layout: NSCollectionLayoutSection = .horizontalNestedGroupLayout1()
+                let layout: NSCollectionLayoutSection = .nestedGroupLayout1()
                 layout.addHeader()
                 layout.addFooter()
                 return layout
             }),
             
             Section(title: "Horizontal Nested Group Layout 2", data: [Int](71...130), cellType: NestedCell.self, layout: { sectionIndex,_,_,_,_   in
-                let layout: NSCollectionLayoutSection = .horizontalNestedGroupLayout2()
+                let layout: NSCollectionLayoutSection = .nestedGroupLayout2(type: .horizontal(layoutId: 2))
                 layout.addHeader()
                 return layout
             }),
             
             Section(title: "Horizontal Nested Group Layout 3", data: [Int](131...200), cellType: NestedCell.self, layout: { _,_,_,_,_   in
-                let layout: NSCollectionLayoutSection = .horizontalNestedGroupLayout3()
+                let layout: NSCollectionLayoutSection = .nestedGroupLayout3()
                 layout.addHeader()
                 return layout
             }),
@@ -110,7 +110,7 @@ extension Section {
         return [
             
             Section(title: "Section 1", data: [Int](1...21), cellType: NestedCell.self, headerType: TitleHeaderView.self, layout: { sectionIndex,_,_,_,collectionViewLayout in
-                let layout: NSCollectionLayoutSection = .horizontalNestedGroupLayout2()
+                let layout: NSCollectionLayoutSection = .nestedGroupLayout2(type: .horizontal(layoutId: 2))
                 layout.addHeader(pinToVisibleBounds: false)
                 layout.addDecorationView(decorationView: GradientDecorationView1.self, elementKind: "decorationView\(sectionIndex)", layout: collectionViewLayout)
                 return layout
