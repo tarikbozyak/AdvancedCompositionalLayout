@@ -1,11 +1,5 @@
 # AdvancedCompositionalLayout
 
-
-| Segmented Tab &  Underline | Flexible Tab &  Underline | Flexible Tab & Circle |
-|:---:|:---:|:---:|
-| <img src="https://github.com/tarikbozyak/AdvancedCompositionalLayout/blob/main/taskCaption.gif"> | <img src="https://github.com/tarikbozyak/AdvancedCompositionalLayout/blob/main/taskCaption.gif"> | <img src="https://github.com/tarikbozyak/AdvancedCompositionalLayout/blob/main/taskCaption.gif"> | 
-
-
 # Grid
 <img src="https://github.com/tarikbozyak/AdvancedCompositionalLayout/blob/main/gif/grid.gif" width="250" height="500"> <img src="https://github.com/tarikbozyak/AdvancedCompositionalLayout/blob/main/screenshots/grid3x3.png" width="250" height="500"> <img src="https://github.com/tarikbozyak/AdvancedCompositionalLayout/blob/main/screenshots/grid5x5.png" width="250" height="500">
 
@@ -25,9 +19,11 @@
 |--|--|--|
 | <img src="https://github.com/tarikbozyak/AdvancedCompositionalLayout/blob/main/screenshots/pagination_loading.png" width="250" height="500"> | <img src="https://github.com/tarikbozyak/AdvancedCompositionalLayout/blob/main/screenshots/pagination_retry.png" width="250" height="500"> | <img src="https://github.com/tarikbozyak/AdvancedCompositionalLayout/blob/main/screenshots/pagination_allDone.png" width="250" height="500"> | 
 
+# Supplementary for Paging
 
-<img src="https://github.com/tarikbozyak/AdvancedCompositionalLayout/blob/main/gif/tabHeader.gif">
+| Header | Footer |
+|--|--|
+| <img src="https://github.com/tarikbozyak/AdvancedCompositionalLayout/blob/main/gif/tabHeader.gif" width="250" height="330"> | <img src="https://github.com/tarikbozyak/AdvancedCompositionalLayout/blob/main/gif/taskBanner.gif" width="250" height="250"> |
 
-<img src="https://github.com/tarikbozyak/AdvancedCompositionalLayout/blob/main/gif/taskBanner.gif">
 
 
