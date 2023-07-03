@@ -20,7 +20,7 @@ A simple example of the power of UICollectionViewCompositionalLayout and UIColle
 - [Pagination List](#Pagination-List)
 - [List with Supplementary Views](#List-with-Supplementary-Views)
 - [Supplementary for Paging](#Supplementary-for-Paging)
-- [Decoration & Badge View](#Decoration&Badge-View)
+- [Decoration & Badge View](#Decoration-and-Badge-View)
 
 ## Expandable List
 
@@ -59,7 +59,7 @@ A simple example of the power of UICollectionViewCompositionalLayout and UIColle
 |--|--|
 | <img src="https://github.com/tarikbozyak/AdvancedCompositionalLayout/blob/main/gif/tabHeader.gif" width="250" height="330"> | <img src="https://github.com/tarikbozyak/AdvancedCompositionalLayout/blob/main/gif/taskBanner.gif" width="250" height="250"> |
 
-## Decoration & Badge View
+## Decoration and Badge View
 
 | Decoration View | Badge View |
 |--|--|
