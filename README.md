@@ -37,8 +37,11 @@
 |--|--|
 | <img src="https://github.com/tarikbozyak/AdvancedCompositionalLayout/blob/main/gif/tabHeader.gif" width="250" height="330"> | <img src="https://github.com/tarikbozyak/AdvancedCompositionalLayout/blob/main/gif/taskBanner.gif" width="250" height="250"> |
 
-## Decoration View
-<img src="https://github.com/tarikbozyak/AdvancedCompositionalLayout/blob/main/screenshots/decorationView.png" width="250" height="500">
+## Decoration & Badge View
+
+| Decoration View | Badge View |
+|--|--|
+| <img src="https://github.com/tarikbozyak/AdvancedCompositionalLayout/blob/main/screenshots/decorationView.png" width="250" height="500"> | <img src="https://github.com/tarikbozyak/AdvancedCompositionalLayout/blob/main/screenshots/badgeView.png" width="250" height="500"> |
 
 
 
