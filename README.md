@@ -1,5 +1,21 @@
 # AdvancedCompositionalLayout
 
+A simple example of the power of UICollectionViewCompositionalLayout and UICollectionViewDiffableDataSource. The purpose is to show how simple, how flexible and how to get the best performace using these tools in iOS apps.
+
+## ⚡ Technologies
+- Combine
+- UICollectionViewCompositionalLayout
+- UICollectionViewDiffableDataSource
+- UICollectionViewList
+- Supplementary Views (Header + Footer + Decoration + Badge Views)
+- Programmatic UI
+- Pagination
+
+## ⚡ Layouts
+- [Expandable List](#Expandable-List)
+- [Grid](#Grid)
+- [Nested Groups](#Nested-Group)
+
 ## Expandable List
 
 <img src="https://github.com/tarikbozyak/AdvancedCompositionalLayout/blob/main/gif/expandableList.gif" width="250" height="500"> &nbsp;&nbsp;&nbsp; <img src="https://github.com/tarikbozyak/AdvancedCompositionalLayout/blob/main/screenshots/expandableList.png" width="250" height="500">
