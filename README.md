@@ -15,6 +15,12 @@ A simple example of the power of UICollectionViewCompositionalLayout and UIColle
 - [Expandable List](#Expandable-List)
 - [Grid](#Grid)
 - [Nested Groups](#Nested-Group)
+- [Waterfall](#Waterfall)
+- [Multi Section](#Multi-Section)
+- [Pagination List](#Pagination-List)
+- [List with Supplementary Views](#List-with-Supplementary-Views)
+- [Supplementary for Paging](#Supplementary-for-Paging)
+- [Decoration & Badge View](#Decoration-&-Badge-View)
 
 ## Expandable List
 
@@ -38,7 +44,7 @@ A simple example of the power of UICollectionViewCompositionalLayout and UIColle
 
 <img src="https://github.com/tarikbozyak/AdvancedCompositionalLayout/blob/main/gif/multiSection.gif" width="250" height="500"> &nbsp;&nbsp;&nbsp; <img src="https://github.com/tarikbozyak/AdvancedCompositionalLayout/blob/main/screenshots/multiSection1.png" width="250" height="500"> &nbsp;&nbsp;&nbsp; <img src="https://github.com/tarikbozyak/AdvancedCompositionalLayout/blob/main/screenshots/multiSection2.png" width="250" height="500">
 
-## Pagination
+## Pagination List
 
 | Loading | Retry | All Done |
 |--|--|--|
