@@ -180,8 +180,13 @@ class MultiSection: UICollectionView {
         }
         
         badgeRegistration = .init(elementKind: "badgeElementKind", handler: { [unowned self] supplementaryView, elementKind, indexPath in
-            let personData = datasource.sectionIdentifier(for: indexPath.section)?.data as? [Person] ?? []
-            supplementaryView.configure(status: personData[indexPath.row].status)
+            if let personData = datasource.sectionIdentifier(for: indexPath.section)?.data as? [Person] {
+                supplementaryView.configure(status: personData[indexPath.row].status)
+            }
+            
+            else {
+                supplementaryView.configureLayout()
+            }
         })
         
         datasource.supplementaryViewProvider = supplementaryView

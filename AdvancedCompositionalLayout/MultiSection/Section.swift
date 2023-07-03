@@ -129,6 +129,31 @@ extension Section {
                 layout.addDecorationView(decorationView: GradientDecorationView3.self, elementKind: "decorationView\(sectionIndex)", layout: collectionViewLayout)
                 return layout
             }),
+        ]
+    }
+    
+    static var badgeViewData: [Section] {
+        return [
+            
+            Section(title: "Person List", data: Person.defaultData, cellType: PersonCell.self, layout: { sectionIndex,_,_,_,collectionViewLayout in
+                let layout: NSCollectionLayoutSection = .personSection(showBadgeViews: true)
+                layout.addHeader()
+                return layout
+            }),
+            
+            Section(title: "Section 2", data: [Int](30...42), cellType: NestedCell.self, layout: { sectionIndex,_,_,_,collectionViewLayout in
+                let layout: NSCollectionLayoutSection = .gridSection(columnCount: 5, showBadgeViews: true)
+                layout.addHeader(pinToVisibleBounds: false)
+                layout.addDecorationView(decorationView: GradientDecorationView3.self, elementKind: "decorationView\(sectionIndex)", layout: collectionViewLayout)
+                return layout
+            }),
+            
+            Section(title: "Section 3", data: [Int](22...29), cellType: NestedCell.self, layout: { sectionIndex,_,_,_,collectionViewLayout in
+                let layout: NSCollectionLayoutSection = .gridSection(columnCount: 3, showBadgeViews: true)
+                layout.addHeader(pinToVisibleBounds: false)
+                layout.addDecorationView(decorationView: GradientDecorationView2.self, elementKind: "decorationView\(sectionIndex)", layout: collectionViewLayout)
+                return layout
+            }),
             
             
             

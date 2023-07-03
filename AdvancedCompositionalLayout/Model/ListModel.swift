@@ -35,6 +35,7 @@ enum ListType {
     case waterfall(type: WaterfallType)
     case multiSection
     case decorationView
+    case badgeView
     
     var viewController: UIViewController? {
         switch self {
@@ -45,6 +46,7 @@ enum ListType {
         case .waterfall(let type): return WaterfallViewController(type: type)
         case .multiSection: return MultiSectionViewController(title: title ,sectionData: Section.defaultData1)
         case .decorationView: return MultiSectionViewController(title: title, sectionData: Section.decorationViewData)
+        case .badgeView: return MultiSectionViewController(title: title, sectionData: Section.badgeViewData)
         }
     }
     
@@ -61,6 +63,7 @@ enum ListType {
             }
         case .multiSection: return "Multi Section"
         case .decorationView: return "Decoration View"
+        case .badgeView: return "Badge View"
         }
     }
     
@@ -104,8 +107,7 @@ extension ListItem {
                 ]),
                 ListItem(title: "Waterfall", subItems: [
                     ListItem(type: .waterfall(type: .vertical)),
-                    ListItem(type: .waterfall(type: .horizontal)),
-                    ListItem(type: .waterfall(type: .stack))
+                    ListItem(type: .waterfall(type: .horizontal))
                 ])
             ]),
             
@@ -116,7 +118,8 @@ extension ListItem {
             
             ListItem(title: "Multi Section", subItems: [
                 ListItem(type: .multiSection),
-                ListItem(type: .decorationView)
+                ListItem(type: .decorationView),
+                ListItem(type: .badgeView)
             ])
         ]
     }
