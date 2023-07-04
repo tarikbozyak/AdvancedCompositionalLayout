@@ -147,40 +147,40 @@ class MultiSection: UICollectionView {
         
         headerRegistration = .init(elementKind: UICollectionView.elementKindSectionHeader) { [unowned self]
             (header, elementKind, indexPath) in
-            let sectionTitle = self.datasource.sectionIdentifier(for: indexPath.section)?.title ?? ""
+            let sectionTitle = getSection(for: indexPath.section).title
             header.configure(with: sectionTitle)
         }
         
-        titleHeaderRegistration = .init(elementKind: UICollectionView.elementKindSectionHeader, handler: { header, elementKind, indexPath in
-            let sectionTitle = self.datasource.sectionIdentifier(for: indexPath.section)?.title ?? ""
+        titleHeaderRegistration = .init(elementKind: UICollectionView.elementKindSectionHeader, handler: { [unowned self] header, elementKind, indexPath in
+            let sectionTitle = getSection(for: indexPath.section).title
             header.configure(with: sectionTitle)
         })
         
         tabHeaderRegistration = .init(elementKind: UICollectionView.elementKindSectionHeader, handler: { [unowned self] header, elementKind, indexPath in
-            guard let section = self.datasource.sectionIdentifier(for: indexPath.section), let data = section.data as? [Section] else {return}
+            let section = getSection(for: indexPath.section)
+            guard let data = section.data as? [Section] else {return}
             header.subscribeTo(subject: section.pageListener , for: indexPath.section)
             header.configure(menuData: data.map{Menu(title: $0.title)}, indexPath: indexPath, delegate: self)
         })
         
-        footerRegistration = .init(elementKind: UICollectionView.elementKindSectionFooter) {
+        footerRegistration = .init(elementKind: UICollectionView.elementKindSectionFooter) { [unowned self]
             (footer, elementKind, indexPath) in
             var configuration = footer.defaultContentConfiguration()
             configuration.directionalLayoutMargins.bottom = 24
-            let dataCount = self.datasource.sectionIdentifier(for: indexPath.section)?.data.count ?? 0
+            let dataCount = getSection(for: indexPath.section).data.count
             configuration.text = "Item count: " + "\(dataCount)"
             footer.contentConfiguration = configuration
         }
         
-        pagingFooterRegistration = .init(elementKind: UICollectionView.elementKindSectionFooter) { [weak self]
+        pagingFooterRegistration = .init(elementKind: UICollectionView.elementKindSectionFooter) { [unowned self]
             (footer, elementKind, indexPath) in
-            if let pageListener = self?.datasource.sectionIdentifier(for: indexPath.section)?.pageListener {
-                footer.subscribeTo(subject: pageListener, for: indexPath.section)
-            }
-            footer.configure(numberOfPages: self?.sectionList[indexPath.section].data.count ?? 0, indexPath: indexPath, delegate: self)
+
+            footer.subscribeTo(subject: getSection(for: indexPath.section).pageListener, for: indexPath.section)
+            footer.configure(numberOfPages: sectionList[indexPath.section].data.count, indexPath: indexPath, delegate: self)
         }
         
         badgeRegistration = .init(elementKind: "badgeElementKind", handler: { [unowned self] supplementaryView, elementKind, indexPath in
-            if let personData = datasource.sectionIdentifier(for: indexPath.section)?.data as? [Person] {
+            if let personData = getSection(for: indexPath.section).data as? [Person] {
                 supplementaryView.configure(status: personData[indexPath.row].status)
             }
             
@@ -221,10 +221,14 @@ class MultiSection: UICollectionView {
         }
     }
     
+    private func getSection(for sectionIndex: Int) -> Section {
+        return datasource.snapshot().sectionIdentifiers[sectionIndex]
+    }
+    
     // MARK: Layout
     private func layout(for sectionIndex: Int, environment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? {
-        let section = datasource.sectionIdentifier(for: sectionIndex)
-        return section?.layout(sectionIndex ,environment, section?.data.count ?? 1, section?.pageListener, collectionViewLayout)
+        let section = getSection(for: sectionIndex)
+        return section.layout(sectionIndex ,environment, section.data.count, section.pageListener, collectionViewLayout)
     }
     
     // MARK: PerformUpdates
