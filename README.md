@@ -8,7 +8,6 @@ A simple example of the power of UICollectionViewCompositionalLayout and UIColle
 - UICollectionViewDiffableDataSource
 - UICollectionViewList
 - Supplementary Views (Header + Footer + Decoration + Badge Views)
-- Programmatic UI
 - Pagination
 
 ## ⚡ Layouts
@@ -65,5 +64,16 @@ A simple example of the power of UICollectionViewCompositionalLayout and UIColle
 |--|--|
 | <img src="https://github.com/tarikbozyak/AdvancedCompositionalLayout/blob/main/screenshots/decorationView.png" width="250" height="500"> | <img src="https://github.com/tarikbozyak/AdvancedCompositionalLayout/blob/main/screenshots/badgeView.png" width="250" height="500"> |
 
+## Requirements
+- iOS 14+
+- Swift 5+
+- Xcode 12+
+
+## Author
+
+Feel free to reach out with issues, questions or anything else.
+
+- <p><a href="mailto:tarikbozyak@icloud.com">Send Email</a></p>
+- [Follow on LinkedIn](https://linkedin.com/in/tarık-bozyak-604962a1)
 
 
